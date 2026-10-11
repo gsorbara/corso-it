@@ -67,8 +67,8 @@
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="images/modulo-02/first-bug.jpg" alt="Il diario di bordo del primo bug" loading="lazy">
-          <div class="figure-caption">Il registro originale del 1947 con la falena conservata allo Smithsonian Institute di Washington: la nascita ufficiale del termine "Bug".</div>
+          <img class="figure-img" src="images/modulo-02/first-bug.jpg" alt="Il registro originale del Mark II con la falena incollata (1947)" loading="lazy">
+          <div class="figure-caption">Il registro originale del Mark II (9 settembre 1947) con la falena conservata allo Smithsonian Institute di Washington: la nascita ufficiale del termine informatico "Bug".</div>
         </div>
 
         <h3>2ª e 3ª Generazione: Il Transistor e i Circuiti Integrati</h3>
