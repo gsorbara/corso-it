@@ -303,6 +303,11 @@ function renderContent() {
     };
     footerNav.appendChild(nextBtn);
     content.appendChild(footerNav);
+
+    const creditsFooter = document.createElement("footer");
+    creditsFooter.className = "content-credits-footer";
+    creditsFooter.innerHTML = '📷 <em>Tutte le immagini e illustrazioni storiche provengono da <a href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> (licenze libere CC / Pubblico Dominio).</em>';
+    content.appendChild(creditsFooter);
   } else {
     renderQuizView(currentMod, content);
   }
@@ -344,7 +349,10 @@ function renderQuizView(mod, container) {
         <button class="btn-primary" style="background: #059669;" onclick="copyKey('${mod.nextKey}')">Copia Chiave 📋</button>
       </div>
     </div>
-  </div>`;
+  </div>
+  <footer class="content-credits-footer">
+    📷 <em>Tutte le immagini e illustrazioni storiche provengono da <a href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> (licenze libere CC / Pubblico Dominio).</em>
+  </footer>`;
 
   container.innerHTML = quizHtml;
 }

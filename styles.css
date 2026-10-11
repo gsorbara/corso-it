@@ -405,6 +405,40 @@ button.btn-primary:hover { background: var(--primary-hover); }
   transition: width 0.3s ease;
 }
 
+.sidebar-disclaimer {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: #94a3b8;
+}
+.sidebar-disclaimer a {
+  color: #38bdf8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.sidebar-disclaimer a:hover {
+  color: #7dd3fc;
+}
+
+.content-credits-footer {
+  margin-top: 36px;
+  padding: 14px 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  text-align: center;
+}
+.content-credits-footer a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+
 .options-list label {
   display: block;
   padding: 10px;
