@@ -77,8 +77,8 @@ function toggleTheme() {
    NAVIGATION & PROGRESSION
    ========================================================================== */
 
-// Flag to bypass module locking (set to false to re-enable key progression)
-const DEV_BYPASS_LOCKS = true;
+// Flag to bypass module locking (set to false to enforce key progression)
+const DEV_BYPASS_LOCKS = false;
 
 function isModuleUnlocked(index) {
   if (DEV_BYPASS_LOCKS) return true;
@@ -175,6 +175,9 @@ function renderSidebar() {
     const arrow = document.createElement("span");
     arrow.className = `accordion-arrow ${isExpanded ? "open" : ""}`;
     arrow.innerText = isExpanded ? "▾" : "▸";
+    if (!unlocked) {
+      arrow.style.visibility = "hidden";
+    }
     arrow.onclick = (e) => toggleModuleAccordion(idx, e);
 
     const titleSpan = document.createElement("span");
@@ -271,8 +274,8 @@ function renderContent() {
         <h2>Modulo Bloccato 🔒</h2>
         <p>Supera il test del modulo precedente per ricevere il codice segreto di sblocco.</p>
         <div class="key-input-group">
-          <input type="text" id="passkeyInput" placeholder="Inserisci Chiave">
-          <button class="btn-primary" onclick="tryUnlockModule()">Sblocca</button>
+          <input type="text" id="passkeyInput" placeholder="Inserisci Chiave" autocomplete="off" onkeydown="if(event.key==='Enter') tryUnlockModule()">
+          <button class="btn-primary" onclick="tryUnlockModule()">Sblocca 🔓</button>
         </div>
       </div>
     `;
