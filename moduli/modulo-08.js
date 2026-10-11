@@ -53,15 +53,15 @@
                 <!-- Router Intermedi -->
                 <div class="net-routers-col">
                   <div class="net-router-item" id="rtrFrankfurt">
-                    <span>📡 Router Francoforte</span>
+                    <span class="net-router-name">📡 Router Francoforte</span>
                     <span class="rtr-load" id="loadFrankfurt">Carico: 20%</span>
                   </div>
                   <div class="net-router-item" id="rtrLondon">
-                    <span>📡 Router Londra</span>
+                    <span class="net-router-name">📡 Router Londra</span>
                     <span class="rtr-load" id="loadLondon">Carico: 45%</span>
                   </div>
                   <div class="net-router-item" id="rtrDubai">
-                    <span>📡 Router Dubai</span>
+                    <span class="net-router-name">📡 Router Dubai</span>
                     <span class="rtr-load" id="loadDubai">Carico: 15%</span>
                   </div>
                 </div>
@@ -85,7 +85,7 @@
               </div>
 
               <!-- Log Console Pacchetti -->
-              <div id="packetTransitLog" style="font-family: monospace; font-size: 0.82rem; color: var(--text-muted); background: #020617; padding: 10px; border-radius: 6px; border: 1px solid #1e293b; min-height: 80px;">
+              <div class="packet-transit-log" id="packetTransitLog">
                 Premi 'Invia Pacchetti' per avviare lo spezzettamento del messaggio.
               </div>
 
@@ -436,8 +436,12 @@ window.resetPacketSimulator = function() {
   const log = document.getElementById("packetTransitLog");
   const romeStatus = document.getElementById("romeStatusBadge");
   const tokyoStatus = document.getElementById("tokyoStatusBadge");
-  if (rtr) rtr.style.borderColor = "#334155";
-  if (load) { load.innerText = "Carico: 45%"; load.style.color = "#94a3b8"; }
+  if (rtr) rtr.style.borderColor = "";
+  if (load) {
+    load.innerText = "Carico: 45%";
+    load.style.color = "";
+    load.style.borderColor = "";
+  }
   if (romeStatus) romeStatus.innerText = "Pronto all'invio";
   if (tokyoStatus) tokyoStatus.innerText = "In ascolto...";
   if (log) log.innerText = "Simulatore reimpostato. Premi 'Invia Pacchetti'.";

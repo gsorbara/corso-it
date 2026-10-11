@@ -2962,20 +2962,22 @@ button.btn-secondary:hover {
    ========================================= */
 
 /* 1. Packet Switching Workbench */
+/* 1. Packet Switching Workbench (Widget 8.1) */
 .packet-workbench {
   background: var(--card-bg);
-  border: 2px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 16px;
   margin: 16px 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 }
 .packet-network-map {
   display: grid;
-  grid-template-columns: 180px 1fr 180px;
-  gap: 12px;
+  grid-template-columns: 190px 1fr 190px;
+  gap: 14px;
   align-items: center;
 }
 @media (max-width: 768px) {
@@ -2986,51 +2988,87 @@ button.btn-secondary:hover {
 .net-node-box {
   background: var(--card-hover);
   border: 2px solid var(--border);
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 10px;
+  padding: 14px 12px;
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 .net-node-title {
-  font-weight: bold;
-  font-size: 0.82rem;
-  color: var(--text-color);
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--text);
+  letter-spacing: 0.3px;
 }
 .net-node-status {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-family: monospace;
-  color: #38bdf8;
+  font-weight: 600;
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  padding: 3px 6px;
+  border-radius: 4px;
   margin-top: 4px;
+}
+[data-theme="dark"] .net-node-status {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.14);
+  border-color: rgba(56, 189, 248, 0.28);
 }
 .net-routers-col {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 .net-router-item {
-  background: #020617;
-  border: 1px solid #334155;
-  border-radius: 6px;
-  padding: 8px 12px;
+  background: var(--card-hover);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   transition: all 0.25s ease;
+}
+.net-router-item:hover {
+  border-color: var(--primary);
+}
+.net-router-name,
+.net-router-item span:first-child {
+  color: var(--text) !important;
+  font-weight: 700;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .rtr-load {
   font-family: monospace;
-  font-size: 0.72rem;
-  color: #94a3b8;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #0369a1;
+  background: rgba(2, 132, 199, 0.1);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(2, 132, 199, 0.25);
+}
+[data-theme="dark"] .rtr-load {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.16);
+  border-color: rgba(56, 189, 248, 0.35);
 }
 .packet-buffer-display {
   background: var(--card-hover);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 10px 12px;
+  padding: 12px 14px;
 }
 .packet-slots-row {
   display: flex;
@@ -3038,18 +3076,30 @@ button.btn-secondary:hover {
   flex-wrap: wrap;
 }
 .packet-slot {
-  background: #020617;
-  border: 1px solid #334155;
-  border-radius: 6px;
-  padding: 6px 10px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
   text-align: center;
-  min-width: 75px;
+  min-width: 80px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   transition: all 0.25s ease;
 }
 .packet-slot.arrived {
   border-color: #10b981;
   background: rgba(16, 185, 129, 0.12);
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
+}
+.packet-transit-log {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #f1f5f9;
+  background: #090d16;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  min-height: 84px;
 }
 
 /* 2. DNS Resolver Workbench */
