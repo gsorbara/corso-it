@@ -28,17 +28,6 @@
           <div class="figure-caption">Grace Hopper davanti al supercomputer UNIVAC: la pioniera che inventò il compilatore e aprì la strada ai linguaggi ad alto livello.</div>
         </div>
 
-        <div class="callout-box history">
-          <div class="callout-title">🐛 Il "Primo Bug" della Storia Era... Una Falena Vera! (1947)</div>
-          <p>Il 9 settembre 1947, mentre il team di Grace Hopper lavorava sul calcolatore elettromeccanico <em>Harvard Mark II</em>, la macchina smise improvvisamente di calcolare. Ispezionando i giganteschi pannelli di relè, gli operatori trovarono <strong>una falena vera</strong> rimasta schiacciata tra i contatti del Relè #70 del Pannello F!<br>
-          Rimossero l'insetto con le pinzette e lo incollarono con lo scotch sul diario di bordo ufficiale con l'annotazione ironica: <em>"First actual case of bug being found"</em> ("Primo caso effettivo di insetto/bug trovato"). Da quel giorno, ogni errore nel codice viene chiamato <strong>Bug</strong> e la sua correzione <strong>Debugging</strong>!</p>
-        </div>
-
-        <div class="figure-box">
-          <img class="figure-img" src="images/modulo-10/first-bug-logbook.jpg" alt="Il diario di bordo del Mark II con la falena incollata (1947)" loading="lazy">
-          <div class="figure-caption">Il celebre foglio di diario del 1947 con la falena originale incollata: l'origine del termine informatico "Bug".</div>
-        </div>
-
         <h3>I 5 Piani della Piramide dei Linguaggi</h3>
         <ol>
           <li><strong>Linguaggio Macchina (Livello 0):</strong> Sequenze di numeri esadecimali grezzi (es. <code>B8 05 00 00 00</code>) che accendono e spengono direttamente i transistor della CPU. Incomprensibile per gli umani;</li>
@@ -48,7 +37,7 @@
           <li><strong>Linguaggi ad Altissimo Livello (Livello 4 - Python, JavaScript, Ruby):</strong> Sintassi elegantissima vicina al linguaggio naturale. Sacrificano qualche millisecondo di esecuzione per regalare una velocità di sviluppo ineguagliabile: ideali per intelligenza artificiale, data science, web e per chiunque stia imparando a programmare!</li>
         </ol>
 
-        <!-- WIDGET 8.1: LA TORRE DELL'ASTRAZIONE -->
+        <!-- WIDGET 10.1: LA TORRE DELL'ASTRAZIONE -->
         <div class="widget-box">
           <div class="widget-header">
             <span class="widget-title">🏰 La Torre dell'Astrazione: Stesso Algoritmo, 5 Livelli di Linguaggio</span>
@@ -389,10 +378,10 @@ print(f"Benvenuta/o nel mondo della programmazione, {nome}!")</pre>
 });
 
 /* =========================================================
-   LOGICA JAVASCRIPT DEI WIDGET DEL MODULO 8
+   LOGICA JAVASCRIPT DEI WIDGET DEL MODULO 10
    ========================================================= */
 
-// --- WIDGET 8.1: LA TORRE DELL'ASTRAZIONE ---
+// --- WIDGET 10.1: LA TORRE DELL'ASTRAZIONE ---
 window.towerState = {
   currentLevel: 1,
   levels: {
