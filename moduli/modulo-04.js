@@ -322,46 +322,46 @@ C:\UTENTE> </div>
       {
         q: "Perché l'Olivetti Programma 101 (1965), ideata da Pier Giorgio Perotto, è storicamente riconosciuta come il primo personal computer da tavolo?",
         options: [
-          { text: "Fu il primo calcolatore ad adottare un'architettura a microprocessore integrato su silicio con interfaccia a finestre derivata da CP/M", correct: false },
-          { text: "Era un terminale di calcolo privo di memoria propria, collegato in time-sharing all'Elea 9003 tramite linea telefonica commutata", correct: false },
-          { text: "Era una macchina autonoma, compatta e programmabile direttamente dall'utente da scrivania: registrava ed eseguiva algoritmi tramite cartoline magnetiche (fu usata anche dalla NASA per calcolare la discesa lunare dell'Apollo 11), senza richiedere sale climatizzate o tecnici specializzati", correct: true },
-          { text: "Si trattava di una calcolatrice meccanica ad addizione binaria priva di supporto per cicli di iterazione o salti condizionati", correct: false }
+          { text: "Fu il primo calcolatore ad avere un microprocessore a singolo chip e uno schermo a colori", correct: false },
+          { text: "Era solo un terminale passivo privo di memoria, collegato via cavo a un mainframe aziendale", correct: false },
+          { text: "Era un computer autonomo e programmabile da scrivania: registrava ed eseguiva programmi su cartoline magnetiche senza bisogno di tecnici specializzati", correct: true },
+          { text: "Poteva eseguire solo addizioni meccaniche senza alcuna possibilità di memorizzare istruzioni", correct: false }
         ]
       },
       {
-        q: "Qual è la differenza architetturale e funzionale primaria tra Memoria di Lavoro (RAM) e Memoria di Massa (Storage SSD/HDD)?",
+        q: "Qual è la differenza fondamentale tra la Memoria RAM e lo Storage (SSD o Hard Disk) in un computer?",
         options: [
-          { text: "La CPU preleva ed esegue le istruzioni macchina leggendo direttamente dai settori dell'SSD NVMe tramite protocollo DMA senza transitare per la memoria volatile", correct: false },
-          { text: "Lo Storage è non volatile e capiente ma ad accesso indiretto e a blocchi; la RAM è volatile, direttamente indirizzabile a byte dal memory controller della CPU con latenze di pochi nanosecondi, ed è l'unico spazio da cui il processore può eseguire direttamente le istruzioni", correct: true },
-          { text: "La RAM conserva i dati in modo permanente mediante celle magnetiche a riluttanza variabile, mentre l'SSD richiede cicli di refresh periodici a carico del sistema operativo", correct: false },
-          { text: "RAM e Storage condividono la medesima latenza di accesso, ma l'unità SSD viene riservata esclusivamente alla gestione dei frame dello stack di sistema", correct: false }
+          { text: "La RAM è la memoria di lavoro veloce ma volatile (si cancella spegnendo il PC), mentre lo Storage conserva i dati in modo permanente", correct: true },
+          { text: "La RAM conserva i dati per sempre, mentre lo Storage serve solo ad accelerare i calcoli della CPU", correct: false },
+          { text: "La CPU legge ed esegue i programmi direttamente dallo Storage senza mai passare dalla RAM", correct: false },
+          { text: "Non c'è alcuna differenza: RAM e SSD sono due nomi diversi per la stessa identica memoria", correct: false }
         ]
       },
       {
-        q: "Quali tecnologie fondamentali dell'informatica moderna furono mostrate pubblicamente per la prima volta nella 'Madre di Tutte le Demo' di Douglas Engelbart (1968)?",
+        q: "Quali invenzioni straordinarie furono mostrate per la prima volta al pubblico da Douglas Engelbart nella storica demo del 1968?",
         options: [
-          { text: "La prima dimostrazione di una rete geografica a commutazione di pacchetto (ARPANET) collegata al protocollo applicativo HTTP", correct: false },
-          { text: "La prima scheda grafica per computer con accelerazione tridimensionale geometrica e pipeline programmabile", correct: false },
-          { text: "Il primo microprocessore monolitico a 8 bit dotato di memoria flash riscrivibile e bus seriale ad alta velocità", correct: false },
-          { text: "Il mouse per computer a rotelle ortogonali, il testo ipertestuale navigabile, le interfacce a finestre multiple e la collaborazione interattiva in tempo reale su display", correct: true }
+          { text: "Il primo smartphone touch-screen con connessione internet senza fili", correct: false },
+          { text: "Il mouse per computer, le finestre sullo schermo, il testo ipertestuale navigabile e la collaborazione a distanza", correct: true },
+          { text: "Il primo browser per navigare sul World Wide Web e il linguaggio HTML", correct: false },
+          { text: "Il primo microprocessore monolitico in silicio e la memoria a disco magnetico", correct: false }
         ]
       },
       {
-        q: "In che modo la 'Desktop Metaphor' ideata allo Xerox PARC (1973) ha rivoluzionato il modello di interazione uomo-macchina?",
+        q: "In che modo la 'Metafora della Scrivania' (Desktop) dello Xerox PARC ha cambiato il modo di usare il computer?",
         options: [
-          { text: "Ha sostituito l'obbligo di memorizzare comandi testuali da riga di comando (CLI) con rappresentazioni grafiche intuitive di oggetti quotidiani (scrivania, cartelle, documenti, finestre sovrapponibili e cestino) manipolabili tramite puntatore", correct: true },
-          { text: "Ha introdotto il modello di virtualizzazione hardware consentendo l'esecuzione di più sistemi operativi ospiti isolati sullo stesso processore", correct: false },
-          { text: "Ha unificato lo spazio di memoria fisica eliminando la distinzione di privilegio tra Ring 0 del Kernel e Ring 3 delle applicazioni utente", correct: false },
-          { text: "Ha stabilito gli standard ipertestuali del Web separando il codice logico delle pagine dai fogli di stile visuali", correct: false }
+          { text: "Ha costretto gli utenti a imparare a memoria centinaia di righe di comando testuali per aprire un file", correct: false },
+          { text: "Ha reso il computer utilizzabile solo per calcoli di contabilità e calcoli d'ufficio", correct: false },
+          { text: "Ha sostituito i comandi testuali complessi con immagini intuitive di oggetti reali: scrivania, fogli, cartelle e cestino manipolabili con un puntatore", correct: true },
+          { text: "Ha eliminato del tutto il bisogno di avere un sistema operativo all'interno del computer", correct: false }
         ]
       },
       {
-        q: "Secondo le migliori pratiche di sicurezza hardware e protezione dei dati, come si articola la 'Regola del Backup 3-2-1'?",
+        q: "Cosa rende un computer moderno una 'macchina universale' rispetto a un elettrodomestico dedicato (come un tostapane o una lavatrice)?",
         options: [
-          { text: "Mantenere 3 partizioni logiche distinte all'interno dello stesso hard disk interno, formattate con 2 file system differenti, ed eseguire 1 scansione antimalware settimanale", correct: false },
-          { text: "Mantenere almeno 3 copie totali dei dati, su 2 supporti con tecnologie differenti (es. SSD locale e storage NAS/ottico), di cui almeno 1 copia custodita geograficamente fuori sede (off-site o cloud cifrato)", correct: true },
-          { text: "Effettuare 3 backup completi al giorno, conservarli per 2 settimane sul desktop e sincronizzarli tramite 1 sola cartella condivisa non autenticata", correct: false },
-          { text: "Distribuire l'intero volume di dati su 3 dischi meccanici configurati in modalità RAID 0 per massimizzare contemporaneamente fault tolerance e transfer rate", correct: false }
+          { text: "Non ha una funzione fissa: può trasformarsi in macchina da scrivere, consolle per videogiochi, studio musicale o calcolatore semplicemente caricando un programma diverso in memoria", correct: true },
+          { text: "È fatto di materiali speciali che gli permettono di funzionare anche in assenza totale di elettricità", correct: false },
+          { text: "Possiede circuiti fisici differenti montati per ciascuna singola applicazione che viene installata", correct: false },
+          { text: "Può funzionare solo ed esclusivamente se riceve comandi via satellite da un centro di controllo", correct: false }
         ]
       }
     ]

@@ -443,48 +443,48 @@
   quiz: {
     questions: [
       {
-        q: "Qual è il 'paradosso del bootstrapping' all'accensione del computer e come viene superato a livello hardware e firmware?",
+        q: "Qual è il 'paradosso del bootstrapping' all'avvio del computer e come viene risolto?",
         options: [
-          { text: "La RAM all'avvio è vuota e volatile, quindi la CPU non ha codice da eseguire; l'hardware risolve il problema impostando il Program Counter sul 'Reset Vector', che punta alla memoria permanente ROM/Flash contenente il firmware BIOS/UEFI", correct: true },
-          { text: "Lo scheduler del Kernel alloca preventivamente il processo speciale 'init' nello spazio di swap su disco prima ancora che la CPU riceva alimentazione", correct: false },
-          { text: "Il controller DMA carica autonomamente il bootloader dall'MBR direttamente nei registri dell'ALU bypassando il bus degli indirizzi", correct: false },
-          { text: "La CPU accede direttamente alla tabella delle partizioni GPT tramite microcodice per identificare il Kernel prima di inizializzare il clock", correct: false }
+          { text: "La RAM all'accensione è vuota e volatile, quindi la CPU non avrebbe istruzioni da eseguire: l'hardware risolve il problema facendo leggere alla CPU il primo codice da una memoria permanente (la ROM con BIOS/UEFI)", correct: true },
+          { text: "Il computer non può accendersi se non è connesso a Internet via cavo", correct: false },
+          { text: "La CPU deve formattare l'hard disk a ogni riavvio prima di caricare il desktop", correct: false },
+          { text: "Lo schermo si accende prima della scheda madre rischiando di bruciare i pixel", correct: false }
         ]
       },
       {
-        q: "Qual è la differenza fondamentale tra Multitasking Cooperativo e Multitasking Preemptive nella gestione della CPU?",
+        q: "Qual è la differenza fondamentale tra Multitasking Cooperativo e Multitasking Preemptive spiegata nel modulo?",
         options: [
-          { text: "Nel cooperativo ogni processo riceve un quanto di tempo fisso calcolato dallo scheduler Round Robin, mentre nel preemptive i processi girano ininterrottamente fino alla loro terminazione", correct: false },
-          { text: "Nel preemptive i thread comunicano unicamente tramite memoria condivisa senza semafori, mentre nel cooperativo è obbligatorio l'uso di pipe per ogni context switch", correct: false },
-          { text: "Nel cooperativo il cambio di contesto (context switch) è gestito direttamente dall'hardware della MMU senza coinvolgere il codice del Kernel", correct: false },
-          { text: "Nel cooperativo i processi decidono autonomamente quando rilasciare il controllo della CPU (rischio di freeze totale se un'app va in loop infinito); nel preemptive lo scheduler del Kernel interrompe forzatamente i thread tramite interrupt di timer hardware periodici", correct: true }
+          { text: "Nel cooperativo i programmi decidono da soli quando cedere la CPU (se uno si blocca, si blocca l'intero PC); nel preemptive il Kernel toglie con la forza il turno ai processi grazie a un timer periodico", correct: true },
+          { text: "Nel preemptive può girare una sola applicazione per volta, mentre nel cooperativo girano tutte insieme", correct: false },
+          { text: "Nel cooperativo il computer funziona solo a batteria, mentre nel preemptive solo a corrente", correct: false },
+          { text: "Non c'è differenza: sono due parole che indicano lo spegnimento programmato del PC", correct: false }
         ]
       },
       {
-        q: "Cosa avviene a livello hardware e di sistema operativo durante un evento di 'Page Fault' nella gestione della Memoria Virtuale?",
+        q: "A cosa serve la 'Memoria Virtuale' gestita dal Sistema Operativo e dalla MMU?",
         options: [
-          { text: "La CPU genera un'eccezione irreversibile di Segmentation Fault e termina immediatamente il processo poiché la memoria protetta è stata violata", correct: false },
-          { text: "La MMU rileva che la pagina richiesta ha il bit di presenza a 0 e solleva un'eccezione hardware: il Kernel sospende il processo, legge la pagina dall'area di Swap su disco, la alloca in un frame libero di RAM, aggiorna la Page Table e riavvia l'istruzione", correct: true },
-          { text: "Il controller della memoria RAM ricalcola gli indirizzi convertendo dinamicamente le pagine virtuali in blocchi continui di memoria cache L3", correct: false },
-          { text: "Lo scheduler assegna un intervallo temporale supplementare al thread per consentirgli di completare l'operazione in sola lettura", correct: false }
+          { text: "A far credere a ogni programma di avere tutta la memoria per sé in totale isolamento, evitando che un crash di un'app faccia crollare tutte le altre", correct: true },
+          { text: "A creare cartelle nascoste su una chiavetta USB per nascondere i file", correct: false },
+          { text: "A permettere al computer di funzionare senza scheda madre e senza processore", correct: false },
+          { text: "A raddoppiare la frequenza in Gigahertz della scheda video", correct: false }
         ]
       },
       {
-        q: "Perché i moderni sistemi operativi e processori isolano l'esecuzione tra User Space (Ring 3) e Kernel Space (Ring 0), imponendo le Syscall?",
+        q: "Perché la CPU divide i privilegi tra User Space (Ring 3 per i programmi) e Kernel Space (Ring 0 per il sistema)?",
         options: [
-          { text: "Per garantire sicurezza e stabilità: le app in Ring 3 non possono accedere direttamente all'hardware o alla memoria altrui; solo il codice del Kernel in Ring 0 possiede i privilegi per manipolare i registri hardware dopo aver validato la richiesta", correct: true },
-          { text: "Perché le chiamate di funzione ordinarie non possono allocare parametri nello stack, costringendo i programmi a usare le Syscall per eseguire calcoli aritmetici", correct: false },
-          { text: "Perché il cambio di contesto da Ring 3 a Ring 0 azzera la memoria RAM liberando risorse per i processi ad alta priorità", correct: false },
-          { text: "Perché in Ring 3 la CPU disabilita il controller delle interruzioni per impedire allo scheduler di eseguire il multitasking preemptive", correct: false }
+          { text: "Per fare in modo che i programmi normali consumino meno batteria", correct: false },
+          { text: "Perché nessun programma normale deve poter toccare direttamente l'hardware o la memoria altrui: per fare operazioni critiche (come salvare un file) deve chiedere il permesso al Kernel tramite una Syscall", correct: true },
+          { text: "Per impedire agli utenti di installare videogiochi sul proprio computer", correct: false },
+          { text: "Perché solo il Ring 3 è in grado di visualizzare i colori sul monitor", correct: false }
         ]
       },
       {
-        q: "Nel file system dei sistemi operativi Unix/Linux, quale ruolo architetturale svolge la struttura nota come 'Inode' (Index Node)?",
+        q: "Secondo la storica filosofia dei sistemi Unix/Linux, qual è il grande vantaggio della 'Pipeline' (il simbolo | nella riga di comando)?",
         options: [
-          { text: "Rappresenta la voce della tabella dei file aperti (file descriptor table) che tiene traccia dell'offset del cursore di lettura del processo", correct: false },
-          { text: "È il blocco di 'Superblock' che memorizza la dimensione complessiva della partizione e la geometria dei cilindri del disco", correct: false },
-          { text: "Memorizza tutti i metadati del file (permessi, proprietario, timestamp, dimensione) e i puntatori ai blocchi dati fisici su disco, rimanendo separato dal nome del file che risiede invece nella directory", correct: true },
-          { text: "È un file speciale di dispositivo (device node) montato nella cartella virtuale /proc per esporre le statistiche del Kernel", correct: false }
+          { text: "Crea una scorciatoia per spegnere istantaneamente il computer", correct: false },
+          { text: "Permette di combinare piccoli programmi semplici collegando l'uscita di uno come ingresso del successivo, per risolvere compiti complessi", correct: true },
+          { text: "Cancella tutti i virus dalla memoria RAM in tempo reale", correct: false },
+          { text: "Converte automaticamente i file di testo in file musicali", correct: false }
         ]
       }
     ]

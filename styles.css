@@ -3839,44 +3839,31 @@ button.btn-secondary:hover {
   background: #090d16;
   border: 1px solid #1e293b;
   border-radius: 12px;
-  padding: 18px;
+  padding: 20px;
   color: #e2e8f0;
-}
-.neuron-grid-layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
-  gap: 16px;
-  align-items: center;
-  margin: 16px 0;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 @media (max-width: 768px) {
-  .neuron-grid-layout {
+  .neuron-workbench {
     grid-template-columns: 1fr;
   }
 }
-.neuron-col-card {
+.neuron-controls-panel {
   background: #0f172a;
   border: 1px solid #334155;
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 10px;
+  padding: 16px;
 }
-.neuron-center-node {
-  background: radial-gradient(circle, #1e1b4b 0%, #0f172a 100%);
-  border: 2px solid #818cf8;
-  border-radius: 50%;
-  width: 140px;
-  height: 140px;
-  margin: 0 auto;
+.neuron-display-panel {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  box-shadow: 0 0 25px rgba(129, 140, 248, 0.25);
-  transition: all 0.3s ease;
-}
-.neuron-center-node.pulsing {
-  box-shadow: 0 0 35px rgba(129, 140, 248, 0.6);
-  transform: scale(1.04);
 }
 .neuron-slider-group {
   margin-bottom: 12px;
@@ -3892,13 +3879,27 @@ button.btn-secondary:hover {
   width: 100%;
   accent-color: #6366f1;
 }
-.loss-meter-box {
+.neuron-math-badge {
   background: #1e1b4b;
   border: 1px solid #4338ca;
-  border-radius: 8px;
-  padding: 10px;
+  color: #c7d2fe;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.9rem;
   text-align: center;
-  margin-top: 10px;
+  font-weight: bold;
+}
+.neuron-loss-bar-container {
+  background: rgba(255, 255, 255, 0.08);
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.neuron-loss-bar {
+  background: #ef4444;
+  height: 100%;
+  transition: width 0.3s ease;
 }
 
 /* --- WIDGET 11.2: TRANSFORMER TOKEN & ATTENTION EXPLORER --- */
@@ -3909,11 +3910,38 @@ button.btn-secondary:hover {
   padding: 18px;
   color: #f1f5f9;
 }
-.token-pills-row {
+.sample-picker-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.sample-phrase-btn {
+  background: #1e293b;
+  border: 1px solid #475569;
+  color: #e2e8f0;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.sample-phrase-btn:hover {
+  background: #334155;
+  border-color: #38bdf8;
+}
+.sample-phrase-btn.active {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(2, 132, 199, 0.4);
+}
+.token-sentence-box {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 14px 0;
   padding: 12px;
   background: #0b1329;
   border-radius: 8px;
@@ -3942,39 +3970,22 @@ button.btn-secondary:hover {
   color: #ffffff;
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
 }
-.token-id-tag {
-  font-size: 0.7rem;
-  opacity: 0.7;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 1px 5px;
-  border-radius: 10px;
-  font-family: monospace;
+.next-token-predictions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
 }
-.attention-weights-board {
+.next-token-card {
   background: #0f172a;
-  border: 1px solid #1e293b;
+  border: 1px solid #334155;
   border-radius: 8px;
-  padding: 14px;
-  margin-top: 12px;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
-.attention-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-.attention-bar-track {
-  flex: 1;
-  background: #1e293b;
-  height: 16px;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-}
-.attention-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #6366f1, #ec4899);
-  transition: width 0.3s ease;
+.next-token-card:hover {
+  transform: translateY(-2px);
+  border-color: #38bdf8;
 }
 
 /* --- WIDGET 11.3: QUANTUM BLOCH & CIRCUIT LAB --- */
@@ -3984,70 +3995,62 @@ button.btn-secondary:hover {
   border-radius: 12px;
   padding: 18px;
   color: #e2e8f0;
-}
-.quantum-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-top: 14px;
+  gap: 20px;
 }
 @media (max-width: 768px) {
-  .quantum-grid {
+  .quantum-workbench {
     grid-template-columns: 1fr;
   }
 }
-.bloch-card {
+.quantum-bloch-box {
   background: #0f172a;
   border: 1px solid #334155;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 16px;
   text-align: center;
 }
-.bloch-sphere-svg {
-  width: 100%;
-  max-width: 220px;
-  height: auto;
-  margin: 0 auto;
+.quantum-circuit-box {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.quantum-state-ket {
+  font-family: monospace;
+  font-weight: bold;
+}
+.quantum-prob-track {
+  background: rgba(255, 255, 255, 0.08);
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.quantum-prob-bar {
+  height: 100%;
+  transition: width 0.3s ease;
 }
 .quantum-gate-btn {
   background: #1e1b4b;
   border: 1px solid #6366f1;
   color: #c7d2fe;
   font-weight: 700;
-  padding: 8px 14px;
-  border-radius: 6px;
+  padding: 10px 14px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: monospace;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  text-align: left;
 }
 .quantum-gate-btn:hover {
-  background: #4338ca;
+  background: #312e81;
+  border-color: #818cf8;
   color: #ffffff;
-  box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
-}
-.measure-btn {
-  background: #047857;
-  border: 1px solid #10b981;
-  color: #ffffff;
-  font-weight: 700;
-  padding: 10px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
-  transition: all 0.2s ease;
-}
-.measure-btn:hover {
-  background: #059669;
-  box-shadow: 0 0 18px rgba(16, 185, 129, 0.6);
-}
-.quantum-collapse-banner {
-  margin-top: 12px;
-  padding: 10px;
-  border-radius: 6px;
-  font-weight: 700;
-  text-align: center;
-  animation: slicePop 0.3s ease;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
 }
 
 

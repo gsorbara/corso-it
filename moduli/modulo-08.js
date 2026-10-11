@@ -291,48 +291,48 @@ Content-Length: 412
   quiz: {
     questions: [
       {
-        q: "Perché l'adozione della commutazione di pacchetto (Packet Switching) in ARPANET ha rivoluzionato l'architettura delle reti rispetto alla tradizionale commutazione di circuito telefonica?",
+        q: "Perché la 'commutazione di pacchetto' di Internet ha sconfitto la vecchia 'commutazione di circuito' delle linee telefoniche?",
         options: [
-          { text: "Elimina la necessità di riservare un circuito fisico dedicato e continuo: i messaggi vengono frammentati in pacchetti autonomi (datagrammi) instradati dinamicamente dai router su percorsi alternativi, massimizzando l'efficienza del canale e resistendo a guasti parziali", correct: true },
-          { text: "Impone l'allocazione esclusiva della banda trasmissiva lungo l'intera tratta prima dell'invio dei dati, garantendo assenza di ritardo a scapito della condivisione del canale", correct: false },
-          { text: "Sostituisce i router intermedi con collegamenti broadcast che replicano l'intero flusso su tutti i nodi collegati alla dorsale", correct: false },
-          { text: "Richiede che ogni host della rete conservi una copia speculare dell'intera tabella di instradamento geografica aggiornata a ogni ciclo di clock", correct: false }
+          { text: "Perché i dati vengono spezzati in piccoli pacchetti indipendenti che possono seguire strade diverse: se un router si guasta lungo il tragitto, gli altri trovano automaticamente una via alternativa", correct: true },
+          { text: "Perché costringe tutti i computer del mondo a collegarsi allo stesso cavo contemporaneamente", correct: false },
+          { text: "Perché permette di trasmettere solo telefonate a voce e non testo o immagini", correct: false },
+          { text: "Perché richiede che la linea rimanga occupata ed esclusiva per una sola persona alla volta", correct: false }
         ]
       },
       {
-        q: "Quale combinazione di caratteristiche architetturali distingue formalmente il protocollo di trasporto TCP da UDP?",
+        q: "Qual è la differenza fondamentale tra il protocollo TCP e il protocollo UDP spiegata nel modulo?",
         options: [
-          { text: "TCP gestisce l'instradamento geografico dei pacchetti tra Autonomous System (BGP), mentre UDP si occupa della risoluzione degli indirizzi MAC a livello Data Link", correct: false },
-          { text: "UDP garantisce la consegna ordinata dei segmenti attraverso numeri di sequenza obbligatori, mentre TCP scarta silenziosamente i pacchetti non ricevuti entro il timeout", correct: false },
-          { text: "TCP è orientato alla connessione (3-way handshake), garantisce recapito, ordinamento e controllo di congestione con rispedizione dei pacchetti persi; UDP è connectionless e best-effort, ideale per scenari a bassissima latenza e tolleranti alla perdita (DNS, VoIP, gaming online)", correct: true },
-          { text: "TCP è un protocollo di livello applicativo limitato al trasferimento di pagine web, mentre UDP opera direttamente sui segnali elettrici della scheda di rete", correct: false }
+          { text: "TCP è come una raccomandata sicura (garantisce che tutti i pacchetti arrivino nell'ordine giusto e rimanda quelli persi); UDP è come una cartolina veloce (invia i dati senza conferme, perfetto per streaming o videogiochi online)", correct: true },
+          { text: "TCP serve solo per stampare documenti, mentre UDP serve solo per navigare sul web", correct: false },
+          { text: "UDP controlla ogni pacchetto cento volte prima di inviarlo, mentre TCP viaggia solo via satellite", correct: false },
+          { text: "Non hanno differenze: sono due nomi identici per i cavi in fibra ottica sottomarini", correct: false }
         ]
       },
       {
-        q: "Durante la risoluzione ricorsiva di un nome a dominio (es. 'it.wikipedia.org'), qual è la corretta gerarchia di interrogazione eseguita dal resolver DNS se la voce non è presente in cache?",
+        q: "A cosa serve il sistema DNS (Domain Name System) quando navighi su Internet?",
         options: [
-          { text: "Invia una richiesta ARP broadcast sulla rete geografica per mappare l'indirizzo MAC della scheda di rete del web server remoto", correct: false },
-          { text: "Interroga prima un Root Nameserver (per la radice '.'), poi il server TLD competente (per '.org'), e infine il Nameserver Autorevole del dominio ('wikipedia.org') che restituisce il Record A con l'indirizzo IP numerico definitivo", correct: true },
-          { text: "Interroga prima il server DHCP locale per ottenere il record MX, e successivamente il registro RIPE per ricavare la subnet mask", correct: false },
-          { text: "Contatta direttamente i server BGP di transito per convertire il nome host in un Autonomous System Number (ASN) a 32 bit", correct: false }
+          { text: "È come la rubrica telefonica di Internet: traduce nomi facili da ricordare per noi (come wikipedia.org) nell'indirizzo IP numerico del server da contattare", correct: true },
+          { text: "Serve ad aumentare la velocità di ricarica del cellulare durante la connessione Wi-Fi", correct: false },
+          { text: "Cancella automaticamente la cronologia ogni volta che chiudiamo il browser", correct: false },
+          { text: "È un programma antivirus che impedisce ai computer di navigare di notte", correct: false }
         ]
       },
       {
-        q: "Qual è la fondamentale distinzione concettuale e tecnologica tra 'Internet' e il 'World Wide Web'?",
+        q: "Qual è la differenza essenziale tra 'Internet' e il 'World Wide Web' spiegata da Tim Berners-Lee?",
         options: [
-          { text: "Il Web è la rete fisica globale e la suite di protocolli di routing IP, mentre Internet è l'insieme di applicazioni client-server come browser e client email", correct: false },
-          { text: "Internet supporta esclusivamente il traffico web HTTP sulla porta 80, mentre il World Wide Web gestisce protocolli come FTP, SSH, SMTP e DNS", correct: false },
-          { text: "Internet fu progettata al CERN di Ginevra nel 1989 per scambi di articoli accademici, mentre il Web nacque come rete militare ARPANET nel 1969", correct: false },
-          { text: "Internet è l'infrastruttura globale di telecomunicazione e interconnessione di reti (protocolli IP, BGP, router fisici e dorsali); il Web è un servizio applicativo basato su Internet ideato da Tim Berners-Lee nel 1989, costituito da ipertesti interconnessi tramite URL, HTTP e HTML", correct: true }
+          { text: "Internet è il browser, mentre il Web è la scheda di rete del computer", correct: false },
+          { text: "Internet è la gigantesca rete fisica di cavi, satelliti e router che collega i computer nel mondo; il Web è il servizio di pagine ipertestuali con link (HTML, HTTP) inventato nel 1989 che viaggia sopra Internet", correct: true },
+          { text: "Internet è stata inventata nel 2010 per gli smartphone, mentre il Web esisteva già negli anni '50", correct: false },
+          { text: "Non c'è alcuna differenza: sono esattamente sinonimi perfetti della stessa cosa", correct: false }
         ]
       },
       {
-        q: "Quale problema strutturale dell'architettura IPv4 ha risolto l'introduzione della tecnica NAT (Network Address Translation) nei router moderni?",
+        q: "Perché è stato necessario introdurre il nuovo protocollo IPv6 a 128 bit al posto del classico IPv4 a 32 bit?",
         options: [
-          { text: "Converte automaticamente gli indirizzi IPv4 a 32 bit nel nuovo formato esadecimale IPv6 a 128 bit direttamente nella scheda di rete dell'host", correct: false },
-          { text: "Ha mitigato l'esaurimento del pool di indirizzi IPv4 pubblici a 32 bit, consentendo a un'intera rete locale (con indirizzi privati come 192.168.x.x o 10.x.x.x) di condividere un unico IP pubblico all'esterno mappando le sessioni tramite porte di trasporto (NAPT/PAT)", correct: true },
-          { text: "Assegna a ogni dispositivo connesso alla rete locale un indirizzo IP pubblico univoco e statico registrato globalmente presso l'ICANN", correct: false },
-          { text: "Sostituisce il protocollo ARP traducendo i pacchetti TCP in frame Ethernet privi di intestazioni di controllo", correct: false }
+          { text: "Perché con IPv4 gli indirizzi disponibili (circa 4,3 miliardi) sono andati esauriti a causa di miliardi di smartphone, PC e dispositivi smart connessi", correct: true },
+          { text: "Perché IPv4 funzionava solo ed esclusivamente con gli schermi in bianco e nero", correct: false },
+          { text: "Perché IPv6 impedisce qualsiasi consumo di corrente elettrica nei router", correct: false },
+          { text: "Perché con IPv4 era vietato scaricare musica e film", correct: false }
         ]
       }
     ]

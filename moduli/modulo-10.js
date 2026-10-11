@@ -342,48 +342,48 @@ print(f"Benvenuta/o nel mondo della programmazione, {nome}!")</pre>
   quiz: {
     questions: [
       {
-        q: "Nell'architettura software e nella piramide dell'astrazione, quale trade-off ingegneristico fondamentale distingue un linguaggio di sistema (es. C o Rust) da un linguaggio di altissimo livello (es. Python)?",
+        q: "Nella 'scala dell'astrazione', qual è la differenza tra un linguaggio a basso livello (come C) e uno ad alto livello (come Python)?",
         options: [
-          { text: "I linguaggi di sistema offrono controllo deterministico a basso livello sulla memoria e massima velocità di esecuzione a fronte di maggiore complessità e gestione manuale delle risorse; i linguaggi di altissimo livello massimizzano la produttività e la leggibilità introducendo runtime di astrazione con overhead prestazionale", correct: true },
-          { text: "I linguaggi di sistema sono privi di tipi di dato e richiedono l'allocazione dinamica tramite stringhe, mentre i linguaggi di scripting sono rigidamente tipizzati e compilati AOT", correct: false },
-          { text: "I linguaggi di sistema non possono interagire con le Syscall del Kernel, mentre i linguaggi di scripting operano direttamente a livello Ring 0", correct: false },
-          { text: "Nei linguaggi di sistema le variabili vengono memorizzate solo nei registri della GPU, mentre i linguaggi di scripting gestiscono la gerarchia della memoria cache L1/L2", correct: false }
+          { text: "I linguaggi a basso livello parlano quasi direttamente con l'hardware dando massima velocità ma richiedono codice complesso; i linguaggi ad alto livello sono molto più facili da leggere e vicini alla lingua umana, permettendo di creare cose fantastiche con poche righe", correct: true },
+          { text: "I linguaggi ad alto livello funzionano solo sui televisori, mentre quelli a basso livello solo sui microonde", correct: false },
+          { text: "I linguaggi a basso livello si scrivono solo con la voce senza tastiera", correct: false },
+          { text: "Non c'è differenza: tutti i linguaggi usano esattamente le stesse identiche parole", correct: false }
         ]
       },
       {
-        q: "Come opera tecnicamente un motore di esecuzione con compilatore Just-In-Time (JIT), come V8 di JavaScript o HotSpot di Java?",
+        q: "Come lavora un compilatore Just-In-Time (JIT), come quello usato dal browser per eseguire JavaScript o da Java?",
         options: [
-          { text: "Traduce direttamente il codice sorgente riga per riga in tempo reale senza mai generare né conservare in memoria codice macchina compilato", correct: false },
-          { text: "Avvia l'esecuzione traducendo un formato intermedio (bytecode) e, monitorando a runtime le porzioni di codice più frequentemente invocate ('hot spots'), le compila dinamicamente in codice macchina nativo ottimizzato per la specifica CPU ospite", correct: true },
-          { text: "Compila l'intero programma in binario nativo statico prima dell'esecuzione (Ahead-Of-Time) salvando l'eseguibile monolitico su disco", correct: false },
-          { text: "Esegue il codice interpretando direttamente i caratteri ASCII del file sorgente tramite microistruzioni cablate nel BIOS della scheda madre", correct: false }
+          { text: "Aspetta che l'utente vada a dormire per iniziare a tradurre il codice", correct: false },
+          { text: "Avvia subito il programma traducendo un formato intermedio (bytecode) e, mentre gira, individua le parti di codice eseguite più spesso compilandole al volo in codice macchina velocissimo", correct: true },
+          { text: "Cancella il programma dopo tre minuti di utilizzo per sicurezza", correct: false },
+          { text: "Stampa tutto il codice sorgente su fogli di carta virtuali", correct: false }
         ]
       },
       {
-        q: "Quale criticità architetturale caratterizza la gestione manuale della memoria (malloc/free in C/C++) rispetto all'uso di un Garbage Collector automatico (Java, Go, C#)?",
+        q: "Qual è la differenza fondamentale tra un linguaggio Compilato (come C o C++) e uno Interpretato (come Python standard)?",
         options: [
-          { text: "La gestione manuale alloca automaticamente gli oggetti sullo Stack rilasciandoli all'uscita dal blocco, mentre il Garbage Collector impedisce l'uso dei puntatori", correct: false },
-          { text: "Il Garbage Collector elimina completamente il consumo di memoria RAM consentendo al programma di istanziare oggetti infiniti senza saturare lo Heap", correct: false },
-          { text: "La gestione manuale richiede la reindicizzazione delle tabelle di routing dopo ogni deallocazione per prevenire violazioni di segmento", correct: false },
-          { text: "La gestione manuale evita pause imprevedibili di 'stop-the-world' garantendo minima latenza nei sistemi real-time, ma espone a bug critici di sicurezza come Memory Leaks, Buffer Overflow e Use-After-Free dovuti a deallocazioni errate o mancate", correct: true }
+          { text: "Un compilatore traduce tutto il programma in anticipo in un file eseguibile binario autonomo e velocissimo; un interprete legge ed esegue il codice riga per riga sul momento mentre il programma è in esecuzione", correct: true },
+          { text: "I linguaggi compilati funzionano solo senza elettricità", correct: false },
+          { text: "I linguaggi interpretati possono contenere solo numeri pari", correct: false },
+          { text: "Un interprete richiede di riscrivere il computer da zero a ogni avvio", correct: false }
         ]
       },
       {
-        q: "Qual è la differenza concettuale fondamentale tra il paradigma Orientato agli Oggetti (OOP) e il paradigma Funzionale Puro?",
+        q: "Nel Paradigma Orientato agli Oggetti (OOP), come viene organizzato il codice spiegato nel modulo?",
         options: [
-          { text: "L'OOP vieta la definizione di funzioni con più di due parametri, mentre il paradigma funzionale impone l'uso esclusivo di variabili globali condivise", correct: false },
-          { text: "Il paradigma funzionale consente solo la mutazione di puntatori diretti in memoria, mentre l'OOP non supporta l'ereditarietà né il polimorfismo dinamico", correct: false },
-          { text: "L'OOP modella il sistema mediante oggetti che incapsulano stato interno mutabile e comportamenti (metodi); il paradigma funzionale tratta il calcolo come valutazione di funzioni matematiche pure prive di effetti collaterali (side-effects) e con strutture dati immutabili", correct: true },
-          { text: "L'OOP è un paradigma limitato alla manipolazione di file di testo, mentre il paradigma funzionale è un'estensione proprietaria del linguaggio Assembly", correct: false }
+          { text: "Si divide il programma in una sola gigantesca riga di diecimila caratteri", correct: false },
+          { text: "Si modella il problema creando 'Oggetti' ispirati al mondo reale, che contengono le proprie caratteristiche (stato/attributi) e le proprie azioni (comportamenti/metodi)", correct: true },
+          { text: "Si vietano tutte le funzioni matematiche e i numeri decimali", correct: false },
+          { text: "Si usa solo per programmare robot aspirapolvere e mai per altri programmi", correct: false }
         ]
       },
       {
-        q: "In base a quali vincoli architetturali un team ingegneristico sceglie tipicamente di implementare un motore ad altissime prestazioni (es. trading ad alta frequenza o motore grafico 3D) in Rust/C++ anziché in Python o Ruby?",
+        q: "Perché Python è diventato il linguaggio preferito al mondo per chi inizia a programmare e per l'Intelligenza Artificiale?",
         options: [
-          { text: "Perché i linguaggi di scripting non sono compatibili con processori multicore e non supportano la creazione di socket di rete TCP", correct: false },
-          { text: "Per la necessità di tempi di risposta deterministici al microsecondo (assenza di pause improvvise del Garbage Collector), consumo di memoria rigorosamente predicibile e massimo sfruttamento delle istruzioni vettoriali della CPU", correct: true },
-          { text: "Perché Rust e C++ utilizzano un modello di tipizzazione dinamica che risolve i tipi a runtime raddoppiando il throughput delle richieste", correct: false },
-          { text: "Perché Python richiede l'autorizzazione di un certificato digitale di sistema per eseguire calcoli matematici con numeri negativi", correct: false }
+          { text: "Perché la sua sintassi è pulita, semplice e leggibile quasi come l'inglese, e dispone di una straordinaria raccolta di librerie già pronte per l'AI e la scienza", correct: true },
+          { text: "Perché è l'unico linguaggio al mondo che non commette mai errori di sintassi", correct: false },
+          { text: "Perché è stato inventato direttamente dai creatori del primo microprocessore Intel", correct: false },
+          { text: "Perché funziona solo sui computer che hanno più di venti processori montati", correct: false }
         ]
       }
     ]

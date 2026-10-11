@@ -245,48 +245,48 @@
   quiz: {
     questions: [
       {
-        q: "Qual è la distinzione fondamentale nel meccanismo di propagazione ed esecuzione tra Virus, Worm e Trojan Horse?",
+        q: "Qual è la differenza fondamentale tra un Virus, un Worm e un Trojan?",
         options: [
-          { text: "Il Worm necessita dell'apertura di un allegato da parte dell'utente per propagarsi, mentre il Virus si diffonde via pacchetti broadcast nella subnet locale", correct: false },
-          { text: "Il Trojan modifica il BIOS per impedire l'avvio del sistema, mentre Worm e Virus operano unicamente nella cache del browser", correct: false },
-          { text: "Il Virus è un programma eseguibile autonomo privo di host, mentre il Worm è un file di configurazione compresso che raccoglie credenziali (Spyware)", correct: false },
-          { text: "Il Virus è codice parassita che infetta un file ospite ed esige l'azione dell'utente per avviarsi; il Worm è un'entità autonoma che si replica sfruttando vulnerabilità di rete senza intervento umano; il Trojan è un malware mascherato da software apparentemente legittimo o utile", correct: true }
+          { text: "Il Virus si nasconde dentro un file e ha bisogno che l'utente lo avvii per infettare; il Worm si propaga da solo attraverso la rete senza alcun clic umano; il Trojan si maschera da programma utile o divertente per ingannare la vittima", correct: true },
+          { text: "Il Worm è un animale microscopico che rosicchia i cavi elettrici della tastiera", correct: false },
+          { text: "Il Trojan cancella solo i compiti di scuola, mentre il Virus ruba solo le fotografie", correct: false },
+          { text: "Non c'è alcuna differenza: tutti i programmi del computer sono virus", correct: false }
         ]
       },
       {
-        q: "Quale sequenza operativa caratterizza formalmente il funzionamento dei moderni Ransomware a doppia estorsione?",
+        q: "Come opera un 'Ransomware' e perché rappresenta una delle minacce più pericolose?",
         options: [
-          { text: "Cifratura dei file tramite la chiave privata del certificato SSL del server web della vittima, seguita dal blocco della porta 443 del router", correct: false },
-          { text: "Infiltrazione silente, esfiltrazione dei dati sensibili sui server dell'attaccante, eliminazione delle copie di backup (Volume Shadow Copies) e cifratura simmetrica ad alta velocità (AES) dei file con chiave protetta asimmetricamente (RSA) e richiesta di riscatto", correct: true },
-          { text: "Iniezione di codice SQL malevolo nel kernel del sistema operativo per cancellare permanentemente la tabella delle partizioni MBR/GPT", correct: false },
-          { text: "Sostituzione dell'algoritmo di hashing delle password di sistema con una funzione reversibile in chiaro", correct: false }
+          { text: "Aumenta la luminosità dello schermo fino a scaricare la batteria", correct: false },
+          { text: "Blocca e cifra tutti i file personali della vittima (foto, documenti, compiti) rendendoli illeggibili e pretende un riscatto in denaro per fornire la chiave di sblocco", correct: true },
+          { text: "Invia messaggi di posta con complimenti alla vittima ogni dieci minuti", correct: false },
+          { text: "Spegne il Wi-Fi ogni volta che si apre un video su YouTube", correct: false }
         ]
       },
       {
-        q: "Perché il protocollo HTTPS / TLS adotta un'architettura crittografica ibrida sia con crittografia asimmetrica sia simmetrica?",
+        q: "Nella Crittografia Asimmetrica a Chiave Pubblica e Privata (la metafora del lucchetto), come funziona l'invio sicuro di un messaggio?",
         options: [
-          { text: "La crittografia asimmetrica viene impiegata nell'handshake per autenticare il server (tramite certificato CA) e negoziare in sicurezza una chiave di sessione effimera; la crittografia simmetrica (molto più efficiente computazionalmente) cifra poi l'effettivo flusso continuo di dati", correct: true },
-          { text: "La crittografia simmetrica autentica l'identità del server tramite firma della CA, mentre la crittografia asimmetrica cifra il canale dati ad alta velocità", correct: false },
-          { text: "La crittografia asimmetrica calcola i codici di integrità dei messaggi (HMAC), mentre la crittografia simmetrica impedisce attacchi Man-In-The-Middle senza scambio di chiavi", correct: false },
-          { text: "Entrambi gli algoritmi elaborano contemporaneamente ogni singolo byte per raddoppiare l'entropia della chiave crittografica contro il brute-force", correct: false }
+          { text: "Chiunque può usare la Chiave Pubblica del destinatario per chiudere a chiave (cifrare) il messaggio, ma solo il destinatario con la sua Chiave Privata segreta può riaprirlo (decifrarlo)", correct: true },
+          { text: "Entrambi devono incontrarsi di persona e scambiarsi una chiavetta USB di nascosto", correct: false },
+          { text: "La chiave pubblica deve essere tenuta nascosta a tutto il mondo, altrimenti la password si cancella", correct: false },
+          { text: "I messaggi vengono trasformati in codice Morse e trasmessi solo di notte", correct: false }
         ]
       },
       {
-        q: "Su quali tre pilastri logici e distinti si fonda l'architettura di Autenticazione Multifattore (MFA / 2FA)?",
+        q: "A cosa serve il 'Firewall' del computer spiegato nel modulo?",
         options: [
-          { text: "Qualcosa che sai (password complessa), qualcosa che ripeti (conferma della password) e qualcosa che archivi (salvataggio su password manager cloud)", correct: false },
-          { text: "Indirizzo IP statico certificato, identificatore MAC univoco della scheda di rete e porta di ascolto crittografata del firewall locale", correct: false },
-          { text: "Qualcosa che sai (conoscenza: es. password o PIN), qualcosa che hai (possesso: es. token hardware, smartphone con app TOTP) e qualcosa che sei (inerenza: es. impronta digitale, FaceID o scansione dell'iride)", correct: true },
-          { text: "Chiave crittografica pubblica RSA, certificato digitale X.509 emesso da una CA accreditata e token di sessione memorizzato nei cookie HTTP", correct: false }
+          { text: "A scaldare i componenti del computer quando fa troppo freddo in camera", correct: false },
+          { text: "A impedire che il processore prenda fuoco durante le sessioni di gaming", correct: false },
+          { text: "Funziona come un guardiano o doganiere della rete: controlla tutti i pacchetti di dati in entrata e in uscita, bloccando le connessioni sospette e le intrusioni non autorizzate", correct: true },
+          { text: "Serve a scaricare automaticamente i videogiochi a costo zero", correct: false }
         ]
       },
       {
-        q: "Perché gli attacchi di Ingegneria Sociale e Spear Phishing registrano la più alta percentuale di compromissione anche contro infrastrutture con difese avanzate?",
+        q: "Perché gli attacchi di Phishing e Ingegneria Sociale hanno spesso successo anche contro computer con difese sofisticate?",
         options: [
-          { text: "Sfruttano vulnerabilità zero-day nell'algoritmo AES-256 per intercettare e decifrare il traffico di rete in transito", correct: false },
-          { text: "Sfruttano vulnerabilità psicologiche ed euristiche umane (senso di urgenza, deferenza verso l'autorità, timore o avidità) per indurre la persona ad aggirare spontaneamente le policy di sicurezza o cedere le credenziali, bypassando i controlli crittografici", correct: true },
-          { text: "Compromettono i root server DNS modificando i record glue per reindirizzare tutto il traffico web verso proxy trasparenti", correct: false },
-          { text: "Iniettano shellcode malevolo nei buffer della scheda di rete Wi-Fi alterando i pacchetti beacon dei protocolli 802.11", correct: false }
+          { text: "Perché usano potenze di calcolo quantistiche capaci di rompere qualsiasi password all'istante", correct: false },
+          { text: "Perché non colpiscono le macchine ma la mente umana: usano la psicologia, fingendo urgenza, paura (es. 'Il tuo account sta per essere bloccato!') o offerte imperdibili per spingere le persone a consegnare spontaneamente le proprie password", correct: true },
+          { text: "Perché funzionano solo quando il computer è spento e staccato dalla presa", correct: false },
+          { text: "Perché vengono trasmessi direttamente tramite il microfono del cellulare", correct: false }
         ]
       }
     ]

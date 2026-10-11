@@ -343,48 +343,48 @@
   quiz: {
     questions: [
       {
-        q: "All'interno di un file binario eseguibile (come i formati ELF su Linux o PE su Windows), qual è la differenza fondamentale tra la sezione '.data' e la sezione '.bss'?",
+        q: "A cosa servono i 'Magic Numbers' (come i byte 'MZ' in Windows o '.ELF' in Linux) all'inizio di un file eseguibile?",
         options: [
-          { text: "La sezione .data è allocata in memoria sola lettura (R--) per le costanti letterali, mentre la sezione .bss memorizza le istruzioni macchina compilate", correct: false },
-          { text: "La sezione .data contiene le variabili globali inizializzate con valori espliciti e occupa spazio fisico su disco; la sezione .bss definisce variabili globali non inizializzate (o azzerate) e occupa 0 byte nel file su disco, venendo allocata e azzerata in RAM dal Loader solo all'avvio", correct: true },
-          { text: "La sezione .data contiene i frame dello stack locale di tutte le funzioni, mentre la sezione .bss gestisce l'area dell'Heap dinamico a runtime", correct: false },
-          { text: "Entrambe le sezioni occupano lo stesso spazio su disco, ma .bss viene decompressa solo quando il processo entra in modalità kernel Ring 0", correct: false }
+          { text: "Sono password segrete necessarie per crittografare i file personali", correct: false },
+          { text: "Servono a indicare il volume dell'altoparlante quando parte il programma", correct: false },
+          { text: "Sono una 'firma' nei primi byte che certifica al sistema operativo il vero formato del file, impedendogli di eseguire file corrotti anche se l'estensione è stata cambiata", correct: true },
+          { text: "Servono a ricaricare la batteria del portatile durante l'esecuzione", correct: false }
         ]
       },
       {
-        q: "Nel layout dello spazio di indirizzamento virtuale di un processo a 64 bit, quali caratteristiche differenziano la memoria 'Stack' dalla memoria 'Heap'?",
+        q: "Cosa fa il 'Loader' del sistema operativo quando fai doppio clic sull'icona di un programma per avviarlo?",
         options: [
-          { text: "Lo Stack ha gestione LIFO ultraveloce e automatica legata al ciclo di vita delle funzioni (parametri, indirizzi di ritorno, variabili locali); lo Heap è un'area di memoria dinamica a runtime gestita manualmente dal programmatore o tramite Garbage Collector", correct: true },
-          { text: "Lo Stack gestisce le variabili allocate dinamicamente tramite puntatori espliciti (malloc/free), mentre lo Heap memorizza unicamente i frame di chiamata delle funzioni", correct: false },
-          { text: "Lo Stack è condiviso tra tutti i thread concorrenti del processo, mentre ogni singolo thread alloca e gestisce uno Heap privato e isolato", correct: false },
-          { text: "Nello Stack la memoria soffre di frammentazione esterna e richiede deframmentazione periodica, mentre lo Heap garantisce allocazione contigua a costo zero", correct: false }
+          { text: "Legge l'header del file, alloca lo spazio di memoria virtuale protetta, mappa il codice in RAM e fa saltare la CPU all'Entry Point (la prima istruzione, come main())", correct: true },
+          { text: "Invia automaticamente il codice sorgente su un server cloud per farlo compilare", correct: false },
+          { text: "Cancella il file eseguibile dal disco fisso per risparmiare spazio", correct: false },
+          { text: "Formatta la memoria video per visualizzare il cursore del mouse", correct: false }
         ]
       },
       {
-        q: "Cosa accade a livello di architettura e MMU quando si verifica l'errore fatale di 'Stack Overflow' causato da una ricorsione infinita?",
+        q: "Nel layout di memoria di un programma in esecuzione, qual è la differenza tra Stack e Heap?",
         options: [
-          { text: "Lo stack sovrascrive silenziosamente la sezione .text del codice eseguibile, modificando le istruzioni macchina senza che il sistema operativo intervenga", correct: false },
-          { text: "Il garbage collector interviene forzatamente convertendo le chiamate ricorsive in cicli iterativi all'interno dell'Heap", correct: false },
-          { text: "La CPU entra in stallo irreversibile (Deadlock) attendendo che il Program Counter torni al valore dell'Entry Point iniziale", correct: false },
-          { text: "L'accrescimento continuo dei frame dello stack esaurisce lo spazio allocato e tenta di scrivere nella 'Guard Page' (pagina non mappata con permessi revocati): la MMU intercetta la violazione e scatena un'eccezione hardware di Segmentation Fault", correct: true }
+          { text: "Lo Stack serve solo per memorizzare foto, mentre lo Heap gestisce la connessione Wi-Fi", correct: false },
+          { text: "Lo Stack è una pila ordinata e automatica per funzioni e variabili locali (velocissima); lo Heap è un'area di memoria dinamica e flessibile per dati creati a runtime", correct: true },
+          { text: "Lo Heap è una memoria non volatile che non si cancella mai quando si spegne il PC", correct: false },
+          { text: "Non c'è alcuna differenza: sono due parole diverse per definire la cache L1", correct: false }
         ]
       },
       {
-        q: "Qual è la distinzione architetturale fondamentale tra un Processo e un Thread nell'esecuzione concorrente?",
+        q: "Che cos'è il famoso errore di 'Stack Overflow' e cosa lo provoca tipicamente?",
         options: [
-          { text: "I thread possiedono spazi di memoria virtuale separati gestiti dalla MMU, mentre i processi condividono sempre lo stesso Heap e gli stessi puntatori di registro", correct: false },
-          { text: "La commutazione di contesto (context switch) tra processi è più rapida di quella tra thread perché non richiede il ricaricamento del registro CR3 della tabella delle pagine", correct: false },
-          { text: "I processi possiedono spazi di indirizzamento virtuali completamente isolati e indipendenti gestiti dal Kernel; i thread (dello stesso processo) condividono lo stesso spazio di memoria, heap e descrittori di file, ma mantengono stack e registri privati", correct: true },
-          { text: "Un processo può eseguire solo un'istruzione macchina per volta su un singolo core, mentre un singolo thread può eseguire più funzioni simultaneamente su core differenti", correct: false }
+          { text: "Si verifica quando la memoria Stack si riempie completamente (ad esempio per una funzione ricorsiva che continua a chiamare se stessa all'infinito senza mai fermarsi), costringendo il sistema a terminare il programma", correct: true },
+          { text: "Si verifica quando la ventola del processore smette di girare", correct: false },
+          { text: "È un errore causato dalla mancanza di segnale Internet sul computer", correct: false },
+          { text: "Accade quando si digita troppo velocemente sulla tastiera", correct: false }
         ]
       },
       {
-        q: "In un'applicazione multithreading, cos'è una 'Race Condition' e come viene formalmente risolta per garantire la correttezza dei dati?",
+        q: "Che cos'è un 'Memory Leak' (perdita di memoria) nello Heap e perché crea problemi?",
         options: [
-          { text: "È uno stato di stallo permanente (Deadlock) in cui due thread attendono indefinitamente l'uno il rilascio di un lock detenuto dall'altro; si risolve eliminando i thread dallo scheduler", correct: false },
-          { text: "È un'anomalia in cui due o più thread accedono e modificano concorrentemente una risorsa condivisa senza sincronizzazione, producendo risultati non deterministici; si risolve proteggendo la sezione critica con primitive di mutua esclusione (Mutex o Lock atomici)", correct: true },
-          { text: "È un errore di compilazione che si verifica quando due thread richiamano la stessa funzione pura priva di variabili globali o effetti collaterali", correct: false },
-          { text: "È una situazione in cui la frequenza di clock del processore non è sufficientemente elevata da sincronizzare i thread su un singolo bus di memoria", correct: false }
+          { text: "È un guasto fisico in cui la memoria RAM perde liquido all'interno del case", correct: false },
+          { text: "Accade quando il programma alloca memoria nello Heap ma si dimentica di liberarla: la memoria occupata cresce continuamente fino a esaurire la RAM e rallentare o bloccare il sistema", correct: true },
+          { text: "È una funzione di sicurezza che cancella automaticamente le password vecchie", correct: false },
+          { text: "È la pulizia programmata dei file temporanei eseguita ogni notte da Windows", correct: false }
         ]
       }
     ]

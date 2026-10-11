@@ -385,48 +385,48 @@
   quiz: {
     questions: [
       {
-        q: "Nel contesto della gerarchia delle memorie, su quali principi fisici e statistici si basa l'efficacia delle memorie Cache (L1, L2, L3) per mascherare l'elevata latenza della RAM?",
+        q: "Come fa la memoria Cache (L1, L2, L3) ad accelerare così tanto il computer pur essendo molto piccola rispetto alla RAM?",
         options: [
-          { text: "Sulla pre-allocazione statica dell'intero codice eseguibile compilato direttamente nei registri di stato del processore all'avvio", correct: false },
-          { text: "Sui principi di località temporale (un dato usato di recente sarà probabilmente riutilizzato a breve) e località spaziale (dati con indirizzi contigui verranno probabilmente letti in sequenza)", correct: true },
-          { text: "Sulla duplicazione preventiva di tutti i frame dello stack contemporaneamente nella memoria cache L1 e nella memoria video", correct: false },
-          { text: "Sull'annullamento della latenza di propagazione elettrica tramite bus a commutazione ottica diretta tra ALU e DRAM", correct: false }
+          { text: "Cancella automaticamente i programmi vecchi dal disco fisso per fare spazio", correct: false },
+          { text: "Sfrutta la località dei dati: tiene a portata di mano i dati usati di recente e quelli memorizzati vicino ad essi, che con grandissima probabilità serviranno a breve", correct: true },
+          { text: "Raddoppia la velocità della corrente elettrica che scorre nei cavi della scheda madre", correct: false },
+          { text: "Funziona solo quando il computer è completamente disconnesso da Internet", correct: false }
         ]
       },
       {
-        q: "Qual è la distinzione funzionale e la direzionalità dei tre Bus di sistema fondamentali che collegano la CPU al resto dell'architettura hardware?",
+        q: "Sulla scheda madre, quali compiti svolgono i tre Bus fondamentali (Dati, Indirizzi, Controllo)?",
         options: [
-          { text: "L'Address Bus trasporta i valori degli operandi elaborati dall'ALU, mentre il Data Bus serve solo a selezionare l'indice delle celle fisiche di memoria", correct: false },
-          { text: "Tutti e tre i bus sono rigorosamente bidirezionali per consentire il funzionamento simmetrico delle linee di trasmissione in lettura e scrittura", correct: false },
-          { text: "Il Control Bus è unidirezionale dalla RAM verso la CPU per imporre i tempi di latenza, mentre l'Address Bus è bidirezionale per la gestione del paging", correct: false },
-          { text: "Address Bus unidirezionale (dalla CPU verso memoria/dispositivi), Data Bus bidirezionale (trasferimento dati in lettura/scrittura) e Control Bus bidirezionale (segnali di comando, read/write e interrupt)", correct: true }
+          { text: "Il Bus Dati trasporta le informazioni effettive, il Bus Indirizzi indica 'dove' leggerle o scriverle, e il Bus Controllo invia i comandi di sincronizzazione e lettura/scrittura", correct: true },
+          { text: "Tutti e tre i bus servono solo a raffreddare la CPU trasportando aria fredda", correct: false },
+          { text: "Il Bus Indirizzi serve solo per navigare su Internet, mentre il Bus Dati gestisce l'audio", correct: false },
+          { text: "I bus collegano solo le ventole all'alimentatore senza interagire con la memoria", correct: false }
         ]
       },
       {
-        q: "Qual è la differenza concettuale e architetturale fondamentale tra le filosofie di instruction set CISC (es. x86-64) e RISC (es. ARM, RISC-V)?",
+        q: "All'interno della CPU, qual è la differenza di compiti tra l'ALU (Unità Aritmetica e Logica) e la Control Unit (Unità di Controllo)?",
         options: [
-          { text: "CISC adotta istruzioni complesse a lunghezza variabile capaci di eseguire operazioni su memoria in più cicli; RISC usa istruzioni semplici, a lunghezza fissa e a singolo ciclo (load/store), privilegiando efficienza energetica e pipeline regolari", correct: true },
-          { text: "RISC è un'architettura priva di registri interni general-purpose che esegue ogni calcolo mediante operandi prelevati direttamente dalla memoria principale", correct: false },
-          { text: "CISC non supporta la modalità di esecuzione protetta né la memoria virtuale, mentre RISC è l'unica architettura compatibile con i compilatori moderni", correct: false },
-          { text: "CISC impiega una pipeline a singolo stadio per micro-istruzioni elementari, mentre RISC adotta istruzioni complesse a lunghezza variabile non pipelinate", correct: false }
+          { text: "L'ALU memorizza i file in modo permanente, mentre la Control Unit proietta le immagini sullo schermo", correct: false },
+          { text: "L'ALU spegne la CPU se si scalda troppo, mentre la Control Unit calcola la grafica dei videogiochi", correct: false },
+          { text: "L'ALU esegue i calcoli matematici e i confronti logici (es. somme e confronti vero/falso), mentre la Control Unit decodifica le istruzioni e coordina tutti i componenti", correct: true },
+          { text: "Non hanno compiti diversi: sono due nomi identici per i transistor di alimentazione", correct: false }
         ]
       },
       {
-        q: "Quale funzione critica assolve il controller DMA (Direct Memory Access) nelle moderne piattaforme di elaborazione?",
+        q: "Nella 'piramide delle memorie' del computer, perché non si costruisce un PC con una memoria tutta super-veloce come i Registri della CPU?",
         options: [
-          { text: "Consente alla CPU di accedere alla memoria secondaria SSD con la stessa frequenza di clock dei registri interni dell'ALU", correct: false },
-          { text: "Sostituisce il bus degli indirizzi collegando ciascun transistor della RAM a una linea di interrupt dedicata sulla piastra madre", correct: false },
-          { text: "Consente alle periferiche veloci (come controller NVMe e schede di rete Gigabit) di trasferire blocchi di dati direttamente da e verso la RAM senza impegnare la CPU per ogni singolo ciclo di trasferimento", correct: true },
-          { text: "Disabilita temporaneamente la memoria cache della CPU per garantire che tutti i thread leggano dati coerenti durante una chiamata di sistema", correct: false }
+          { text: "Perché le memorie più veloci sono costosissime, consumano più calore ed energia e occupano troppo spazio fisico sul chip: la gerarchia trova il perfetto equilibrio tra velocità, capacità e costo", correct: true },
+          { text: "Perché i registri possono contenere solo numeri negativi e non lettere o immagini", correct: false },
+          { text: "Perché i sistemi operativi moderni rifiutano di avviarsi se la memoria è troppo veloce", correct: false },
+          { text: "Perché la memoria veloce smette di funzionare se il computer supera i 100 megabyte di dati", correct: false }
         ]
       },
       {
-        q: "Perché le GPU (Graphics Processing Units) risultano ordini di grandezza più veloci ed efficienti delle CPU nei carichi di lavoro per calcolo scientifico, grafica e Deep Learning?",
+        q: "Qual è la differenza filosofica e pratica tra una CPU e una GPU spiegata nel modulo?",
         options: [
-          { text: "La CPU è specializzata nell'elaborazione di matrici tridimensionali a virgola mobile, mentre la GPU si occupa unicamente della decodifica delle istruzioni sequenziali del sistema operativo", correct: false },
-          { text: "La CPU è ottimizzata per la minima latenza su singoli thread complessi grazie a core complessi e ampie cache; la GPU privilegia il throughput parallelo mediante migliaia di core più semplici che eseguono simultaneamente la stessa istruzione su grandi matrici di dati (modello SIMD)", correct: true },
-          { text: "La GPU opera a frequenze di clock molto superiori a 10 GHz ma è vincolata all'uso esclusivo della memoria cache L1", correct: false },
-          { text: "La CPU non supporta il parallelismo multithread a livello hardware, mentre la GPU esegue solo codice interpretato riga per riga dal driver grafico", correct: false }
+          { text: "La CPU è un grande 'treno merci' per milioni di pacchi, mentre la GPU è un piccolo orologio da polso", correct: false },
+          { text: "La CPU è come una macchina da corsa (pochi core velocissimi e intelligenti per compiti sequenziali e decisioni rapide), mentre la GPU è come una flotta di centinaia di furgoncini (migliaia di core semplici per fare tantissimi calcoli identici in parallelo)", correct: true },
+          { text: "La CPU elabora solo immagini 3D, mentre la GPU esegue tutto il sistema operativo", correct: false },
+          { text: "La GPU serve solo nei calcolatori scientifici e non viene mai usata per i videogiochi", correct: false }
         ]
       }
     ]
