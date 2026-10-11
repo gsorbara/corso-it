@@ -211,12 +211,10 @@ body {
 .top-bar-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background: var(--header-bg);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
-  padding-right: 16px;
-  gap: 8px;
+  width: 100%;
   transition: background-color 0.2s, border-color 0.2s;
 }
 
