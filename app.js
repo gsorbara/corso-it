@@ -27,6 +27,7 @@ function init() {
     }
   }
 
+  expandedModules.add(currentModuleIndex);
   renderSidebar();
   renderContent();
   updateProgressBar();
@@ -98,6 +99,45 @@ function toggleSidebar(open) {
   }
 }
 
+let expandedModules = new Set();
+
+function toggleModuleAccordion(idx, event) {
+  if (event) event.stopPropagation();
+  if (expandedModules.has(idx)) {
+    expandedModules.delete(idx);
+  } else {
+    expandedModules.add(idx);
+  }
+  renderSidebar();
+}
+
+function selectModule(idx) {
+  currentModuleIndex = idx;
+  currentTabIndex = 0;
+  expandedModules.add(idx);
+  savePosition();
+  renderSidebar();
+  renderContent();
+  updateProgressBar();
+  if (isModuleUnlocked(idx)) {
+    toggleSidebar(false);
+  }
+}
+
+function selectSubmodule(modIdx, subIdx, event) {
+  if (event) event.stopPropagation();
+  currentModuleIndex = modIdx;
+  currentTabIndex = subIdx;
+  expandedModules.add(modIdx);
+  savePosition();
+  renderSidebar();
+  renderContent();
+  updateProgressBar();
+  toggleSidebar(false);
+  const content = document.getElementById("contentArea");
+  if (content) content.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 function renderSidebar() {
   const nav = document.getElementById("moduleNavList");
   if (!nav) return;
@@ -105,22 +145,91 @@ function renderSidebar() {
 
   window.courseData.forEach((mod, idx) => {
     const unlocked = isModuleUnlocked(idx);
+    const isCurrent = idx === currentModuleIndex;
+    const isExpanded = expandedModules.has(idx);
+
     const li = document.createElement("li");
-    li.className = `nav-item ${idx === currentModuleIndex ? "active" : ""} ${!unlocked ? "locked" : ""}`;
-    
+    li.className = `nav-module-group ${isCurrent ? "current-mod" : ""} ${isExpanded ? "expanded" : ""} ${!unlocked ? "locked" : ""}`;
+
     let statusIcon = unlocked ? "🔓" : "🔒";
     if (localStorage.getItem(`completed_mod_${mod.id}`) === "true") statusIcon = "✅";
 
-    li.innerHTML = `<span>${mod.title}</span> <span>${statusIcon}</span>`;
-    li.onclick = () => {
-      currentModuleIndex = idx;
-      currentTabIndex = 0;
-      savePosition();
-      renderSidebar();
-      renderContent();
-      updateProgressBar();
-      toggleSidebar(false);
+    // Header row
+    const header = document.createElement("div");
+    header.className = `nav-module-header ${isCurrent ? "active-header" : ""}`;
+    header.onclick = () => {
+      if (unlocked) {
+        if (currentModuleIndex === idx) {
+          toggleModuleAccordion(idx);
+        } else {
+          selectModule(idx);
+        }
+      } else {
+        selectModule(idx);
+      }
     };
+
+    const titleBox = document.createElement("div");
+    titleBox.className = "nav-mod-title-box";
+
+    const arrow = document.createElement("span");
+    arrow.className = `accordion-arrow ${isExpanded ? "open" : ""}`;
+    arrow.innerText = isExpanded ? "▾" : "▸";
+    arrow.onclick = (e) => toggleModuleAccordion(idx, e);
+
+    const titleSpan = document.createElement("span");
+    titleSpan.className = "nav-mod-title";
+    titleSpan.innerText = mod.title;
+    titleSpan.title = mod.title;
+
+    titleBox.appendChild(arrow);
+    titleBox.appendChild(titleSpan);
+
+    const badgeSpan = document.createElement("span");
+    badgeSpan.className = "nav-mod-badge";
+    badgeSpan.innerText = statusIcon;
+
+    header.appendChild(titleBox);
+    header.appendChild(badgeSpan);
+    li.appendChild(header);
+
+    // Submodules list (Accordion body)
+    if (unlocked && isExpanded && mod.submodules && mod.submodules.length > 0) {
+      const subList = document.createElement("ul");
+      subList.className = "submodule-nav-list";
+
+      mod.submodules.forEach((sub, sIdx) => {
+        const subLi = document.createElement("li");
+        const isSubActive = isCurrent && currentTabIndex === sIdx;
+        subLi.className = `submodule-nav-item ${isSubActive ? "active" : ""}`;
+        subLi.title = sub.title;
+        subLi.onclick = (e) => selectSubmodule(idx, sIdx, e);
+
+        subLi.innerHTML = `
+          <span class="sub-dot">${isSubActive ? "●" : "○"}</span>
+          <span class="sub-title">${sub.title}</span>
+        `;
+        subList.appendChild(subLi);
+      });
+
+      // Quiz entry
+      if (mod.quiz && mod.quiz.questions && mod.quiz.questions.length > 0) {
+        const quizLi = document.createElement("li");
+        const isQuizActive = isCurrent && currentTabIndex === mod.submodules.length;
+        quizLi.className = `submodule-nav-item quiz-nav-item ${isQuizActive ? "active" : ""}`;
+        quizLi.title = "Test di Verifica";
+        quizLi.onclick = (e) => selectSubmodule(idx, mod.submodules.length, e);
+
+        quizLi.innerHTML = `
+          <span class="sub-dot">✍️</span>
+          <span class="sub-title">Test di Verifica</span>
+        `;
+        subList.appendChild(quizLi);
+      }
+
+      li.appendChild(subList);
+    }
+
     nav.appendChild(li);
   });
 
@@ -143,18 +252,17 @@ function updateProgressBar() {
 
   const percentage = Math.round((completedCount / window.courseData.length) * 100);
   progressContainer.style.width = `${percentage}%`;
+
   const textContainer = document.getElementById('progressText');
   if (textContainer) textContainer.innerText = `${percentage}%`;
 }
 
 function renderContent() {
   const currentMod = window.courseData[currentModuleIndex];
-  const tabsBar = document.getElementById("submoduleTabs");
   const content = document.getElementById("contentArea");
 
-  if (!tabsBar || !content || !currentMod) return;
+  if (!content || !currentMod) return;
 
-  tabsBar.innerHTML = "";
   content.innerHTML = "";
 
   if (!isModuleUnlocked(currentModuleIndex)) {
@@ -169,31 +277,6 @@ function renderContent() {
       </div>
     `;
     return;
-  }
-
-  currentMod.submodules.forEach((sub, sIdx) => {
-    const btn = document.createElement("button");
-    btn.className = `tab-btn ${sIdx === currentTabIndex ? "active" : ""}`;
-    btn.innerText = sub.title;
-    btn.onclick = () => { 
-      currentTabIndex = sIdx; 
-      savePosition();
-      renderContent(); 
-    };
-    tabsBar.appendChild(btn);
-  });
-
-  if (currentMod.quiz && currentMod.quiz.questions.length > 0) {
-    const qBtn = document.createElement("button");
-    const isQuizActive = currentTabIndex === currentMod.submodules.length;
-    qBtn.className = `tab-btn ${isQuizActive ? "active" : ""}`;
-    qBtn.innerText = "✍️ Test di Verifica";
-    qBtn.onclick = () => {
-      currentTabIndex = currentMod.submodules.length;
-      savePosition();
-      renderContent();
-    };
-    tabsBar.appendChild(qBtn);
   }
 
   if (currentTabIndex < currentMod.submodules.length) {
@@ -290,6 +373,24 @@ function renderContent() {
     
     const footerNav = document.createElement("div");
     footerNav.className = "nav-actions-footer";
+
+    if (currentTabIndex > 0) {
+      const prevBtn = document.createElement("button");
+      prevBtn.className = "btn-secondary";
+      prevBtn.innerText = "⬅ Sottomodulo Precedente";
+      prevBtn.onclick = () => {
+        currentTabIndex--;
+        savePosition();
+        renderSidebar();
+        renderContent();
+        content.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+      footerNav.appendChild(prevBtn);
+    } else {
+      const spacer = document.createElement("div");
+      footerNav.appendChild(spacer);
+    }
+
     const nextBtn = document.createElement("button");
     nextBtn.className = "btn-primary";
     
@@ -297,7 +398,9 @@ function renderContent() {
     nextBtn.innerText = hasNextSub ? "Prossimo Sottomodulo ➔" : "Vai al Test di Verifica ✍️";
     nextBtn.onclick = () => {
       currentTabIndex++;
+      expandedModules.add(currentModuleIndex);
       savePosition();
+      renderSidebar();
       renderContent();
       content.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -338,15 +441,21 @@ function renderQuizView(mod, container) {
   });
 
   quizHtml += `
-      <button type="button" class="btn-primary" onclick="evaluateQuiz()">Invia Risposte</button>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; gap: 10px; flex-wrap: wrap;">
+        <button type="button" class="btn-secondary" onclick="goToLastSubmodule()">⬅ Rileggi Ultimo Sottomodulo</button>
+        <button type="button" class="btn-primary" onclick="evaluateQuiz()">Invia Risposte</button>
+      </div>
     </form>
     <div class="unlock-banner" id="unlockBanner">
-      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
         <div>
-          🎉 Ottimo lavoro! Test superato con successo. La tua chiave per il modulo successivo è: <br>
+          🎉 <strong>Ottimo lavoro!</strong> Test superato con successo. La tua chiave per il modulo successivo è: <br>
           <code id="keyDisplayCode">${mod.nextKey}</code>
         </div>
-        <button class="btn-primary" style="background: #059669;" onclick="copyKey('${mod.nextKey}')">Copia Chiave 📋</button>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="btn-primary" style="background: #059669;" onclick="copyKey('${mod.nextKey}')">Copia Chiave 📋</button>
+          ${currentModuleIndex + 1 < window.courseData.length ? `<button class="btn-primary" onclick="proceedToNextModule()">Modulo Successivo ➔</button>` : ''}
+        </div>
       </div>
     </div>
   </div>
@@ -355,6 +464,23 @@ function renderQuizView(mod, container) {
   </footer>`;
 
   container.innerHTML = quizHtml;
+}
+
+function goToLastSubmodule() {
+  const currentMod = window.courseData[currentModuleIndex];
+  if (!currentMod || !currentMod.submodules || !currentMod.submodules.length) return;
+  currentTabIndex = currentMod.submodules.length - 1;
+  savePosition();
+  renderSidebar();
+  renderContent();
+  const content = document.getElementById("contentArea");
+  if (content) content.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function proceedToNextModule() {
+  if (currentModuleIndex + 1 < window.courseData.length) {
+    selectModule(currentModuleIndex + 1);
+  }
 }
 
 function evaluateQuiz() {
