@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corso di Informatica Base - Da Zero ad Applicazione</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER MOBILE -->
+  <header class="mobile-header">
+    <button class="mobile-menu-btn" onclick="toggleSidebar(true)">☰ Moduli</button>
+    <span style="font-weight: 600; font-size: 0.95rem;">Corso Informatica</span>
+    <div class="mobile-actions-group">
+      <button class="mobile-icon-btn" onclick="openGlossary()" title="Cerca nel glossario" aria-label="Cerca">🔍</button>
+      <button class="mobile-icon-btn" id="mobileThemeBtn" onclick="toggleTheme()" title="Cambia tema" aria-label="Tema">🌓</button>
+      <span id="mobileProgressBadge" style="font-size: 0.78rem; color: #a5b4fc; margin-left: 4px;">Mod 1/10</span>
+    </div>
+  </header>
+
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
+
+  <!-- BARRA LATERALE -->
+  <aside id="sidebar">
+    <div class="brand-box">
+      <div>
+        <h1>Informatica da Zero</h1>
+        <p>Target: 14 anni • Corso Base</p>
+      </div>
+      <button class="close-sidebar-btn" onclick="toggleSidebar(false)">✕</button>
+    </div>
+
+    <!-- STRUMENTI DELLA SIDEBAR -->
+    <div class="sidebar-tools">
+      <button class="sidebar-tool-btn" onclick="openGlossary()">
+        <span>🔍 Cerca & Glossario</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <button class="sidebar-tool-btn" id="sidebarThemeBtn" onclick="toggleTheme()">
+        <span>🌓 Modalità</span>
+        <span id="sidebarThemeLabel" style="font-size: 0.76rem; color: #94a3b8;">Scuro</span>
+      </button>
+    </div>
+
+    <ul class="module-nav-list" id="moduleNavList"></ul>
+
+    <div class="sidebar-footer">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+        <span>Progresso Corso</span>
+        <span id="progressText">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-bar" id="overallProgress"></div>
+      </div>
+      <button class="btn-reset" onclick="resetProgress()">Resetta Progressi</button>
+    </div>
+  </aside>
+
+  <!-- AREA PRINCIPALE -->
+  <main id="main-area">
+    <div class="top-bar-wrapper">
+      <nav class="tabs-bar" id="submoduleTabs"></nav>
+      <div class="tabs-actions">
+        <button class="action-btn" onclick="openGlossary()" title="Cerca o consulta il glossario (Ctrl+K)">
+          <span>🔍</span>
+          <span class="btn-text">Glossario</span>
+          <kbd>⌘K</kbd>
+        </button>
+        <button class="action-btn" id="topThemeBtn" onclick="toggleTheme()" title="Cambia tema chiaro/scuro">
+          <span id="topThemeIcon">🌓</span>
+          <span class="btn-text" id="topThemeLabel">Tema</span>
+        </button>
+      </div>
+    </div>
+    <section class="content-body" id="contentArea"></section>
+  </main>
+
+  <!-- MODALE RICERCA & GLOSSARIO -->
+  <div id="glossaryModal" class="modal-backdrop" onclick="handleModalBackdropClick(event)">
+    <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.4rem;">📖</span>
+          <div>
+            <h2 id="modalTitle" style="font-size: 1.15rem; margin: 0; color: var(--text);">Glossario Informatico</h2>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Definizioni e approfondimenti su Wikipedia</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="closeGlossary()" aria-label="Chiudi modale">✕</button>
+      </div>
+
+      <div class="modal-search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="glossarySearchInput" placeholder="Cerca un termine (es. RAM, Kernel, CPU, Algoritmo)..." oninput="handleGlossarySearch(this.value)">
+        <button id="clearSearchBtn" class="clear-search-btn" onclick="clearGlossarySearch()" style="display: none;">✕</button>
+      </div>
+
+      <div class="glossary-results-list" id="glossaryResultsList"></div>
+
+      <div class="modal-footer">
+        <span style="font-size: 0.78rem; color: var(--text-muted);">Premi <kbd>ESC</kbd> per chiudere • <kbd>⌘K</kbd> per riaprire</span>
+        <span id="resultsCountBadge" style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">73 termini</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULI DIDATTICI -->
+  <script src="moduli/modulo-01.js"></script>
+  <script src="moduli/modulo-02.js"></script>
+  <script src="moduli/modulo-03.js"></script>
+  <script src="moduli/modulo-04.js"></script>
+  <script src="moduli/modulo-05.js"></script>
+  <script src="moduli/modulo-06.js"></script>
+  <script src="moduli/modulo-07.js"></script>
+  <script src="moduli/modulo-08.js"></script>
+  <script src="moduli/modulo-09.js"></script>
+  <script src="moduli/modulo-10.js"></script>
+
+  <!-- GLOSSARIO E LOGICA APPLICATIVA -->
+  <script src="glossario.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
