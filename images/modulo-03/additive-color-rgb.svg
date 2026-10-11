@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0f172a; }
+      .title { fill: #f8fafc; font-family: system-ui, -apple-system, sans-serif; font-size: 20px; font-weight: bold; text-anchor: middle; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; text-anchor: middle; }
+      .label { fill: #ffffff; font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 600; text-anchor: middle; }
+      .sublabel { fill: #cbd5e1; font-family: monospace; font-size: 11px; text-anchor: middle; }
+      .center-label { fill: #0f172a; font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+    </style>
+    <!-- Filter for vibrant screen glow -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="500" rx="16" class="bg" />
+
+  <!-- Titles -->
+  <text x="300" y="42" class="title">Sintesi Additiva dei Colori (RGB)</text>
+  <text x="300" y="66" class="subtitle">La luce emessa dai pixel dello schermo: Rosso + Verde + Blu = Bianco</text>
+
+  <!-- Color Blends (Mix blend mode screen) -->
+  <g style="mix-blend-mode: screen;" transform="translate(0, 10)">
+    <!-- Red Light Circle -->
+    <circle cx="240" cy="210" r="115" fill="#ff0044" opacity="0.9" filter="url(#glow)" />
+    <!-- Green Light Circle -->
+    <circle cx="360" cy="210" r="115" fill="#00e659" opacity="0.9" filter="url(#glow)" />
+    <!-- Blue Light Circle -->
+    <circle cx="300" cy="310" r="115" fill="#1e6fff" opacity="0.9" filter="url(#glow)" />
+  </g>
+
+  <!-- Labels -->
+  <!-- Red Primary -->
+  <text x="175" y="170" class="label">ROSSO (R)</text>
+  <text x="175" y="188" class="sublabel">rgb(255, 0, 0)</text>
+
+  <!-- Green Primary -->
+  <text x="425" y="170" class="label">VERDE (G)</text>
+  <text x="425" y="188" class="sublabel">rgb(0, 255, 0)</text>
+
+  <!-- Blue Primary -->
+  <text x="300" y="415" class="label">BLU (B)</text>
+  <text x="300" y="433" class="sublabel">rgb(0, 0, 255)</text>
+
+  <!-- Overlaps -->
+  <text x="300" y="180" class="label" fill="#1e293b">GIALLO (R+G)</text>
+  <text x="220" y="300" class="label">MAGENTA (R+B)</text>
+  <text x="380" y="300" class="label">CIANO (G+B)</text>
+
+  <!-- Center White -->
+  <rect x="255" y="235" width="90" height="30" rx="6" fill="rgba(255,255,255,0.85)" />
+  <text x="300" y="255" class="center-label">BIANCO</text>
+
+  <!-- Bottom Legend -->
+  <rect x="40" y="455" width="520" height="32" rx="8" fill="#1e293b" />
+  <text x="300" y="475" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12px" text-anchor="middle">
+    Assenza di luce = <tspan fill="#64748b" font-weight="bold">NERO (0,0,0)</tspan> • Massima intensità = <tspan fill="#ffffff" font-weight="bold">BIANCO (255,255,255)</tspan>
+  </text>
+</svg>

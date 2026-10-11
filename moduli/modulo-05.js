@@ -24,7 +24,7 @@
         </ul>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/0/02/80486dx2-large.jpg" alt="Microfotografia del die di un processore Intel 486 DX2" loading="lazy">
+          <img class="figure-img" src="images/modulo-05/intel-486-die.jpg" alt="Microfotografia del die di un processore Intel 486 DX2" loading="lazy">
           <div class="figure-caption">Microfotografia del die di silicio di un processore Intel 486: sono chiaramente visibili le aree geometriche separate della cache, dell'ALU e dell'unità di controllo.</div>
         </div>
 
@@ -125,7 +125,7 @@
         </ul>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/0/0c/ComputerMemoryHierarchy.svg" alt="Diagramma della Gerarchia delle Memorie di un Calcolatore" loading="lazy">
+          <img class="figure-img" src="images/modulo-05/memory-hierarchy.svg" alt="Diagramma della Gerarchia delle Memorie di un Calcolatore" loading="lazy" style="object-fit: contain;">
           <div class="figure-caption">La classica Piramide delle Memorie: al vertice troviamo velocità massima e capacità minima; alla base capacità immensa e latenze elevate.</div>
         </div>
 
@@ -219,7 +219,7 @@
         <p>Sulle piste di rame della scheda madre viaggiano miliardi di segnali elettrici al secondo. Perché i componenti possano capirsi, la comunicazione è suddivisa in <strong>tre autostrade parallele distinte</strong> chiamate <a href="https://it.wikipedia.org/wiki/Bus_(informatica)" target="_blank">Bus</a>:</p>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Computer-motherboard.jpg" alt="Scheda madre moderna per PC con socket CPU, slot RAM e slot PCIe" loading="lazy">
+          <img class="figure-img" src="images/modulo-05/motherboard.jpg" alt="Scheda madre moderna per PC con socket CPU, slot RAM e slot PCIe" loading="lazy">
           <div class="figure-caption">Una scheda madre moderna: al centro il socket della CPU, a destra gli slot verticali per la memoria RAM e in basso gli slot PCIe per la scheda video.</div>
         </div>
 

@@ -30,7 +30,7 @@
         <p>Hanno saldato sulla scheda madre un piccolo chip speciale a stato solido chiamato <a href="https://it.wikipedia.org/wiki/Read_Only_Memory" target="_blank">ROM (Read-Only Memory)</a> o <strong>Memoria Flash</strong>. A differenza della RAM, la ROM non dimentica nulla quando togli la corrente elettrica: i bit sono incisi in modo permanente nel silicio.</p>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/e/eb/AT_Motherboard_RTC_and_BIOS.jpg" alt="Chip BIOS ROM su scheda madre per personal computer" loading="lazy">
+          <img class="figure-img" src="images/modulo-06/bios-chip.jpg" alt="Chip BIOS ROM su scheda madre per personal computer" loading="lazy">
           <div class="figure-caption">Un chip BIOS su una scheda madre per PC: la "scintilla vitale" permanente che contiene le prime istruzioni eseguite dalla CPU all'accensione.</div>
         </div>
 
@@ -156,8 +156,8 @@
         </ul>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Ken_Thompson_and_Dennis_Ritchie--1973.jpg" alt="Ken Thompson e Dennis Ritchie davanti al PDP-11 ai Bell Labs (1973)" loading="lazy">
-          <div class="figure-caption">Ken Thompson (a sinistra) e Dennis Ritchie (a destra) nel 1973 davanti al minicomputer PDP-11: i padri di Unix e del linguaggio C.</div>
+          <img class="figure-img" src="images/modulo-06/thompson-ritchie-1973.jpg" alt="Ken Thompson e Dennis Ritchie davanti al PDP-11 ai Bell Labs (1973)" loading="lazy">
+          <div class="figure-caption">Dennis Ritchie e Ken Thompson: i leggendari padri di Unix e del linguaggio C ai Bell Labs.</div>
         </div>
 
         <div class="callout-box history">
@@ -168,7 +168,7 @@
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg" alt="Linus Torvalds, creatore del kernel Linux" loading="lazy">
+          <img class="figure-img" src="images/modulo-06/linus-torvalds.jpg" alt="Linus Torvalds, creatore del kernel Linux" loading="lazy">
           <div class="figure-caption">Linus Torvalds: nel 1991 creò il kernel Linux, oggi spina dorsale di Internet, dei server globali e di Android.</div>
         </div>
 
@@ -374,7 +374,7 @@
         <p>I microprocessori moderni (come i chip Intel x86 o ARM degli smartphone) contengono a livello hardware diversi <strong>Anelli di Privilegio (Privilege Rings)</strong>:</p>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Priv_rings.svg" alt="Diagramma degli Anelli di Privilegio della CPU (Ring 0 vs Ring 3)" loading="lazy">
+          <img class="figure-img" src="images/modulo-06/cpu-privilege-rings.svg" alt="Diagramma degli Anelli di Privilegio della CPU (Ring 0 vs Ring 3)" loading="lazy" style="object-fit: contain;">
           <div class="figure-caption">Anelli di privilegio della CPU: Ring 0 al centro con privilegi assoluti (Kernel Space), e Ring 3 all'esterno per le applicazioni ordinarie (User Space).</div>
         </div>
 

@@ -159,7 +159,7 @@
         <p>Una volta che il processo è vivo all'interno della memoria RAM, la sua memoria virtuale non è un calderone disordinato. Al contrario, è strutturata con una delle architetture più ingegnose e simmetriche dell'informatica:</p>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Program_memory_layout.svg/640px-Program_memory_layout.svg.png" alt="Diagramma della segmentazione della memoria di un programma (Text, Data, BSS, Heap e Stack)" loading="lazy">
+          <img class="figure-img" src="images/modulo-07/program-memory-layout.svg" alt="Diagramma della segmentazione della memoria di un programma (Text, Data, BSS, Heap e Stack)" loading="lazy" style="object-fit: contain;">
           <div class="figure-caption">Organizzazione classica della memoria di un processo: il Codice in basso, l'Heap che cresce verso l'alto e lo Stack che scende dall'alto verso il basso.</div>
         </div>
 

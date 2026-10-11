@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0f172a; }
+      .title { fill: #f8fafc; font-family: system-ui, -apple-system, sans-serif; font-size: 21px; font-weight: bold; text-anchor: middle; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; text-anchor: middle; }
+      .layer-title { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; fill: #ffffff; }
+      .layer-desc { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; text-anchor: middle; fill: #f1f5f9; opacity: 0.95; }
+      .axis-label { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 600; text-anchor: middle; fill: #38bdf8; }
+    </style>
+    <linearGradient id="gReg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#f87171" />
+    </linearGradient>
+    <linearGradient id="gCache" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#fb923c" />
+    </linearGradient>
+    <linearGradient id="gRam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#fde047" />
+    </linearGradient>
+    <linearGradient id="gSsd" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="gCloud" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="520" rx="16" class="bg" />
+
+  <!-- Titles -->
+  <text x="350" y="40" class="title">La Piramide della Gerarchia delle Memorie</text>
+  <text x="350" y="64" class="subtitle">Il compromesso ingegneristico perfetto tra velocità, costo economico e capacità</text>
+
+  <!-- Side Arrow Left: Speed / Cost -->
+  <g transform="translate(45, 100)">
+    <line x1="20" y1="360" x2="20" y2="40" stroke="#ef4444" stroke-width="4" stroke-dasharray="4 2" />
+    <polygon points="20,25 12,45 28,45" fill="#ef4444" />
+    <text x="20" y="15" class="axis-label" fill="#ef4444">VELOCITÀ ⬆</text>
+    <text x="20" y="380" font-family="system-ui, sans-serif" font-size="11px" fill="#94a3b8" text-anchor="middle">Minima Latenza</text>
+    <text x="20" y="396" font-family="system-ui, sans-serif" font-size="11px" fill="#ef4444" font-weight="bold" text-anchor="middle">Massimo Costo/bit</text>
+  </g>
+
+  <!-- Side Arrow Right: Capacity -->
+  <g transform="translate(615, 100)">
+    <line x1="20" y1="40" x2="20" y2="360" stroke="#38bdf8" stroke-width="4" stroke-dasharray="4 2" />
+    <polygon points="20,375 12,355 28,355" fill="#38bdf8" />
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="11px" fill="#94a3b8" text-anchor="middle">Capacità Minima</text>
+    <text x="20" y="398" class="axis-label">CAPACITÀ ⬇</text>
+    <text x="20" y="415" font-family="system-ui, sans-serif" font-size="11px" fill="#38bdf8" font-weight="bold" text-anchor="middle">Minimo Costo/GB</text>
+  </g>
+
+  <!-- Pyramid Levels (Center cx = 350) -->
+  <!-- Level 1: CPU Registers -->
+  <polygon points="350,90 280,150 420,150" fill="url(#gReg)" stroke="#0f172a" stroke-width="2" />
+  <text x="350" y="125" class="layer-title">Registri CPU</text>
+  <text x="350" y="142" class="layer-desc">&lt; 1 ns • ~1 KB</text>
+
+  <!-- Level 2: Cache L1, L2, L3 -->
+  <polygon points="280,152 420,152 470,222 230,222" fill="url(#gCache)" stroke="#0f172a" stroke-width="2" />
+  <text x="350" y="185" class="layer-title">Cache CPU (L1, L2, L3)</text>
+  <text x="350" y="205" class="layer-desc">1 - 10 ns • Da pochi KB a 64 MB (SRAM)</text>
+
+  <!-- Level 3: Main Memory RAM -->
+  <polygon points="230,224 470,224 520,304 180,304" fill="url(#gRam)" stroke="#0f172a" stroke-width="2" />
+  <text x="350" y="258" class="layer-title" fill="#0f172a">Memoria Primaria (RAM DDR4 / DDR5)</text>
+  <text x="350" y="278" class="layer-desc" fill="#1e293b">50 - 100 ns • 8 GB - 64 GB • Volatile (DRAM)</text>
+
+  <!-- Level 4: Solid State Drive SSD NVMe -->
+  <polygon points="180,306 520,306 570,396 130,396" fill="url(#gSsd)" stroke="#0f172a" stroke-width="2" />
+  <text x="350" y="345" class="layer-title">Memoria Secondaria (SSD NVMe / SATA)</text>
+  <text x="350" y="366" class="layer-desc">10 - 100 microsecondi • 512 GB - 4 TB • Permanente (NAND Flash)</text>
+
+  <!-- Level 5: HDD / Cloud Storage -->
+  <polygon points="130,398 570,398 620,470 80,470" fill="url(#gCloud)" stroke="#0f172a" stroke-width="2" />
+  <text x="350" y="428" class="layer-title">Memoria Terziaria &amp; Cloud (Dischi Meccanici, Server Remoti)</text>
+  <text x="350" y="449" class="layer-desc">&gt; 5 - 20 ms • Terabyte - Petabyte • Archiviazione economica di massa</text>
+
+  <!-- Footer Tip -->
+  <rect x="100" y="485" width="500" height="26" rx="6" fill="#1e293b" />
+  <text x="350" y="502" font-family="system-ui, sans-serif" font-size="11px" fill="#94a3b8" text-anchor="middle">
+    💡 Il processore cerca i dati dall'alto verso il basso: se trova il dato nella Cache è un <tspan fill="#4ade80" font-weight="bold">Cache Hit</tspan>, altrimenti <tspan fill="#f87171" font-weight="bold">Cache Miss</tspan>!
+  </text>
+</svg>

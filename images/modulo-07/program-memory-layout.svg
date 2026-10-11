@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 540" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0f172a; }
+      .title { fill: #f8fafc; font-family: system-ui, -apple-system, sans-serif; font-size: 20px; font-weight: bold; text-anchor: middle; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; text-anchor: middle; }
+      .seg-title { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; fill: #ffffff; }
+      .seg-desc { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; text-anchor: middle; fill: #f1f5f9; opacity: 0.95; }
+      .addr { font-family: monospace; font-size: 12px; fill: #94a3b8; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="540" rx="16" class="bg" />
+
+  <!-- Titles -->
+  <text x="340" y="38" class="title">Layout della Memoria Virtuale di un Processo</text>
+  <text x="340" y="60" class="subtitle">Come il Sistema Operativo organizza la RAM per un programma in esecuzione</text>
+
+  <!-- High Address Header -->
+  <text x="120" y="90" class="addr" text-anchor="end">0xFFFFFFFF</text>
+  <text x="120" y="105" font-family="system-ui, sans-serif" font-size="11px" fill="#ef4444" text-anchor="end">Indirizzi Alti</text>
+
+  <!-- Low Address Footer -->
+  <text x="120" y="475" class="addr" text-anchor="end">0x00000000</text>
+  <text x="120" y="490" font-family="system-ui, sans-serif" font-size="11px" fill="#38bdf8" text-anchor="end">Indirizzi Bassi</text>
+
+  <!-- Memory Box Outer (x=135, width=410) -->
+  <rect x="135" y="80" width="410" height="400" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2" />
+
+  <!-- 1. Kernel / Environment & Args -->
+  <rect x="137" y="82" width="406" height="42" fill="#334155" />
+  <text x="340" y="102" class="seg-title">Argomenti da riga di comando &amp; Variabili d'ambiente</text>
+  <text x="340" y="117" class="seg-desc">argv, argc, PATH, HOME</text>
+
+  <!-- 2. Stack (Grows Downward) -->
+  <rect x="137" y="126" width="406" height="65" fill="#dc2626" />
+  <text x="340" y="150" class="seg-title">STACK (Pila delle Chiamate)</text>
+  <text x="340" y="167" class="seg-desc">Variabili locali, parametri e indirizzi di ritorno delle funzioni</text>
+  <text x="340" y="183" font-family="system-ui, sans-serif" font-size="11px" font-weight="bold" fill="#fef08a" text-anchor="middle">⬇ Cresce verso il basso (LIFO)</text>
+
+  <!-- 3. Free Memory / Gap -->
+  <rect x="137" y="193" width="406" height="98" fill="#0f172a" />
+  <line x1="340" y1="205" x2="340" y2="230" stroke="#fca5a5" stroke-width="2" stroke-dasharray="3 3" />
+  <polygon points="340,235 336,225 344,225" fill="#fca5a5" />
+  <line x1="340" y1="275" x2="340" y2="250" stroke="#86efac" stroke-width="2" stroke-dasharray="3 3" />
+  <polygon points="340,245 336,255 344,255" fill="#86efac" />
+  <text x="340" y="244" font-family="system-ui, sans-serif" font-size="12px" fill="#64748b" font-weight="bold" text-anchor="middle">Spazio Libero (Crescita Dinamica)</text>
+
+  <!-- 4. Heap (Grows Upward) -->
+  <rect x="137" y="293" width="406" height="65" fill="#16a34a" />
+  <text x="340" y="318" class="seg-title">HEAP (Memoria Dinamica)</text>
+  <text x="340" y="335" class="seg-desc">Allocata a tempo di esecuzione con malloc() / new</text>
+  <text x="340" y="351" font-family="system-ui, sans-serif" font-size="11px" font-weight="bold" fill="#fef08a" text-anchor="middle">⬆ Cresce verso l'alto</text>
+
+  <!-- 5. BSS (Uninitialized Data) -->
+  <rect x="137" y="360" width="406" height="38" fill="#d97706" />
+  <text x="340" y="378" class="seg-title">Segmento BSS (Dati non inizializzati)</text>
+  <text x="340" y="392" class="seg-desc">Variabili globali e statiche non inizializzate (azzerate dal loader)</text>
+
+  <!-- 6. Data Segment (Initialized) -->
+  <rect x="137" y="400" width="406" height="38" fill="#2563eb" />
+  <text x="340" y="418" class="seg-title">Segmento DATA (Dati inizializzati)</text>
+  <text x="340" y="432" class="seg-desc">Variabili globali e costanti con valore iniziale specificato</text>
+
+  <!-- 7. Text Segment (Code) -->
+  <rect x="137" y="440" width="406" height="38" fill="#7c3aed" />
+  <text x="340" y="458" class="seg-title">Segmento TEXT (Codice Macchina)</text>
+  <text x="340" y="472" class="seg-desc">Istruzioni binarie della CPU • Rigorosamente Sola Lettura (Read-Only)</text>
+
+  <!-- Right Side Brackets / Callouts -->
+  <g transform="translate(555, 140)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="11px" fill="#f87171" font-weight="bold">STACK OVERFLOW:</text>
+    <text x="0" y="16" font-family="system-ui, sans-serif" font-size="10px" fill="#cbd5e1">Se la ricorsione è</text>
+    <text x="0" y="30" font-family="system-ui, sans-serif" font-size="10px" fill="#cbd5e1">infinita, lo Stack</text>
+    <text x="0" y="44" font-family="system-ui, sans-serif" font-size="10px" fill="#cbd5e1">invade lo Heap!</text>
+  </g>
+
+  <!-- Bottom Summary Note -->
+  <rect x="80" y="505" width="520" height="25" rx="6" fill="#1e293b" />
+  <text x="340" y="522" font-family="system-ui, sans-serif" font-size="11px" fill="#94a3b8" text-anchor="middle">
+    🔒 Ogni processo vive nella propria <tspan fill="#38bdf8" font-weight="bold">Memoria Virtuale isolata</tspan>: nessun programma può leggere o sporcare la memoria di un altro!
+  </text>
+</svg>

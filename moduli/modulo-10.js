@@ -24,7 +24,7 @@
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/3/37/Grace_Hopper_and_UNIVAC.jpg" alt="Grace Hopper alla console del computer UNIVAC" loading="lazy">
+          <img class="figure-img" src="images/modulo-10/grace-hopper.jpg" alt="Grace Hopper alla console del computer UNIVAC" loading="lazy">
           <div class="figure-caption">Grace Hopper davanti al supercomputer UNIVAC: la pioniera che inventò il compilatore e aprì la strada ai linguaggi ad alto livello.</div>
         </div>
 
@@ -35,7 +35,7 @@
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/First_Computer_Bug%2C_1947.jpg/640px-First_Computer_Bug%2C_1947.jpg" alt="Il diario di bordo del Mark II con la falena incollata (1947)" loading="lazy">
+          <img class="figure-img" src="images/modulo-10/first-bug-logbook.jpg" alt="Il diario di bordo del Mark II con la falena incollata (1947)" loading="lazy">
           <div class="figure-caption">Il celebre foglio di diario del 1947 con la falena originale incollata: l'origine del termine informatico "Bug".</div>
         </div>
 

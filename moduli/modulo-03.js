@@ -24,7 +24,7 @@
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg" alt="Ritratto di Gottfried Wilhelm Leibniz" loading="lazy">
+          <img class="figure-img" src="images/modulo-03/leibniz-portrait.jpg" alt="Ritratto di Gottfried Wilhelm Leibniz" loading="lazy">
           <div class="figure-caption">Gottfried Wilhelm Leibniz (ca. 1695, dipinto di Christoph Bernhard Francke): il padre filosofico e matematico dell'aritmetica binaria moderna.</div>
         </div>
 
@@ -46,7 +46,7 @@
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/d/df/Leibniz_binary_system_1703.png" alt="Manoscritto dell'aritmetica binaria di Leibniz del 1703" loading="lazy">
+          <img class="figure-img" src="images/modulo-03/leibniz-binary-1703.png" alt="Manoscritto dell'aritmetica binaria di Leibniz del 1703" loading="lazy" style="object-fit: contain; background: #fff; max-height: 440px;">
           <div class="figure-caption">La tavola originale dei numeri da 0 a 32 in sistema binario pubblicata da Leibniz nel 1703 sui Mémoires dell'Accademia Reale delle Scienze di Parigi.</div>
         </div>
       `
@@ -181,7 +181,7 @@
         </ul>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Blue-punch-card-front-horiz.png" alt="Scheda perforata standard IBM a 80 colonne" loading="lazy">
+          <img class="figure-img" src="images/modulo-03/punch-card.png" alt="Scheda perforata standard IBM a 80 colonne" loading="lazy">
           <div class="figure-caption">Una scheda perforata standard IBM (80 colonne): la forma fisica con cui l'umanità programmava i calcolatori prima dei monitor e dei dischi rigidi.</div>
         </div>
 
@@ -318,7 +318,7 @@
         </ul>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/AdditiveColor.svg" alt="Diagramma della sintesi additiva dei colori RGB" loading="lazy">
+          <img class="figure-img" src="images/modulo-03/additive-color-rgb.svg" alt="Diagramma della sintesi additiva dei colori RGB" loading="lazy" style="object-fit: contain;">
           <div class="figure-caption">Sintesi additiva RGB: la sovrapposizione dei tre fasci primari di luce genera i colori secondari (Giallo, Ciano, Magenta) e il Bianco al centro.</div>
         </div>
 

@@ -21,7 +21,7 @@
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Olivetti_Programma_101_-_Museo_scienza_e_tecnologia_Milano.jpg" alt="Olivetti Programma 101 esposta al Museo della Scienza e Tecnologia di Milano" loading="lazy">
+          <img class="figure-img" src="images/modulo-04/programma-101.jpg" alt="Olivetti Programma 101 esposta al Museo della Scienza e Tecnologia di Milano" loading="lazy">
           <div class="figure-caption">La leggendaria Olivetti Programma 101 (1965): il primo personal computer programmabile da tavolo al mondo, oggi celebrato anche al MoMA di New York.</div>
         </div>
 
@@ -128,7 +128,7 @@ PRONTA PER LA LETTURA MAGNETICA...
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/First_Computer_Mouse.jpg" alt="Il primo mouse per computer in legno di Douglas Engelbart" loading="lazy">
+          <img class="figure-img" src="images/modulo-04/first-mouse.jpg" alt="Il primo mouse per computer in legno di Douglas Engelbart" loading="lazy">
           <div class="figure-caption">Il primo prototipo di mouse al mondo (1964-1968), costruito in legno da Douglas Engelbart e Bill English allo Stanford Research Institute.</div>
         </div>
 
@@ -144,7 +144,7 @@ PRONTA PER LA LETTURA MAGNETICA...
         </ul>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/5/52/Xero_Alto_Computer.jpg" alt="Il computer Xerox Alto del 1973" loading="lazy">
+          <img class="figure-img" src="images/modulo-04/xerox-alto.jpg" alt="Il computer Xerox Alto del 1973" loading="lazy">
           <div class="figure-caption">Lo Xerox Alto (1973): il laboratorio vivente dove nacquero la GUI, il mouse moderno, la rete Ethernet e la stampa laser.</div>
         </div>
 

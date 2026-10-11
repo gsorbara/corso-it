@@ -30,7 +30,7 @@
         </ul>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Babbage_Difference_Engine.jpg" alt="Motore Differenziale di Babbage" loading="lazy">
+          <img class="figure-img" src="images/modulo-02/babbage-difference-engine.jpg" alt="Motore Differenziale di Babbage" loading="lazy">
           <div class="figure-caption">Porzione del Motore Differenziale di Charles Babbage conservata al Science Museum di Londra: migliaia di ingranaggi di bronzo e acciaio per azzerare gli errori umani.</div>
         </div>
 
@@ -56,7 +56,7 @@
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Eniac.jpg" alt="ENIAC e le programmatrici" loading="lazy">
+          <img class="figure-img" src="images/modulo-02/eniac.jpg" alt="ENIAC e le programmatrici" loading="lazy">
           <div class="figure-caption">L'ENIAC a Filadelfia (1946). La macchina veniva programmata a mano spostando fisicamente cavi telefonici e commutatori da pannelli a parete.</div>
         </div>
 
@@ -67,7 +67,7 @@
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/H96566k.jpg" alt="Il diario di bordo del primo bug" loading="lazy">
+          <img class="figure-img" src="images/modulo-02/first-bug.jpg" alt="Il diario di bordo del primo bug" loading="lazy">
           <div class="figure-caption">Il registro originale del 1947 con la falena conservata allo Smithsonian Institute di Washington: la nascita ufficiale del termine "Bug".</div>
         </div>
 
@@ -84,7 +84,7 @@
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/5/52/Intel_4004.jpg" alt="Microprocessore Intel 4004" loading="lazy">
+          <img class="figure-img" src="images/modulo-02/intel-4004.jpg" alt="Microprocessore Intel 4004" loading="lazy">
           <div class="figure-caption">Il microprocessore Intel 4004 (1971), ideato e progettato da Federico Faggin: il primo chip al mondo a integrare l'intera CPU di un computer.</div>
         </div>
 

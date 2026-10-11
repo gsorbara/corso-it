@@ -16,7 +16,7 @@
         <p>Il 29 ottobre 1969 nacque <strong>ARPANET</strong>: collegando quattro università (UCLA, Stanford, UC Santa Barbara e l'Università dello Utah), venne inviato il primo messaggio telematico della storia umana (tentarono di digitare <code>LOGIN</code>, ma il sistema crashò dopo le prime due lettere <code>LO</code>!).</p>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Arpanet_logical_map%2C_march_1977.png" alt="Mappa logica di ARPANET nel 1977" loading="lazy">
+          <img class="figure-img" src="images/modulo-08/arpanet-map-1977.png" alt="Mappa logica di ARPANET nel 1977" loading="lazy" style="object-fit: contain; background: #fff; max-height: 440px;">
           <div class="figure-caption">Mappa logica di ARPANET nel 1977: l'antenata diretta di Internet che collegava i primi mainframe e minicomputer universitari tramite linee telefoniche dedicate.</div>
         </div>
 
@@ -224,7 +224,7 @@
         </ol>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/d/d1/First_Web_Server.jpg" alt="Il computer NeXTcube di Tim Berners-Lee al CERN" loading="lazy">
+          <img class="figure-img" src="images/modulo-08/first-web-server.jpg" alt="Il computer NeXTcube di Tim Berners-Lee al CERN" loading="lazy">
           <div class="figure-caption">Il computer NeXTcube di Tim Berners-Lee al CERN: il primo server web al mondo. Sulla destra è visibile l'etichetta adesiva originale: <em>"This machine is a server. DO NOT POWER DOWN!"</em>.</div>
         </div>
 
