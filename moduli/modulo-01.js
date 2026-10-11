@@ -42,7 +42,7 @@
         </ul>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/0/00/Claude_Shannon_1963.jpg" alt="Claude Shannon" loading="lazy">
+          <img class="figure-img" src="images/modulo-01/claude-shannon.jpg" alt="Claude Shannon" loading="lazy">
           <div class="figure-caption">Claude Shannon (1916–2001), padre della teoria dell'informazione e creatore del concetto moderno di Bit.</div>
         </div>
 
@@ -107,8 +107,8 @@
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Khwarizmi_Amirkabir_University_of_Technology.jpg" alt="Statua di Al-Khwarizmi" loading="lazy">
-          <div class="figure-caption">Statua di Muhammad ibn Musa al-Khwarizmi (Baghdad, IX sec.), dalle cui opere derivano i termini "Algoritmo" e "Algebra".</div>
+          <img class="figure-img" src="images/modulo-01/al-khwarizmi.jpg" alt="Monumento ad Al-Khwarizmi" loading="lazy">
+          <div class="figure-caption">Monumento a Muhammad ibn Musa al-Khwarizmi (IX sec.), dalle cui opere derivano i termini "Algoritmo" e "Algebra".</div>
         </div>
 
         <!-- WIDGET 2: RICERCA LINEARE VS RICERCA BINARIA -->
@@ -226,12 +226,12 @@
         <p>Nelle sue note esplicative (la famosa <strong>Note G</strong>), Lovelace pubblicò una tabella passo-passo per calcolare i <a href="https://it.wikipedia.org/wiki/Numeri_di_Bernoulli" target="_blank">numeri di Bernoulli</a> tramite schede perforate. Quello schema è universalmente riconosciuto come il <strong>primo algoritmo software della storia</strong>.</p>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Ada_Lovelace_portrait.jpg" alt="Ritratto di Ada Lovelace" loading="lazy">
+          <img class="figure-img" src="images/modulo-01/ada-lovelace.jpg" alt="Ritratto di Ada Lovelace" loading="lazy">
           <div class="figure-caption">Ada Lovelace (1815–1852), pioniera assoluta dell'informatica e prima persona ad aver scritto un algoritmo per computer.</div>
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Diagram_for_the_computation_of_Bernoulli_numbers.jpg" alt="Diagramma di Ada Lovelace Note G 1843" loading="lazy">
+          <img class="figure-img" src="images/modulo-01/bernoulli-diagram.jpg" alt="Diagramma di Ada Lovelace Note G 1843" loading="lazy" style="object-fit: contain; background: #fff; max-height: 480px;">
           <div class="figure-caption">Il diagramma originale del 1843 (Note G) in cui Ada Lovelace descrisse le variabili e il ciclo di calcolo per la Macchina Analitica.</div>
         </div>
 
