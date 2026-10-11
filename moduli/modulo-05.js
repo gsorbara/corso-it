@@ -385,35 +385,48 @@
   quiz: {
     questions: [
       {
-        q: "Qual è il compito del Program Counter (PC) all'interno della microarchitettura della CPU?",
+        q: "Nel contesto della gerarchia delle memorie, su quali principi fisici e statistici si basa l'efficacia delle memorie Cache (L1, L2, L3) per mascherare l'elevata latenza della RAM?",
         options: [
-          { text: "Contiene l'indirizzo di memoria della prossima istruzione da eseguire e si incrementa automaticamente", correct: true },
-          { text: "Serve solo per contare quanti secondi il computer rimane acceso", correct: false },
-          { text: "Esegue le moltiplicazioni e le divisioni matematiche", correct: false }
+          { text: "Sui principi di località temporale (un dato usato di recente sarà probabilmente riutilizzato a breve) e località spaziale (dati con indirizzi contigui verranno probabilmente letti in sequenza)", correct: true },
+          { text: "Sulla compressione dinamica dei dati a livello di bus che riduce le dimensioni dei byte a un quarto del loro peso originale", correct: false },
+          { text: "Sull'eliminazione totale del bus degli indirizzi, sostituito da una trasmissione wireless a onde radio interna al die di silicio", correct: false },
+          { text: "Sulla capacità della memoria Cache di eseguire direttamente operazioni algebriche senza transitare per l'ALU", correct: false }
         ]
       },
       {
-        q: "Se un singolo ciclo di clock della CPU durasse 1 secondo umano, a quanto ammonterebbe circa il tempo per recuperare un dato dalla memoria RAM principale?",
+        q: "Qual è la distinzione funzionale e la direzionalità dei tre Bus di sistema fondamentali che collegano la CPU al resto dell'architettura hardware?",
         options: [
-          { text: "Circa 4 minuti umani, mentre nei registri interni della CPU è istantaneo (1 secondo)", correct: true },
-          { text: "Meno di mezzo secondo", correct: false },
-          { text: "Più di 500 anni solari", correct: false }
+          { text: "Address Bus unidirezionale (dalla CPU verso memoria/dispositivi), Data Bus bidirezionale (trasferimento dati in lettura/scrittura) e Control Bus bidirezionale (segnali di comando, read/write e interrupt)", correct: true },
+          { text: "Tutti e tre i bus sono rigorosamente unidirezionali e trasferiscono informazioni unicamente dalle unità di archiviazione verso i registri interni della CPU", correct: false },
+          { text: "L'Address Bus trasporta i risultati elaborati dall'ALU, mentre il Data Bus serve solo a indicare l'indice delle celle di memoria fisica", correct: false },
+          { text: "Il Control Bus fornisce l'alimentazione elettrica a monte, mentre il Data Bus genera gli impulsi del segnale di clock di sincronizzazione", correct: false }
         ]
       },
       {
-        q: "Quale dei tre bus fondamentali della scheda madre è UNIDIREZIONALE e viaggia solo dalla CPU verso l'esterno?",
+        q: "Qual è la differenza concettuale e architetturale fondamentale tra le filosofie di instruction set CISC (es. x86-64) e RISC (es. ARM, RISC-V)?",
         options: [
-          { text: "L'Address Bus (Bus degli Indirizzi), che indica alla memoria quale cella leggere o scrivere", correct: true },
-          { text: "Il Data Bus (Bus dei Dati)", correct: false },
-          { text: "Il cavo dell'alimentatore della corrente", correct: false }
+          { text: "CISC adotta istruzioni complesse a lunghezza variabile capaci di eseguire operazioni su memoria in più cicli; RISC usa istruzioni semplici, a lunghezza fissa e a singolo ciclo (load/store), privilegiando efficienza energetica e pipeline regolari", correct: true },
+          { text: "CISC è un'architettura limitata ad elaborazioni a 8 bit per calcoli testuali, mentre RISC supporta nativamente solo la grafica tridimensionale a virgola mobile", correct: false },
+          { text: "RISC è priva di registri interni e opera eseguendo ogni calcolo matematico mediante accesso immediato e continuo alla RAM principale", correct: false },
+          { text: "CISC impone l'interpretazione a runtime del bytecode, mentre le architetture RISC non richiedono mai compilazione né decodifica delle istruzioni", correct: false }
         ]
       },
       {
-        q: "Qual è la differenza architetturale fondamentale tra una CPU e una GPU moderna?",
+        q: "Quale funzione critica assolve il controller DMA (Direct Memory Access) nelle moderne piattaforme di elaborazione?",
         options: [
-          { text: "La CPU ha pochi core complessi ottimizzati per bassa latenza e compiti sequenziali; la GPU ha migliaia di core semplici ottimizzati per calcolo massivo parallelo", correct: true },
-          { text: "La CPU lavora in codice binario mentre la GPU lavora solo in numeri romani", correct: false },
-          { text: "La GPU consuma zero watt ed è completamente fredda al tatto", correct: false }
+          { text: "Consente alle periferiche veloci (come controller NVMe e schede di rete Gigabit) di trasferire blocchi di dati direttamente da e verso la RAM senza impegnare la CPU per ogni singolo ciclo di trasferimento", correct: true },
+          { text: "Sostituisce la memoria Cache L1 mappando l'intero spazio di indirizzamento della memoria secondaria all'interno dei registri del processore", correct: false },
+          { text: "Converte il codice sorgente assemblato in microcodice prima del caricamento nel Program Counter", correct: false },
+          { text: "Incrementa la frequenza del generatore di clock disabilitando la modulazione termica e i controlli di sovracorrente", correct: false }
+        ]
+      },
+      {
+        q: "Perché le GPU (Graphics Processing Units) risultano ordini di grandezza più veloci ed efficienti delle CPU nei carichi di lavoro per calcolo scientifico, grafica e Deep Learning?",
+        options: [
+          { text: "La CPU è ottimizzata per la minima latenza su singoli thread complessi grazie a core complessi e ampie cache; la GPU privilegia il throughput parallelo mediante migliaia di core più semplici che eseguono simultaneamente la stessa istruzione su grandi matrici di dati (modello SIMD)", correct: true },
+          { text: "La GPU non impiega silicio né transistor, sfruttando matrici ottiche integrate che azzerano la dissipazione termica per effetto Joule", correct: false },
+          { text: "La GPU esclude del tutto le fasi di Fetch e Decode dal ciclo macchina, leggendo le formule matematiche direttamente in formato testuale", correct: false },
+          { text: "I registri interni della GPU possiedono una velocità di trasmissione dati virtualmente infinita operando su frequenze di clock superiori a 500 GHz", correct: false }
         ]
       }
     ]

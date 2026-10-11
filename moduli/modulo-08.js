@@ -291,35 +291,48 @@ Content-Length: 412
   quiz: {
     questions: [
       {
-        q: "Perché l'architettura di commutazione di pacchetto (Packet Switching) rende Internet robusta contro i guasti?",
+        q: "Perché l'adozione della commutazione di pacchetto (Packet Switching) in ARPANET ha rivoluzionato l'architettura delle reti rispetto alla tradizionale commutazione di circuito telefonica?",
         options: [
-          { text: "Perché l'informazione viene divisa in pacchetti indipendenti che possono percorrere strade alternative e ricomporsi alla destinazione anche se un router lungo il percorso si guasta", correct: true },
-          { text: "Perché impedisce alle persone di spegnere i computer portatili", correct: false },
-          { text: "Perché converte tutti i cavi in fibra ottica in fili d'oro", correct: false }
+          { text: "Elimina la necessità di riservare un circuito fisico dedicato e continuo: i messaggi vengono frammentati in pacchetti autonomi (datagrammi) instradati dinamicamente dai router su percorsi alternativi, massimizzando l'efficienza del canale e resistendo a guasti parziali", correct: true },
+          { text: "Obbliga ogni singolo pacchetto a percorrere rigidamente la medesima tratta fisica di cavi in rame alla velocità fissa garantita di 1 Mbit/s", correct: false },
+          { text: "Sostituisce gli indirizzi logici IP con frequenze radio analogiche modulate direttamente dalla circuiteria audio della sorgente", correct: false },
+          { text: "Impedisce per ragioni di sicurezza la trasmissione contemporanea di flussi di dati da parte di più host sulla stessa dorsale geografica", correct: false }
         ]
       },
       {
-        q: "Qual è la differenza fondamentale tra il protocollo TCP e il protocollo UDP?",
+        q: "Quale combinazione di caratteristiche architetturali distingue formalmente il protocollo di trasporto TCP da UDP?",
         options: [
-          { text: "TCP garantisce la consegna corretta e ordinata di ogni pacchetto richiedendo il rinvio di quelli persi; UDP invia pacchetti senza verifiche privilegiando la massima velocità in tempo reale (streaming e gaming)", correct: true },
-          { text: "TCP funziona solo di giorno, mentre UDP funziona solo di notte", correct: false },
-          { text: "Non c'è alcuna differenza, sono due nomi per la stessa chiavetta USB", correct: false }
+          { text: "TCP è orientato alla connessione (3-way handshake), garantisce recapito, ordinamento e controllo di congestione con rispedizione dei pacchetti persi; UDP è connectionless e best-effort, ideale per scenari a bassissima latenza e tolleranti alla perdita (DNS, VoIP, gaming online)", correct: true },
+          { text: "TCP opera unicamente su reti senza fili crittografate, mentre UDP può essere impiegato solo su collegamenti cablati in fibra ottica sottomarina", correct: false },
+          { text: "UDP cifra preventivamente l'intero payload con algoritmi a chiave pubblica, mentre TCP supporta solo lo scambio di testo in chiaro non strutturato", correct: false },
+          { text: "TCP incapsula i pacchetti direttamente nei frame fisici Ethernet senza utilizzare numeri di porta per identificare le applicazioni destinatarie", correct: false }
         ]
       },
       {
-        q: "Qual è il compito primario del sistema DNS (Domain Name System)?",
+        q: "Durante la risoluzione ricorsiva di un nome a dominio (es. 'it.wikipedia.org'), qual è la corretta gerarchia di interrogazione eseguita dal resolver DNS se la voce non è presente in cache?",
         options: [
-          { text: "Agire come una rubrica telefonica universale, traducendo i nomi di dominio facili da ricordare per gli umani (es. wikipedia.org) nei relativi indirizzi IP numerici compresi dai router", correct: true },
-          { text: "Aumentare il volume della musica riprodotta dal browser", correct: false },
-          { text: "Cancellare la cronologia delle ricerche ogni 10 minuti", correct: false }
+          { text: "Interroga prima un Root Nameserver (per la radice '.'), poi il server TLD competente (per '.org'), e infine il Nameserver Autorevole del dominio ('wikipedia.org') che restituisce il Record A con l'indirizzo IP numerico definitivo", correct: true },
+          { text: "Invia una richiesta broadcast non indirizzata a tutti i computer mondiali per verificare le rispettive tabelle ARP locali", correct: false },
+          { text: "Contatta direttamente il server web di destinazione tramite una chiamata HTTP prima ancora di averne individuato l'indirizzo IP pubblico", correct: false },
+          { text: "Esegue il calcolo dell'IP calcolando l'hash crittografico SHA-256 dei caratteri ASCII del dominio all'interno del browser senza traffico di rete", correct: false }
         ]
       },
       {
-        q: "Qual è la differenza tra Internet e il World Wide Web (WWW)?",
+        q: "Qual è la fondamentale distinzione concettuale e tecnologica tra 'Internet' e il 'World Wide Web'?",
         options: [
-          { text: "Internet è l'infrastruttura di rete globale fisica di cavi e router (1969); il Web è il sistema ipertestuale di documenti e siti navigabili tramite browser ideato da Tim Berners-Lee (1989)", correct: true },
-          { text: "Internet è un'applicazione per smartphone, mentre il Web è un tipo di tastiera", correct: false },
-          { text: "Sono due parole perfettamente sinonime nate nello stesso giorno", correct: false }
+          { text: "Internet è l'infrastruttura globale di telecomunicazione e interconnessione di reti (protocolli IP, BGP, router fisici e dorsali); il Web è un servizio applicativo basato su Internet ideato da Tim Berners-Lee nel 1989, costituito da ipertesti interconnessi tramite URL, HTTP e HTML", correct: true },
+          { text: "Internet è un software proprietario sviluppato dal CERN per l'analisi di particelle subatomiche, mentre il Web rappresenta la totalità dei cavi fisici intercontinentali", correct: false },
+          { text: "Internet e Web sono due acronimi sinonimi introdotti congiuntamente dalla DARPA nel 1969 per formalizzare il protocollo Telnet", correct: false },
+          { text: "Il Web gestisce il controllo degli errori nei router di livello 2 (Data Link), mentre Internet definisce la formattazione grafica dei fogli di stile CSS", correct: false }
+        ]
+      },
+      {
+        q: "Quale problema strutturale dell'architettura IPv4 ha risolto l'introduzione della tecnica NAT (Network Address Translation) nei router moderni?",
+        options: [
+          { text: "Ha mitigato l'esaurimento del pool di indirizzi IPv4 pubblici a 32 bit, consentendo a un'intera rete locale (con indirizzi privati come 192.168.x.x o 10.x.x.x) di condividere un unico IP pubblico all'esterno mappando le sessioni tramite porte di trasporto", correct: true },
+          { text: "Ha consentito di raddoppiare la frequenza di trasmissione del segnale nei doppini in rame eliminando i disturbi di diafonia", correct: false },
+          { text: "Ha eliminato la necessità di installare schede di interfaccia di rete (NIC) nei personal computer e nei dispositivi mobili", correct: false },
+          { text: "Ha convertito automaticamente i pacchetti dati da segnali elettrici a codici a barre ottici letti direttamente dallo schermo", correct: false }
         ]
       }
     ]

@@ -343,35 +343,48 @@
   quiz: {
     questions: [
       {
-        q: "Cosa sono i 'Magic Numbers' all'inizio di un file eseguibile (es. 'MZ' per Windows o '\\x7fELF' per Linux)?",
+        q: "All'interno di un file binario eseguibile (come i formati ELF su Linux o PE su Windows), qual è la differenza fondamentale tra la sezione '.data' e la sezione '.bss'?",
         options: [
-          { text: "Sequenze costanti di byte che consentono al sistema operativo di identificare con certezza assoluta il formato del file prima di eseguirlo", correct: true },
-          { text: "Numeri casuali generati dal mouse per fare magie grafiche", correct: false },
-          { text: "Password segrete che solo la NASA può decifrare", correct: false }
+          { text: "La sezione .data contiene le variabili globali inizializzate con valori espliciti e occupa spazio fisico su disco; la sezione .bss definisce variabili globali non inizializzate (o azzerate) e occupa 0 byte nel file su disco, venendo allocata e azzerata in RAM dal Loader solo all'avvio", correct: true },
+          { text: "La sezione .data contiene il codice macchina eseguibile compilato per la CPU, mentre la sezione .bss memorizza esclusivamente le risorse grafiche e i font", correct: false },
+          { text: "La sezione .bss è contrassegnata come Read-Execute (R-X) per la CPU, mentre la sezione .data è riservata al caricamento delle routine del BIOS", correct: false },
+          { text: "La sezione .data risiede unicamente all'interno dello Stack frame, mentre la sezione .bss viene salvata nella memoria non-volatile CMOS della scheda madre", correct: false }
         ]
       },
       {
-        q: "Qual è il compito del 'Loader' del sistema operativo quando l'utente fa doppio clic su un file eseguibile?",
+        q: "Nel layout dello spazio di indirizzamento virtuale di un processo a 64 bit, quali caratteristiche differenziano la memoria 'Stack' dalla memoria 'Heap'?",
         options: [
-          { text: "Leggere gli header del file, allocare lo spazio di indirizzi virtuale privato in RAM, mappare le sezioni, collegare le librerie dinamiche e saltare all'Entry Point", correct: true },
-          { text: "Riformattare l'intero disco rigido ogni volta che si apre un programma", correct: false },
-          { text: "Inviare un'email di notifica a tutti gli utenti della rete Wi-Fi", correct: false }
+          { text: "Lo Stack ha gestione LIFO ultraveloce e automatica legata al ciclo di vita delle funzioni (parametri, indirizzi di ritorno, variabili locali); lo Heap è un'area di memoria dinamica a runtime gestita manualmente dal programmatore o tramite Garbage Collector", correct: true },
+          { text: "Lo Stack cresce occupando l'intero spazio dei file di paging su disco, mentre lo Heap è una porzione statica e immutabile cablata nel firmware UEFI", correct: false },
+          { text: "Lo Stack è accessibile indistintamente da tutti i processi in esecuzione nel sistema operativo, mentre lo Heap è confinato rigorosamente all'interno dei registri interni dell'ALU", correct: false },
+          { text: "Nello Stack vengono allocati solo file e flussi multimediali oltre 1 GB, mentre lo Heap memorizza unicamente puntatori esadecimali a 8 bit", correct: false }
         ]
       },
       {
-        q: "Qual è la differenza strutturale principale tra Stack e Heap nella memoria di un processo?",
+        q: "Cosa accade a livello di architettura e MMU quando si verifica l'errore fatale di 'Stack Overflow' causato da una ricorsione infinita?",
         options: [
-          { text: "Lo Stack gestisce automaticamente con logica LIFO le variabili locali e il ritorno dalle funzioni; lo Heap è una riserva dinamica usata per allocare oggetti a runtime su richiesta esplicita", correct: true },
-          { text: "Lo Stack contiene solo immagini JPEG mentre l'Heap contiene solo canzoni MP3", correct: false },
-          { text: "Non c'è alcuna differenza, sono due nomi sinonimi per la scheda video", correct: false }
+          { text: "L'accrescimento continuo dei frame dello stack esaurisce lo spazio allocato e tenta di scrivere nella 'Guard Page' (pagina non mappata con permessi revocati): la MMU intercetta la violazione e scatena un'eccezione hardware di Segmentation Fault", correct: true },
+          { text: "Il controller DMA reindirizza automaticamente il flusso ricorsivo verso la memoria video, convertendo le chiamate di funzione in texture grafiche", correct: false },
+          { text: "La CPU riduce forzatamente la frequenza di clock a 1 Hz, trasformando le funzioni ricorsive in microistruzioni a singolo ciclo di bus", correct: false },
+          { text: "Il sistema operativo cancella l'intero file system del disco per preservare i registri di stato da sovratensioni elettriche", correct: false }
         ]
       },
       {
-        q: "Cosa provoca fisicamente l'errore fatale di 'Stack Overflow'?",
+        q: "Qual è la distinzione architetturale fondamentale tra un Processo e un Thread nell'esecuzione concorrente?",
         options: [
-          { text: "Una sequenza di chiamate di funzione ricorsive senza fine che consuma tutta la memoria della pila fino a sfondare la Guard Page protetta dalla MMU", correct: true },
-          { text: "La presenza di polvere all'interno della ventola di raffreddamento del processore", correct: false },
-          { text: "L'apertura di troppe finestre del browser contemporaneamente", correct: false }
+          { text: "I processi possiedono spazi di indirizzamento virtuali completamente isolati e indipendenti gestiti dal Kernel; i thread (dello stesso processo) condividono lo stesso spazio di memoria, heap e descrittori di file, ma mantengono stack e registri privati", correct: true },
+          { text: "Un processo può essere eseguito solo da processori a singolo core, mentre i thread richiedono obbligatoriamente un cluster di calcolo remoto distribuito", correct: false },
+          { text: "I thread non possono accedere alla memoria RAM e comunicano unicamente tramite continue operazioni di scrittura su file temporanei su disco", correct: false },
+          { text: "I processi sono costrutti software gestiti a livello di compilatore senza supporto del Kernel, mentre i thread sono circuiti integrati saldati sulla scheda madre", correct: false }
+        ]
+      },
+      {
+        q: "In un'applicazione multithreading, cos'è una 'Race Condition' e come viene formalmente risolta per garantire la correttezza dei dati?",
+        options: [
+          { text: "È un'anomalia in cui due o più thread accedono e modificano concorrentemente una risorsa condivisa senza sincronizzazione, producendo risultati non deterministici; si risolve proteggendo la sezione critica con primitive di mutua esclusione (Mutex o Lock atomici)", correct: true },
+          { text: "È una situazione in cui i thread competono per occupare la banda del bus PCIe; si risolve abbassando la risoluzione dello schermo", correct: false },
+          { text: "È un'incompatibilità binaria tra codice C e Assembly; si risolve rieseguendo il compilatore con l'opzione di interpretazione istantanea", correct: false },
+          { text: "È uno stato in cui lo scheduler assegna tutti i cicli di clock a processi in stato di Zombie; si risolve raddoppiando la memoria cache L3", correct: false }
         ]
       }
     ]

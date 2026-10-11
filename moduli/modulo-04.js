@@ -320,35 +320,48 @@ C:\UTENTE> </div>
   quiz: {
     questions: [
       {
-        q: "Qual è stato il primo desktop personal computer programmabile commerciale della storia e dove fu inventato?",
+        q: "Perché l'Olivetti Programma 101 (1965), ideata da Pier Giorgio Perotto, è storicamente riconosciuta come il primo personal computer da tavolo?",
         options: [
-          { text: "L'Olivetti Programma 101, ideata nel 1965 a Ivrea da Pier Giorgio Perotto e usata anche dalla NASA per l'allunaggio dell'Apollo 11", correct: true },
-          { text: "L'IBM PC 5150, inventato a New York nel 1945", correct: false },
-          { text: "Il Commodore 64, progettato in Giappone nel 1982", correct: false }
+          { text: "Era una macchina autonoma, compatta e programmabile direttamente dall'utente da scrivania: registrava ed eseguiva algoritmi tramite cartoline magnetiche (fu usata anche dalla NASA per calcolare la discesa lunare dell'Apollo 11), senza richiedere sale climatizzate o tecnici specializzati", correct: true },
+          { text: "Era un terminale stupido privo di CPU propria che trasmetteva dati via modem radio ai mainframe militari americani", correct: false },
+          { text: "Fu il primo calcolatore commerciale a utilizzare un'interfaccia grafica a colori con mouse e finestre multitasking", correct: false },
+          { text: "Funzionava esclusivamente a schede perforate tessili e pesava oltre due tonnellate", correct: false }
         ]
       },
       {
-        q: "Qual è la differenza fondamentale tra la memoria di massa (Storage) e la memoria di lavoro (RAM) in un PC?",
+        q: "Qual è la differenza architetturale e funzionale primaria tra Memoria di Lavoro (RAM) e Memoria di Massa (Storage SSD/HDD)?",
         options: [
-          { text: "Lo Storage è persistente ma lento e la CPU non può eseguire direttamente da esso; la RAM è volatile, velocissima ed è l'unica memoria da cui la CPU esegue i programmi", correct: true },
-          { text: "La RAM conserva i dati per sempre anche a computer spento, mentre il disco SSD si cancella ogni sera", correct: false },
-          { text: "Non c'è alcuna differenza, sono due sinonimi commerciali della stessa cosa", correct: false }
+          { text: "La CPU preleva ed esegue le istruzioni direttamente dai settori dell'SSD senza passare dalla RAM per non consumare banda", correct: false },
+          { text: "Lo Storage è non volatile e capiente ma ad accesso indiretto e lento; la RAM è volatile e direttamente indirizzabile dal bus della CPU a latenze nanometriche, costituendo l'unico spazio da cui il processore esegue il codice", correct: true },
+          { text: "La RAM conserva i dati in modo permanente anche a computer spento, mentre l'SSD perde i dati alla disconnessione dalla corrente", correct: false },
+          { text: "Non esiste alcuna distinzione logica: entrambi i dispositivi condividono la stessa memoria cache interna al die della CPU", correct: false }
         ]
       },
       {
-        q: "Quali innovazioni epocali furono mostrate da Douglas Engelbart nella famosa 'Madre di tutte le demo' del 1968?",
+        q: "Quali tecnologie fondamentali dell'informatica moderna furono mostrate pubblicamente per la prima volta nella 'Madre di Tutte le Demo' di Douglas Engelbart (1968)?",
         options: [
-          { text: "Il primo mouse per computer in legno, il testo ipertestuale e le finestre multiple a schermo", correct: true },
-          { text: "Il primo smartphone touchscreen con connessione 5G", correct: false },
-          { text: "Il primo visore per la realtà virtuale a colori", correct: false }
+          { text: "Il primo microprocessore integrato al silicio e il primo server Web HTTP", correct: false },
+          { text: "Il mouse per computer a rotelle ortogonali, il testo ipertestuale navigabile, le interfacce a finestre multiple e la collaborazione interattiva in tempo reale su display", correct: true },
+          { text: "Il primo display a cristalli liquidi con supporto alla realtà aumentata e connessione cellulare 3G", correct: false },
+          { text: "Il primo algoritmo di intelligenza artificiale addestrato tramite reti neurali profonde", correct: false }
         ]
       },
       {
-        q: "Perché il personal computer è definito una 'macchina universale programmabile' (ispirata alla Macchina di Turing)?",
+        q: "In che modo la 'Desktop Metaphor' ideata allo Xerox PARC (1973) ha rivoluzionato il modello di interazione uomo-macchina?",
         options: [
-          { text: "Perché non ha una funzione fissa: caricando software differenti dal disco nella memoria RAM, lo stesso hardware si trasforma in qualsiasi strumento desiderato", correct: true },
-          { text: "Perché è l'unico dispositivo al mondo che funziona senza consumo di energia elettrica", correct: false },
-          { text: "Perché può essere costruito solo utilizzando metalli provenienti da altri pianeti", correct: false }
+          { text: "Ha sostituito l'obbligo di memorizzare aridi comandi testuali (CLI) con rappresentazioni grafiche intuitive di oggetti quotidiani (scrivania, cartelle, documenti, finestre sovrapponibili e cestino) manipolabili tramite puntatore", correct: true },
+          { text: "Ha imposto l'esecuzione di un solo programma per volta per evitare collisioni sul bus della scheda video", correct: false },
+          { text: "Ha introdotto il divieto di salvare file sul disco fisso per costringere gli utenti a memorizzare tutto sulla memoria ROM della tastiera", correct: false },
+          { text: "Ha eliminato l'uso del monitor video a favore di stampanti ad aghi ad alta velocità", correct: false }
+        ]
+      },
+      {
+        q: "Secondo le migliori pratiche di sicurezza hardware e protezione dei dati, come si articola la 'Regola del Backup 3-2-1'?",
+        options: [
+          { text: "Creare 3 cartelle con lo stesso nome, salvarle per 2 giorni consecutivi e spegnere il computer con 1 clic", correct: false },
+          { text: "Mantenere almeno 3 copie totali dei dati, su 2 supporti con tecnologie differenti (es. SSD locale e storage NAS/ottico), di cui almeno 1 copia custodita geograficamente fuori sede (off-site o cloud cifrato)", correct: true },
+          { text: "Installare 3 diversi antivirus commerciali, riavviare il sistema 2 volte e scollegare 1 cavo di alimentazione", correct: false },
+          { text: "Mantenere 3 partizioni logiche distinte all'interno dello stesso identico disco meccanico interno", correct: false }
         ]
       }
     ]

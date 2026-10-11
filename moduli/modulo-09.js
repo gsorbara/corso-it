@@ -245,35 +245,48 @@
   quiz: {
     questions: [
       {
-        q: "Qual è la differenza fondamentale tra un Virus e un Worm (verme di rete)?",
+        q: "Qual è la distinzione fondamentale nel meccanismo di propagazione ed esecuzione tra Virus, Worm e Trojan Horse?",
         options: [
-          { text: "Il virus necessita di un file ospite infetto e dell'azione dell'utente per avviarsi; il worm è un programma autonomo capace di auto-replicarsi da solo attraverso le falle di rete senza alcun intervento umano", correct: true },
-          { text: "Il virus attacca solo di domenica, mentre il worm attacca solo di lunedì", correct: false },
-          { text: "Non c'è alcuna differenza, sono due sinonimi per indicare il mouse rotto", correct: false }
+          { text: "Il Virus è codice parassita che infetta un file ospite ed esige l'azione dell'utente per avviarsi; il Worm è un'entità autonoma che si replica sfruttando vulnerabilità di rete senza intervento umano; il Trojan è un malware mascherato da software apparentemente legittimo o utile", correct: true },
+          { text: "Il Worm attacca unicamente i registri interni della CPU, mentre il Trojan e il Virus risiedono esclusivamente nel firmware della tastiera", correct: false },
+          { text: "I Virus operano solo attraverso la riga di comando Linux, mentre Worm e Trojan sono file grafici interpretati dal display del monitor", correct: false },
+          { text: "Il Trojan richiede un cavo di rete disconnesso per propagarsi, mentre il Worm è un algoritmo di compressione privo di payload malevolo", correct: false }
         ]
       },
       {
-        q: "In cosa consiste la minaccia di un Ransomware?",
+        q: "Quale sequenza operativa caratterizza formalmente il funzionamento dei moderni Ransomware a doppia estorsione?",
         options: [
-          { text: "Crittografa tutti i file e documenti del computer della vittima con una chiave segreta, richiedendo il pagamento di un riscatto in criptovalute per riaverli", correct: true },
-          { text: "Aumenta la luminosità dello schermo fino a consumare la batteria", correct: false },
-          { text: "Cancella le lettere doppie da tutti i testi scritti con la tastiera", correct: false }
+          { text: "Infiltrazione silente, esfiltrazione dei dati sensibili sui server dell'attaccante, eliminazione delle copie di backup (Volume Shadow Copies) e cifratura simmetrica ad alta velocità (AES) dei file con chiave protetta asimmetricamente (RSA) e richiesta di riscatto", correct: true },
+          { text: "Riformattazione a basso livello del settore MBR del disco per convertire la partizione NTFS in formato ext4 incompatibile", correct: false },
+          { text: "Sovraccarico dei condensatori della scheda madre tramite loop infinito dell'ALU che forza la fusione termica del processore", correct: false },
+          { text: "Sostituzione istantanea di tutti i caratteri delle credenziali memorizzate nel browser con caratteri speciali non digitabili", correct: false }
         ]
       },
       {
-        q: "Perché l'ingegneria sociale e gli attacchi di Phishing sono considerati così pericolosi?",
+        q: "Perché il protocollo HTTPS / TLS adotta un'architettura crittografica ibrida sia con crittografia asimmetrica sia simmetrica?",
         options: [
-          { text: "Perché non tentano di violare la crittografia dei computer, ma ingannano direttamente l'essere umano spingendolo con la paura o l'urgenza a cedere spontaneamente le proprie credenziali", correct: true },
-          { text: "Perché bruciano i cavi della corrente elettrica", correct: false },
-          { text: "Perché impediscono al computer di collegarsi al monitor", correct: false }
+          { text: "La crittografia asimmetrica viene impiegata nell'handshake per autenticare il server (tramite certificato CA) e negoziare in sicurezza una chiave di sessione effimera; la crittografia simmetrica (molto più efficiente computazionalmente) cifra poi l'effettivo flusso continuo di dati", correct: true },
+          { text: "La crittografia asimmetrica cifra solo gli elementi grafici del sito, mentre quella simmetrica elabora unicamente i tag HTML", correct: false },
+          { text: "La crittografia simmetrica funziona solo se client e server condividono lo stesso interruttore di alimentazione elettrica", correct: false },
+          { text: "L'uso congiunto è necessario perché le chiavi asimmetriche possono essere lette in chiaro da qualsiasi router di transito senza decodifica", correct: false }
         ]
       },
       {
-        q: "Come garantisce la sicurezza la Crittografia Asimmetrica (a chiave pubblica e privata) nelle comunicazioni HTTPS?",
+        q: "Su quali tre pilastri logici e distinti si fonda l'architettura di Autenticazione Multifattore (MFA / 2FA)?",
         options: [
-          { text: "Chiunque può sigillare il messaggio usando il lucchetto pubblico del destinatario, ma solo il destinatario in possesso della chiave privata segreta può aprirlo e leggerlo", correct: true },
-          { text: "Invia una lettera cartacea prima di ogni click sul browser", correct: false },
-          { text: "Spegne i satelliti GPS durante la trasmissione dei dati", correct: false }
+          { text: "Qualcosa che sai (conoscenza: es. password o PIN), qualcosa che hai (possesso: es. token hardware, smartphone con app TOTP) e qualcosa che sei (inerenza: es. impronta digitale, FaceID o scansione dell'iride)", correct: true },
+          { text: "Indirizzo IP pubblico della rete locale, modello della scheda video installata e velocità in megabit della connessione in fibra", correct: false },
+          { text: "Sistema operativo installato, numero di finestre aperte sulla scrivania e data di registrazione della licenza commerciale del software", correct: false },
+          { text: "Nome del fornitore di connettività Internet, frequenza di scansione del display in Hertz e tipologia di mouse USB collegato", correct: false }
+        ]
+      },
+      {
+        q: "Perché gli attacchi di Ingegneria Sociale e Spear Phishing registrano la più alta percentuale di compromissione anche contro infrastrutture con difese avanzate?",
+        options: [
+          { text: "Sfruttano vulnerabilità psicologiche ed euristiche umane (senso di urgenza, deferenza verso l'autorità, timore o avidità) per indurre la persona ad aggirare spontaneamente le policy di sicurezza o cedere le credenziali, bypassando i controlli crittografici", correct: true },
+          { text: "Inviano pacchetti di rete speciali capaci di invertire la polarità elettrica dei firewall hardware disattivandone i filtri a monte", correct: false },
+          { text: "Riscrivono il microcodice della CPU della vittima sfruttando onde radio riflesse dall'antenna del router Wi-Fi", correct: false },
+          { text: "Decodificano gli hash crittografici SHA-256 in tempo reale tramite chip quantistici integrati nei normali browser web", correct: false }
         ]
       }
     ]

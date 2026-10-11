@@ -204,35 +204,48 @@
   quiz: {
     questions: [
       {
-        q: "In che modo il telaio per seta di Jacquard del 1804 ha ispirato la nascita dei primi calcolatori meccanici di Babbage?",
+        q: "In che cosa consiste il principio rivoluzionario dello 'Stored-Program' introdotto dall'Architettura di Von Neumann (1945)?",
         options: [
-          { text: "Dimostrò che nastro forato e cartoncini potevano controllare in modo automatico sequenze di azioni meccaniche complesse", correct: true },
-          { text: "Fornì i magneti per costruire i primi dischi fissi", correct: false },
-          { text: "Insegnò come alimentare le macchine con l'energia atomica", correct: false }
+          { text: "Dati e istruzioni risiedono nella medesima memoria primaria ad accesso casuale; la CPU può manipolare il programma stesso come se fosse dato, permettendo al calcolatore di riprogrammarsi dinamicamente senza ricablaggio fisico", correct: true },
+          { text: "La CPU esegue le istruzioni direttamente dal nastro magnetico esterno eliminando la necessità di qualsiasi memoria RAM fisica", correct: false },
+          { text: "Le istruzioni del programma sono incise a livello di circuito logico nei transistor della ALU e non possono essere modificate una volta acceso il computer", correct: false },
+          { text: "Istruzioni e dati devono obbligatoriamente transitare su canali ottici separati per impedire la corruzione del boot loader", correct: false }
         ]
       },
       {
-        q: "Quale celebre inventore italiano ha guidato la progettazione del primo microprocessore commerciale al mondo su singolo chip (l'Intel 4004 nel 1971)?",
+        q: "Quale innovazione permise a Federico Faggin di realizzare l'Intel 4004 (1971), il primo microprocessore su singolo chip?",
         options: [
-          { text: "Federico Faggin", correct: true },
-          { text: "Guglielmo Marconi", correct: false },
-          { text: "Enrico Fermi", correct: false }
+          { text: "L'assemblaggio di transistor a giunzione discreti raffreddati ad azoto liquido all'interno di un armadio da ufficio", correct: false },
+          { text: "L'impiego della Silicon Gate Technology (SGT), che consentì di integrare per la prima volta l'intera CPU (ALU, registri, Control Unit) su un unico frammento monolitico di silicio", correct: true },
+          { text: "L'abbandono del silicio in favore del germanio e delle valvole termoioniche miniaturizzate per aumentare la tensione di soglia", correct: false },
+          { text: "La progettazione della prima architettura quantistica a 64 bit compatibile con le schede perforate", correct: false }
         ]
       },
       {
-        q: "Qual è la differenza fondamentale tra l'Architettura di Von Neumann e l'Architettura Harvard?",
+        q: "Qual è la differenza strutturale primaria tra l'Architettura di Von Neumann e l'Architettura Harvard pura?",
         options: [
-          { text: "Von Neumann usa un unico bus e memoria condivisa per dati e istruzioni; Harvard usa memorie e bus fisicamente separati e paralleli", correct: true },
-          { text: "Von Neumann funziona solo a vapore, Harvard solo a manovella", correct: false },
-          { text: "Harvard non usa la CPU né transistor", correct: false }
+          { text: "L'architettura Harvard dispone di memorie e bus fisicamente distinti per codice e dati, consentendo accessi simultanei; Von Neumann unifica memoria e bus, introducendo il collo di bottiglia di trasferimento ma massimizzando la flessibilità", correct: true },
+          { text: "Von Neumann gestisce solo calcoli in virgola mobile, mentre Harvard opera esclusivamente con numeri interi senza segno", correct: false },
+          { text: "L'architettura Harvard non prevede una Control Unit e affida il coordinamento delle istruzioni alla scheda grafica GPU", correct: false },
+          { text: "Von Neumann richiede una CPU separata per ogni singola periferica di input/output collegata alla scheda madre", correct: false }
         ]
       },
       {
-        q: "Come conciliano i moderni laptop (Intel, AMD, Apple M-Series) le architetture Von Neumann e Harvard?",
+        q: "Come implementano i moderni processori (Intel Core, AMD Ryzen, Apple Silicon) l'Architettura Harvard Modificata?",
         options: [
-          { text: "Usano l'Architettura Harvard Modificata: RAM esterna condivisa (stile Von Neumann) e Cache L1 interna divisa in Istruzioni e Dati (stile Harvard)", correct: true },
-          { text: "Usano schede perforate di cartone dentro il display", correct: false },
-          { text: "Hanno eliminato del tutto la memoria per usare solo internet", correct: false }
+          { text: "Adottano un modello unificato Von Neumann per la memoria RAM principale esterna, ma integrano all'interno del die cache L1 fisicamente separate per Istruzioni (L1-I) e Dati (L1-D) per eliminare i conflitti di accesso", correct: true },
+          { text: "Utilizzano l'architettura Harvard pura su tutti i livelli, installando due schede madri distinte collegate da un ponte radio", correct: false },
+          { text: "Disattivano la memoria cache nei cicli di clock dispari per consentire l'accesso diretto ai dischi SSD NVMe", correct: false },
+          { text: "Eseguono le istruzioni tramite un bus analogico continuo privo di frequenza di clock o stadi di pipeline", correct: false }
+        ]
+      },
+      {
+        q: "Durante la fase di Fetch nel ciclo macchina CPU, quale ruolo svolgono il Program Counter (PC) e l'Instruction Register (IR)?",
+        options: [
+          { text: "L'ALU decodifica l'istruzione direttamente nella memoria di massa prima che il Program Counter venga inizializzato", correct: false },
+          { text: "Il Program Counter contiene l'indirizzo della prossima istruzione da prelevare in RAM; una volta prelevata, l'istruzione viene caricata nell'IR e il PC si incrementa per preparare il ciclo successivo", correct: true },
+          { text: "L'Instruction Register invia direttamente l'indirizzo delle istruzioni al monitor video senza passare dalla Control Unit", correct: false },
+          { text: "Il Program Counter azzera i registri della CPU ogni volta che un'operazione aritmetica genera un numero negativo", correct: false }
         ]
       }
     ]

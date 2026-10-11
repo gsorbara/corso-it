@@ -304,35 +304,48 @@
   quiz: {
     questions: [
       {
-        q: "Perché la perdita della sonda Mars Climate Orbiter nel 1999 è un esempio perfetto della differenza tra dato e informazione?",
+        q: "Perché l'incidente della sonda Mars Climate Orbiter (1999) illustra la differenza fondamentale tra 'dato' e 'informazione'?",
         options: [
-          { text: "Perché i dati numerici erano corretti, ma senza l'indicazione dell'unità di misura (libbre vs Newton) mancava il contesto e il significato", correct: true },
-          { text: "Perché la sonda non aveva abbastanza batterie per accendersi", correct: false },
-          { text: "Perché i computer di bordo erano troppo lenti per ricevere segnali radio", correct: false }
+          { text: "I numeri trasmessi erano dati grezzi corretti, ma privi del contesto semantico essenziale (l'unità di misura: libbre-forza vs Newton), rendendo impossibile ricavare l'informazione corretta", correct: true },
+          { text: "I dati rappresentano il codice macchina eseguibile, mentre l'informazione è il segnale elettromagnetico che viaggia nei cavi", correct: false },
+          { text: "La sonda riceveva informazioni perfettamente contestualizzate ma mancava la memoria RAM per convertire i numeri in formato binario", correct: false },
+          { text: "I dati sono sempre composti da caratteri alfabetici, mentre l'informazione è esclusivamente numerica", correct: false }
         ]
       },
       {
-        q: "Secondo la celebre teoria di Claude Shannon, che cosa misura l'informazione?",
+        q: "Secondo la Teoria Matematica della Comunicazione di Claude Shannon (1948), come viene definita e misurata l'informazione?",
         options: [
-          { text: "Il numero di lettere stampate su una pagina di giornale", correct: false },
-          { text: "La riduzione dell'incertezza rispetto a un evento o a una decisione", correct: true },
-          { text: "La velocità dei cavi in fibra ottica sottomarini", correct: false }
+          { text: "Come il numero totale di byte fisicamente memorizzati in un supporto magnetico o ottico", correct: false },
+          { text: "Come riduzione dell'incertezza rispetto a un evento: un messaggio altamente prevedibile apporta pochissima informazione, mentre un evento inatteso ne trasmette molta", correct: true },
+          { text: "Come la velocità massima di clock con cui i transistor possono commutare tra stato logico 0 e stato 1", correct: false },
+          { text: "Come il rapporto costante tra la potenza del segnale analogico e la lunghezza d'onda del canale trasmissivo", correct: false }
         ]
       },
       {
-        q: "Cosa intendeva Edsger Dijkstra affermando che l'informatica non riguarda i computer più di quanto l'astronomia riguardi i telescopi?",
+        q: "Quale affermazione descrive con precisione la definizione formale di 'Algoritmo'?",
         options: [
-          { text: "Che i programmatori devono lavorare guardando le stelle di notte", correct: false },
-          { text: "Che il computer è solo uno strumento fisico, mentre la Computer Science studia le leggi universali del calcolo e degli algoritmi", correct: true },
-          { text: "Che presto i telescopi sostituiranno i computer", correct: false }
+          { text: "Un programma scritto obbligatoriamente in un linguaggio ad alto livello orientato agli oggetti e compilato per CPU x86-64", correct: false },
+          { text: "Una sequenza infinita di istruzioni complesse che approssimano probabilisticamente una soluzione a un problema non computabile", correct: false },
+          { text: "Una sequenza finita di istruzioni non ambigue, eseguibili in tempo finito da un esecutore deterministico, che trasforma dati di input in dati di output", correct: true },
+          { text: "Qualsiasi formula matematica risolvibile esclusivamente tramite calcolo differenziale e integrale", correct: false }
         ]
       },
       {
-        q: "Quale fu la fondamentale intuizione di Ada Lovelace nel 1843 riguardo alla Macchina Analitica di Babbage?",
+        q: "Perché le 'Note G' di Ada Lovelace (1843) sulla Macchina Analitica segnano la nascita della Computer Science?",
         options: [
-          { text: "Capì che la macchina non serviva solo per fare conti aritmetici, ma poteva manipolare qualsiasi tipo di simbolo e informazione", correct: true },
-          { text: "Inventò lo schermo tattile per telefoni portatili", correct: false },
-          { text: "Dimostrò che l'elettricità non sarebbe mai servita per i computer", correct: false }
+          { text: "Intuì che la macchina non era una mera calcolatrice aritmetica, ma poteva manipolare simboli astratti secondo regole logiche, e descrisse il primo algoritmo per calcolare i numeri di Bernoulli", correct: true },
+          { text: "Progettò il primo microprocessore a stato solido miniaturizzato su silicio per macchine tessili industriali", correct: false },
+          { text: "Dimostrò matematicamente che i calcolatori elettronici non avrebbero mai potuto superare la velocità di calcolo della mente umana", correct: false },
+          { text: "Sviluppò il primo sistema operativo grafico a finestre con mouse per la macchina meccanica di Charles Babbage", correct: false }
+        ]
+      },
+      {
+        q: "Quale dei seguenti processi rappresenta il pilastro dell''Astrazione' nel Pensiero Computazionale?",
+        options: [
+          { text: "Convertire manualmente ogni riga di testo alfabetico nel rispettivo codice binario a 8 bit", correct: false },
+          { text: "Isolare le caratteristiche essenziali di un problema complesso nascondendo i dettagli microscopici non rilevanti per la soluzione logica", correct: true },
+          { text: "Aumentare il numero di transistor per core per ridurre la latenza di accesso alla memoria RAM", correct: false },
+          { text: "Scrivere codice sorgente direttamente in linguaggio esadecimale senza utilizzare funzioni o variabili", correct: false }
         ]
       }
     ]

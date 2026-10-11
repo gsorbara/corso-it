@@ -419,35 +419,48 @@
   quiz: {
     questions: [
       {
-        q: "Perché i computer moderni usano il sistema binario (0 e 1) anziché il sistema decimale a 10 cifre?",
+        q: "Perché l'elettronica digitale dei moderni processori adotta il sistema binario (base 2) anziché il sistema decimale (base 10)?",
         options: [
-          { text: "Perché l'elettronica digitale a due stati estremi (tensione assente o presente) è immune al rumore e alle fluttuazioni elettriche", correct: true },
-          { text: "Perché nessun matematico ha mai pensato di usare la base 10 prima del 1980", correct: false },
-          { text: "Perché usare 10 cifre avrebbe consumato dieci volte meno corrente elettrica", correct: false }
+          { text: "Perché distinguere due soli stati estremi di tensione (transistor in saturazione o interdizione, ON/OFF) offre la massima immunità al rumore elettrico, al degrado termico e alle fluttuazioni di alimentazione", correct: true },
+          { text: "Perché la base 10 richiede dieci cavi fisici separati per ogni singolo transistor presente sul die della CPU", correct: false },
+          { text: "Perché l'algebra booleana può operare unicamente se i registri della memoria RAM contengono numeri primi", correct: false },
+          { text: "Perché i display video RGB possono mostrare pixel luminosi solo se la memoria opera a coppie di bit pari", correct: false }
         ]
       },
       {
-        q: "Nel leggendario 'Kill Screen' del livello 256 di Pac-Man, cosa provoca il glitch che corrompe la metà destra dello schermo?",
+        q: "Nel leggendario 'Kill Screen' del livello 256 di Pac-Man, quale fenomeno logico-aritmetico corrompe la schermata di gioco?",
         options: [
-          { text: "Un errore di memoria causato da un cavo staccato nel cabinato", correct: false },
-          { text: "Un overflow aritmetico a 8 bit: sommando 1 al livello 255 il registro si azzera a 0, facendo impazzire la routine che disegna i frutti", correct: true },
-          { text: "Un virus informatico inserito volontariamente dalla Namco per far finire i gettoni ai giocatori", correct: false }
+          { text: "La corruzione fisica dei banchi di memoria ROM del cabinato dovuta a un surriscaldamento prolungato", correct: false },
+          { text: "Un Integer Overflow a 8 bit senza segno: sommando 1 al livello 255 (11111111₂), il bit di riporto viene troncato e il contatore si riazzera a 0, facendo eseguire alla subroutine di disegno dei frutti un ciclo errato da 256 iterazioni", correct: true },
+          { text: "Un errore di virgola mobile IEEE 754 dovuto all'incapacità del processore Z80 di calcolare la radice quadrata del punteggio", correct: false },
+          { text: "Un attacco di buffer overflow generato dall'inserimento di monete metalliche duplicate nella gettoniera", correct: false }
         ]
       },
       {
-        q: "Qual è il principale vantaggio dello standard di codifica Unicode UTF-8 rispetto al vecchio ASCII a 7 bit?",
+        q: "Qual è il motivo tecnico fondamentale per cui lo standard Unicode UTF-8 ha soppiantato ASCII e i set di caratteri a 8 bit?",
         options: [
-          { text: "UTF-8 è a lunghezza variabile (da 1 a 4 byte), retrocompatibile con ASCII e capace di rappresentare tutti gli alfabeti del mondo e le emoji", correct: true },
-          { text: "UTF-8 riduce la dimensione di tutte le immagini del 50%", correct: false },
-          { text: "UTF-8 funziona solo sui computer giapponesi e ignora i caratteri europei", correct: false }
+          { text: "Utilizza una codifica a lunghezza fissa di 32 bit per ogni simbolo, raddoppiando la velocità di esecuzione della CPU", correct: false },
+          { text: "È perfettamente retrocompatibile con ASCII a 7 bit (i primi 128 codici occupano 1 singolo byte identico) e impiega una lunghezza variabile da 1 a 4 byte per rappresentare oltre 1 milione di caratteri ed emoji di tutte le lingue mondiali", correct: true },
+          { text: "Comprime il testo con un algoritmo lossy che elimina gli spazi e le vocali non accentate per ridurre il traffico di rete", correct: false },
+          { text: "È l'unico formato che può essere memorizzato all'interno dei chip BIOS/UEFI delle schede madri", correct: false }
         ]
       },
       {
-        q: "Nella sintesi additiva dei colori RGB a 24 bit su un display, come viene generato il colore Giallo puro?",
+        q: "In base al Teorema di Campionamento di Nyquist-Shannon, perché i Compact Disc audio adottano la frequenza standard di 44,1 kHz?",
         options: [
-          { text: "Accendendo un subpixel contenente vernice gialla fluorescente", correct: false },
-          { text: "Accendendo al massimo contemporaneamente i subpixel Rosso e Verde (255, 255, 0), lasciando spento il Blu", correct: true },
-          { text: "Spegnendo tutti i subpixel per assorbire la luce ambientale", correct: false }
+          { text: "Perché per ricostruire perfettamente un segnale analogico continuo senza aliasing occorre campionare ad almeno il doppio della massima frequenza udibile (l'udito umano arriva a circa 20 kHz, quindi servono > 40 kHz)", correct: true },
+          { text: "Perché la frequenza di 44,1 kHz corrisponde alla velocità di rotazione meccanica del motore laser nel lettore ottico", correct: false },
+          { text: "Perché il campionamento a 44,1 kHz consente al processore di riprodurre audio stereo senza occupare memoria RAM", correct: false },
+          { text: "Perché stabilisce che ogni secondo di registrazione musicale debba occupare esattamente 44.100 bit su disco fisso", correct: false }
+        ]
+      },
+      {
+        q: "Qual è la differenza concettuale e algoritmica tra compressione dati Lossless (es. PNG, FLAC, ZIP) e Lossy (es. JPEG, MP3)?",
+        options: [
+          { text: "I formati Lossless comprimono solo testo ed eliminano le tabelle, mentre i formati Lossy sono obbligatori per i file eseguibili binari", correct: false },
+          { text: "I formati Lossless ricostruiscono bit per bit l'informazione originaria sfruttando ridondanze statistiche; i formati Lossy eliminano irreversibilmente dati psicologicamente trascurabili per ottenere tassi di riduzione molto superiori", correct: true },
+          { text: "La compressione Lossy preserva tutti i dati originali al 100% ma richiede il doppio del tempo di decompressione da parte della CPU", correct: false },
+          { text: "La compressione Lossless può essere applicata unicamente su memorie di massa a stato solido NVMe", correct: false }
         ]
       }
     ]

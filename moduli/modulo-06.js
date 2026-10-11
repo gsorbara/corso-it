@@ -443,43 +443,48 @@
   quiz: {
     questions: [
       {
-        q: "Qual è il 'paradosso del bootstrapping' all'accensione del PC e come viene risolto dall'hardware?",
+        q: "Qual è il 'paradosso del bootstrapping' all'accensione del computer e come viene superato a livello hardware e firmware?",
         options: [
-          { text: "La RAM all'avvio è vuota e volatile, quindi la CPU non ha codice da eseguire; viene risolto puntando via hardware (Reset Vector) alle prime istruzioni cablate su una memoria permanente non-volatile (ROM / Flash BIOS)", correct: true },
-          { text: "La CPU non può partire se prima l'utente non digita a voce il proprio nome sul microfono", correct: false },
-          { text: "Il computer scarica l'intero sistema operativo direttamente dai satelliti GPS senza passare dal disco", correct: false }
+          { text: "La RAM all'avvio è vuota e volatile, quindi la CPU non ha codice da eseguire; l'hardware risolve il problema impostando il Program Counter sul 'Reset Vector', che punta alla memoria permanente ROM/Flash contenente il firmware BIOS/UEFI", correct: true },
+          { text: "I controller dei dischi fissi non possono ruotare senza segnale di rete; la scheda madre invia un impulso di risonanza magnetica che carica il kernel direttamente dalla memoria CMOS", correct: false },
+          { text: "La CPU non può decodificare codice a 64 bit senza i driver grafici caricati; il processore entra in modalità emulazione protetta finché il display non invia un frame di conferma", correct: false },
+          { text: "Il file system necessita della tabella delle partizioni in memoria prima di accendere la CPU; la memoria cache L3 mantiene una copia permanente dell'intero kernel anche ad alimentazione scollegata", correct: false }
         ]
       },
       {
-        q: "Qual è la differenza fondamentale tra Multitasking Cooperativo e Multitasking Preemptive?",
+        q: "Qual è la differenza fondamentale tra Multitasking Cooperativo e Multitasking Preemptive nella gestione della CPU?",
         options: [
-          { text: "Nel cooperativo i programmi decidono volontariamente se cedere la CPU; nel preemptive il Kernel strappa forzatamente la CPU tramite timer hardware evitando che un crash blocchi il PC", correct: true },
-          { text: "Il multitasking cooperativo funziona solo se il computer è collegato a Internet", correct: false },
-          { text: "Non c'è alcuna differenza, entrambi richiedono la chiusura manuale dei programmi", correct: false }
+          { text: "Nel cooperativo i processi decidono autonomamente quando rilasciare il controllo della CPU (rischio di freeze totale se un'app va in loop infinito); nel preemptive lo scheduler del Kernel interrompe forzatamente i thread tramite interrupt di timer hardware periodici", correct: true },
+          { text: "Nel cooperativo i programmi condividono lo stesso stack di chiamate, mentre nel preemptive ogni programma viene isolato su un cluster di calcolo remoto distribuito", correct: false },
+          { text: "Nel preemptive i processi hanno priorità basata unicamente sulla dimensione del file eseguibile sul disco rigido", correct: false },
+          { text: "Nel cooperativo il sistema operativo è privo di Kernel, mentre nel preemptive le chiamate di sistema (Syscall) vengono rimosse per massimizzare la reattività dell'interfaccia", correct: false }
         ]
       },
       {
-        q: "Cosa accade fisicamente quando un'applicazione scatena un 'Segmentation Fault' (Segfault)?",
+        q: "Cosa avviene a livello hardware e di sistema operativo durante un evento di 'Page Fault' nella gestione della Memoria Virtuale?",
         options: [
-          { text: "La MMU hardware blocca l'accesso a una pagina di memoria proibita e lancia un'eccezione al Kernel, che termina in sicurezza solo il programma colpevole", correct: true },
-          { text: "Il disco rigido si smagnetizza all'istante e cancella tutti i file", correct: false },
-          { text: "La tastiera smette di ricevere corrente elettrica", correct: false }
+          { text: "La MMU rileva che la pagina richiesta ha il bit di presenza a 0 e solleva un'eccezione hardware: il Kernel sospende il processo, legge la pagina dall'area di Swap su disco, la alloca in un frame libero di RAM, aggiorna la Page Table e riavvia l'istruzione", correct: true },
+          { text: "La CPU scatena un Kernel Panic immediato e irreversibile per prevenire il sovraccarico di tensione sui condensatori della memoria RAM", correct: false },
+          { text: "La memoria cache L1 scambia autonomamente il proprio contenuto con il BIOS riscrivendo il firmware della scheda madre a caldo", correct: false },
+          { text: "Il controller DMA scarta i dati del processo attivo forzando la conversione di tutte le variabili in costanti immutabili a 8 bit", correct: false }
         ]
       },
       {
-        q: "Perché i programmi ordinari in User Space (Ring 3) devono usare le Syscall per salvare un file su disco?",
+        q: "Perché i moderni sistemi operativi e processori isolano l'esecuzione tra User Space (Ring 3) e Kernel Space (Ring 0), imponendo le Syscall?",
         options: [
-          { text: "Perché per sicurezza la CPU vieta alle app ordinarie l'accesso diretto all'hardware: solo il Kernel (Ring 0) può toccare fisicamente i dispositivi dopo aver verificato i permessi", correct: true },
-          { text: "Perché altrimenti il file verrebbe salvato sottosopra", correct: false },
-          { text: "Perché le Syscall aumentano la velocità di scrittura di cento volte", correct: false }
+          { text: "Per garantire sicurezza e stabilità: le app in Ring 3 non possono accedere direttamente all'hardware o alla memoria altrui; solo il codice del Kernel in Ring 0 possiede i privilegi per manipolare i registri hardware dopo aver validato la richiesta", correct: true },
+          { text: "Perché le istruzioni hardware funzionano solo se interpretate preventivamente da un compilatore JIT incorporato nella scheda grafica", correct: false },
+          { text: "Perché l'accesso diretto dei programmi alle periferiche di I/O surriscalderebbe i bus di trasmissione superando la banda passante del clock", correct: false },
+          { text: "Perché la memoria RAM principale accetta solo flussi di dati compressi con codifica Huffman generati esclusivamente dal Kernel", correct: false }
         ]
       },
       {
-        q: "In ambiente Unix e Linux, qual è la funzione del simbolo della Pipe ('|') nel terminale?",
+        q: "Nel file system dei sistemi operativi Unix/Linux, quale ruolo architetturale svolge la struttura nota come 'Inode' (Index Node)?",
         options: [
-          { text: "Incanala l'output di un comando direttamente come input del comando successivo, permettendo di combinare strumenti semplici", correct: true },
-          { text: "Spegne immediatamente il computer senza salvare", correct: false },
-          { text: "Crea una copia del file sul cestino del desktop", correct: false }
+          { text: "Memorizza tutti i metadati del file (permessi, proprietario, timestamp, dimensione) e i puntatori ai blocchi dati fisici su disco, rimanendo separato dal nome del file che risiede invece nella directory", correct: true },
+          { text: "Rappresenta il settore di avvio della partizione (Boot Sector) che carica il bootloader GRUB nella memoria volatile all'accensione", correct: false },
+          { text: "Funziona come un archivio temporaneo di log che registra le sole password cifrate degli utenti collegati in sessione SSH", correct: false },
+          { text: "È la tabella virtuale della scheda madre che converte i caratteri ASCII dei file di testo in vettori esadecimali per la GPU", correct: false }
         ]
       }
     ]
