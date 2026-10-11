@@ -41,39 +41,56 @@
             <p>Esplora l'anatomia interna di un binario reale. Seleziona il formato e clicca sulle sezioni per visualizzare i byte esadecimali corrispondenti e il loro significato:</p>
 
             <div class="exe-inspector-workbench">
-              <!-- Selettore File Campione -->
-              <div class="exe-file-tabs">
-                <button class="exe-tab-btn active" id="btnTabExe" onclick="switchExecutableSample('exe')">📦 SpaceInvaders.exe (Windows PE)</button>
-                <button class="exe-tab-btn" id="btnTabElf" onclick="switchExecutableSample('elf')">🐧 WebServer.elf (Linux ELF)</button>
+              <!-- Selettore File ed Intestazione Formato -->
+              <div class="exe-top-bar">
+                <div class="exe-file-tabs">
+                  <button class="exe-tab-btn active" id="btnTabExe" onclick="switchExecutableSample('exe')">📦 SpaceInvaders.exe (Windows PE)</button>
+                  <button class="exe-tab-btn" id="btnTabElf" onclick="switchExecutableSample('elf')">🐧 WebServer.elf (Linux ELF)</button>
+                </div>
+                <div class="exe-format-badge" id="exeHexFormatLabel">FORMATO: PE32+ (x86_64)</div>
               </div>
 
-              <div class="exe-inspector-grid">
-                <!-- Selettore Sezioni a Albero -->
-                <div class="exe-sections-list" id="exeSectionsList">
+              <!-- Pillole Sezioni Orizzontali -->
+              <div class="exe-sections-bar">
+                <span class="exe-sections-label">SEZIONI:</span>
+                <div class="exe-sections-pills" id="exeSectionsList">
                   <!-- Rendered via JS -->
                 </div>
+              </div>
 
-                <!-- Visualizzatore Hex Dump -->
+              <!-- Griglia Principale: Hex Viewer Compatto a Sinistra, Dettagli Sezione a Destra -->
+              <div class="exe-inspector-split">
+                <!-- Visualizzatore Hex Dump Compatto -->
                 <div class="exe-hex-viewer">
                   <div class="exe-hex-header">
                     <span>OFFSET</span>
-                    <span>BYTE ESADECIMALI (HEX)</span>
-                    <span>ASCII DECODE</span>
+                    <span>HEX BYTES (8B)</span>
+                    <span>ASCII</span>
                   </div>
-                  <pre class="exe-hex-body" id="exeHexBody">
+                  <div class="exe-hex-table" id="exeHexBody">
                     <!-- Populated via JS -->
-                  </pre>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Scheda Informativa Sezione Selezionata -->
-              <div class="exe-info-card" id="exeSectionInfoCard">
-                <div style="font-weight: bold; color: #38bdf8;" id="exeInfoTitle">Sezione: Magic Bytes</div>
-                <div style="font-size: 0.85rem; color: var(--text-color); margin-top: 4px;" id="exeInfoDesc">
-                  I primissimi byte che certificano il formato al sistema operativo prima dell'esecuzione.
-                </div>
-                <div style="font-family: monospace; font-size: 0.78rem; color: #10b981; margin-top: 6px;" id="exeInfoPerms">
-                  Permessi MMU: Non mappata in RAM (Header di controllo)
+                <!-- Scheda Informativa Sezione Selezionata -->
+                <div class="exe-info-card" id="exeSectionInfoCard">
+                  <div class="exe-info-header">
+                    <span class="exe-info-badge">SEZIONE SELEZIONATA</span>
+                    <h4 id="exeInfoTitle">Magic Bytes (MZ)</h4>
+                  </div>
+                  <div class="exe-info-meta">
+                    <div class="exe-meta-pill">
+                      <span class="exe-meta-lbl">Offset:</span>
+                      <code id="exeInfoOffset">0x00000000</code>
+                    </div>
+                    <div class="exe-meta-pill">
+                      <span class="exe-meta-lbl">Permessi:</span>
+                      <span id="exeInfoPerms" class="exe-perms-badge">Header (Controllo)</span>
+                    </div>
+                  </div>
+                  <div class="exe-info-desc" id="exeInfoDesc">
+                    Firma leggendaria di Mark Zbikowski (MZ). Certifica che il file è un eseguibile per architettura DOS/Windows PE.
+                  </div>
                 </div>
               </div>
             </div>
@@ -401,40 +418,60 @@ window.renderExecutableInspector = function() {
   const infoTitle = document.getElementById("exeInfoTitle");
   const infoDesc = document.getElementById("exeInfoDesc");
   const infoPerms = document.getElementById("exeInfoPerms");
+  const infoOffset = document.getElementById("exeInfoOffset");
+  const formatBadge = document.getElementById("exeHexFormatLabel");
 
   if (!sectionsList || !hexBody) return;
 
   const st = window.executableState;
   const fileData = st.data[st.currentType];
 
-  // Render Sezioni Tabs/Chips
+  if (formatBadge) {
+    formatBadge.innerText = st.currentType === 'exe' ? "Windows PE x86_64" : "Linux ELF64 x86_64";
+  }
+
+  // Render Sezioni Pills
   sectionsList.innerHTML = "";
   fileData.sections.forEach(sec => {
-    const chip = document.createElement("div");
-    chip.className = `exe-sec-chip ${sec.id === st.currentSection ? "active" : ""}`;
-    chip.innerHTML = `<strong>${sec.label}</strong><span style="font-size: 0.72rem; color: #94a3b8;">${sec.offset}</span>`;
-    chip.onclick = () => {
+    const pill = document.createElement("button");
+    pill.type = "button";
+    pill.className = `exe-sec-pill ${sec.id === st.currentSection ? "active" : ""}`;
+    pill.innerText = sec.label.replace(/ \([^)]*\)/, "");
+    pill.title = sec.label;
+    pill.onclick = () => {
       st.currentSection = sec.id;
       window.renderExecutableInspector();
     };
-    sectionsList.appendChild(chip);
+    sectionsList.appendChild(pill);
   });
 
   // Trova sezione attiva
   const activeSec = fileData.sections.find(s => s.id === st.currentSection) || fileData.sections[0];
 
-  // Render Hex Dump (simula contesto intorno)
-  let hexContent = "";
+  // Render Hex Dump Table
+  let hexHtml = "";
   fileData.sections.forEach(s => {
     const isAct = s.id === activeSec.id;
-    hexContent += `<span class="${isAct ? "hex-row-active" : "hex-row-normal"}">${s.offset}   ${s.hex.padEnd(26, " ")}   |${s.ascii}|  <span style="color: #64748b; font-size: 0.75rem;">// ${s.label}</span></span>\n`;
+    hexHtml += `
+      <div class="exe-hex-row ${isAct ? "active" : ""}" onclick="window.selectExecutableSection('${s.id}')" title="Clicca per ispezionare: ${s.label}">
+        <span class="exe-hex-offset">${s.offset}</span>
+        <span class="exe-hex-bytes">${s.hex}</span>
+        <span class="exe-hex-ascii">|${s.ascii}|</span>
+      </div>
+    `;
   });
-  hexBody.innerHTML = hexContent;
+  hexBody.innerHTML = hexHtml;
 
   // Render Info Card
-  if (infoTitle) infoTitle.innerText = `Sezione: ${activeSec.label}`;
+  if (infoTitle) infoTitle.innerText = activeSec.label;
+  if (infoOffset) infoOffset.innerText = `0x${activeSec.offset}`;
   if (infoDesc) infoDesc.innerText = activeSec.desc;
-  if (infoPerms) infoPerms.innerText = `Permessi MMU: ${activeSec.perms}`;
+  if (infoPerms) infoPerms.innerText = activeSec.perms;
+};
+
+window.selectExecutableSection = function(secId) {
+  window.executableState.currentSection = secId;
+  window.renderExecutableInspector();
 };
 
 window.switchExecutableSample = function(type) {
