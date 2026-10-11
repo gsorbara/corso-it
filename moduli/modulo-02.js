@@ -206,46 +206,46 @@
       {
         q: "In che cosa consiste il principio rivoluzionario dello 'Stored-Program' introdotto dall'Architettura di Von Neumann (1945)?",
         options: [
+          { text: "Istruzioni e dati devono risiedere in spazi di memoria fisicamente separati e sincronizzati da oscillatori al quarzo indipendenti", correct: false },
           { text: "Dati e istruzioni risiedono nella medesima memoria primaria ad accesso casuale; la CPU può manipolare il programma stesso come se fosse dato, permettendo al calcolatore di riprogrammarsi dinamicamente senza ricablaggio fisico", correct: true },
-          { text: "La CPU esegue le istruzioni direttamente dal nastro magnetico esterno eliminando la necessità di qualsiasi memoria RAM fisica", correct: false },
-          { text: "Le istruzioni del programma sono incise a livello di circuito logico nei transistor della ALU e non possono essere modificate una volta acceso il computer", correct: false },
-          { text: "Istruzioni e dati devono obbligatoriamente transitare su canali ottici separati per impedire la corruzione del boot loader", correct: false }
+          { text: "Il programma viene inciso permanentemente in microcodice di sola lettura nella ROM, mentre la RAM memorizza unicamente i vettori di interrupt", correct: false },
+          { text: "Le istruzioni risiedono esclusivamente all'interno dei registri generali dell'ALU eliminando qualsiasi transito di codice sui bus di sistema", correct: false }
         ]
       },
       {
-        q: "Quale innovazione permise a Federico Faggin di realizzare l'Intel 4004 (1971), il primo microprocessore su singolo chip?",
+        q: "Quale innovazione permise a Federico Faggin di realizzare l'Intel 4004 (1971), il primo microprocessore monolitico su singolo chip?",
         options: [
-          { text: "L'assemblaggio di transistor a giunzione discreti raffreddati ad azoto liquido all'interno di un armadio da ufficio", correct: false },
-          { text: "L'impiego della Silicon Gate Technology (SGT), che consentì di integrare per la prima volta l'intera CPU (ALU, registri, Control Unit) su un unico frammento monolitico di silicio", correct: true },
-          { text: "L'abbandono del silicio in favore del germanio e delle valvole termoioniche miniaturizzate per aumentare la tensione di soglia", correct: false },
-          { text: "La progettazione della prima architettura quantistica a 64 bit compatibile con le schede perforate", correct: false }
+          { text: "L'invenzione del transistor bipolare a giunzione (BJT) presso i Bell Labs, che sostituì le valvole termoioniche su piastra madre", correct: false },
+          { text: "L'adozione di semiconduttori compositi all'arseniuro di gallio (GaAs) per superare i limiti di mobilità elettronica del silicio", correct: false },
+          { text: "L'impiego della Silicon Gate Technology (SGT) con gate in silicio policristallino autoallineato, che consentì di integrare per la prima volta l'intera CPU (ALU, registri, Control Unit) su un unico chip", correct: true },
+          { text: "La sostituzione delle interconnessioni in alluminio con guide d'onda ottiche miniaturizzate integrate nel substrato di silicio", correct: false }
         ]
       },
       {
         q: "Qual è la differenza strutturale primaria tra l'Architettura di Von Neumann e l'Architettura Harvard pura?",
         options: [
           { text: "L'architettura Harvard dispone di memorie e bus fisicamente distinti per codice e dati, consentendo accessi simultanei; Von Neumann unifica memoria e bus, introducendo il collo di bottiglia di trasferimento ma massimizzando la flessibilità", correct: true },
-          { text: "Von Neumann gestisce solo calcoli in virgola mobile, mentre Harvard opera esclusivamente con numeri interi senza segno", correct: false },
-          { text: "L'architettura Harvard non prevede una Control Unit e affida il coordinamento delle istruzioni alla scheda grafica GPU", correct: false },
-          { text: "Von Neumann richiede una CPU separata per ogni singola periferica di input/output collegata alla scheda madre", correct: false }
+          { text: "L'architettura Harvard impiega memorie cache multilivello hardware, mentre Von Neumann si affida unicamente a registri mappati nello spazio di I/O", correct: false },
+          { text: "Von Neumann consente alla CPU di eseguire codice direttamente dalla memoria secondaria (disco), mentre Harvard esige il caricamento previo in banchi ROM", correct: false },
+          { text: "L'architettura Harvard è concepita esclusivamente per calcoli a virgola mobile, mentre Von Neumann elabora unicamente valori interi in complemento a due", correct: false }
         ]
       },
       {
         q: "Come implementano i moderni processori (Intel Core, AMD Ryzen, Apple Silicon) l'Architettura Harvard Modificata?",
         options: [
-          { text: "Adottano un modello unificato Von Neumann per la memoria RAM principale esterna, ma integrano all'interno del die cache L1 fisicamente separate per Istruzioni (L1-I) e Dati (L1-D) per eliminare i conflitti di accesso", correct: true },
-          { text: "Utilizzano l'architettura Harvard pura su tutti i livelli, installando due schede madri distinte collegate da un ponte radio", correct: false },
-          { text: "Disattivano la memoria cache nei cicli di clock dispari per consentire l'accesso diretto ai dischi SSD NVMe", correct: false },
-          { text: "Eseguono le istruzioni tramite un bus analogico continuo privo di frequenza di clock o stadi di pipeline", correct: false }
+          { text: "Separano la memoria RAM fisica in due banchi DDR distinti sulla scheda madre (uno dedicato agli eseguibili e uno alle variabili di runtime)", correct: false },
+          { text: "Utilizzano l'architettura Harvard nella cache L3 condivisa tra tutti i core, mantenendo la cache L1 completamente unificata per codice e dati", correct: false },
+          { text: "Alternano via software il bus di sistema tra modalità Von Neumann nel ciclo di Fetch e modalità Harvard nel ciclo di Write-Back", correct: false },
+          { text: "Adottano un modello unificato Von Neumann per la memoria RAM principale esterna, ma integrano all'interno del die cache L1 fisicamente separate per Istruzioni (L1-I) e Dati (L1-D) per eliminare i conflitti di accesso", correct: true }
         ]
       },
       {
         q: "Durante la fase di Fetch nel ciclo macchina CPU, quale ruolo svolgono il Program Counter (PC) e l'Instruction Register (IR)?",
         options: [
-          { text: "L'ALU decodifica l'istruzione direttamente nella memoria di massa prima che il Program Counter venga inizializzato", correct: false },
-          { text: "Il Program Counter contiene l'indirizzo della prossima istruzione da prelevare in RAM; una volta prelevata, l'istruzione viene caricata nell'IR e il PC si incrementa per preparare il ciclo successivo", correct: true },
-          { text: "L'Instruction Register invia direttamente l'indirizzo delle istruzioni al monitor video senza passare dalla Control Unit", correct: false },
-          { text: "Il Program Counter azzera i registri della CPU ogni volta che un'operazione aritmetica genera un numero negativo", correct: false }
+          { text: "Il Program Counter memorizza l'esito algebrico dell'ultima istruzione dell'ALU, mentre l'Instruction Register conta i cicli di clock trascorsi", correct: false },
+          { text: "Il Program Counter contiene l'indirizzo di memoria della prossima istruzione da prelevare in RAM; l'istruzione letta viene copiata nell'IR per la decodifica, mentre il PC si incrementa per preparare il ciclo successivo", correct: true },
+          { text: "L'Instruction Register funge da puntatore alla cima dello stack (RSP), mentre il Program Counter traduce l'Assembly in microcodice binario", correct: false },
+          { text: "Il Program Counter legge direttamente gli operandi dall'Accumulatore, mentre l'Instruction Register invia i segnali di sincronizzazione al generatore di clock", correct: false }
         ]
       }
     ]

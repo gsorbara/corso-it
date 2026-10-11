@@ -446,45 +446,45 @@
         q: "Qual è il 'paradosso del bootstrapping' all'accensione del computer e come viene superato a livello hardware e firmware?",
         options: [
           { text: "La RAM all'avvio è vuota e volatile, quindi la CPU non ha codice da eseguire; l'hardware risolve il problema impostando il Program Counter sul 'Reset Vector', che punta alla memoria permanente ROM/Flash contenente il firmware BIOS/UEFI", correct: true },
-          { text: "I controller dei dischi fissi non possono ruotare senza segnale di rete; la scheda madre invia un impulso di risonanza magnetica che carica il kernel direttamente dalla memoria CMOS", correct: false },
-          { text: "La CPU non può decodificare codice a 64 bit senza i driver grafici caricati; il processore entra in modalità emulazione protetta finché il display non invia un frame di conferma", correct: false },
-          { text: "Il file system necessita della tabella delle partizioni in memoria prima di accendere la CPU; la memoria cache L3 mantiene una copia permanente dell'intero kernel anche ad alimentazione scollegata", correct: false }
+          { text: "Lo scheduler del Kernel alloca preventivamente il processo speciale 'init' nello spazio di swap su disco prima ancora che la CPU riceva alimentazione", correct: false },
+          { text: "Il controller DMA carica autonomamente il bootloader dall'MBR direttamente nei registri dell'ALU bypassando il bus degli indirizzi", correct: false },
+          { text: "La CPU accede direttamente alla tabella delle partizioni GPT tramite microcodice per identificare il Kernel prima di inizializzare il clock", correct: false }
         ]
       },
       {
         q: "Qual è la differenza fondamentale tra Multitasking Cooperativo e Multitasking Preemptive nella gestione della CPU?",
         options: [
-          { text: "Nel cooperativo i processi decidono autonomamente quando rilasciare il controllo della CPU (rischio di freeze totale se un'app va in loop infinito); nel preemptive lo scheduler del Kernel interrompe forzatamente i thread tramite interrupt di timer hardware periodici", correct: true },
-          { text: "Nel cooperativo i programmi condividono lo stesso stack di chiamate, mentre nel preemptive ogni programma viene isolato su un cluster di calcolo remoto distribuito", correct: false },
-          { text: "Nel preemptive i processi hanno priorità basata unicamente sulla dimensione del file eseguibile sul disco rigido", correct: false },
-          { text: "Nel cooperativo il sistema operativo è privo di Kernel, mentre nel preemptive le chiamate di sistema (Syscall) vengono rimosse per massimizzare la reattività dell'interfaccia", correct: false }
+          { text: "Nel cooperativo ogni processo riceve un quanto di tempo fisso calcolato dallo scheduler Round Robin, mentre nel preemptive i processi girano ininterrottamente fino alla loro terminazione", correct: false },
+          { text: "Nel preemptive i thread comunicano unicamente tramite memoria condivisa senza semafori, mentre nel cooperativo è obbligatorio l'uso di pipe per ogni context switch", correct: false },
+          { text: "Nel cooperativo il cambio di contesto (context switch) è gestito direttamente dall'hardware della MMU senza coinvolgere il codice del Kernel", correct: false },
+          { text: "Nel cooperativo i processi decidono autonomamente quando rilasciare il controllo della CPU (rischio di freeze totale se un'app va in loop infinito); nel preemptive lo scheduler del Kernel interrompe forzatamente i thread tramite interrupt di timer hardware periodici", correct: true }
         ]
       },
       {
         q: "Cosa avviene a livello hardware e di sistema operativo durante un evento di 'Page Fault' nella gestione della Memoria Virtuale?",
         options: [
+          { text: "La CPU genera un'eccezione irreversibile di Segmentation Fault e termina immediatamente il processo poiché la memoria protetta è stata violata", correct: false },
           { text: "La MMU rileva che la pagina richiesta ha il bit di presenza a 0 e solleva un'eccezione hardware: il Kernel sospende il processo, legge la pagina dall'area di Swap su disco, la alloca in un frame libero di RAM, aggiorna la Page Table e riavvia l'istruzione", correct: true },
-          { text: "La CPU scatena un Kernel Panic immediato e irreversibile per prevenire il sovraccarico di tensione sui condensatori della memoria RAM", correct: false },
-          { text: "La memoria cache L1 scambia autonomamente il proprio contenuto con il BIOS riscrivendo il firmware della scheda madre a caldo", correct: false },
-          { text: "Il controller DMA scarta i dati del processo attivo forzando la conversione di tutte le variabili in costanti immutabili a 8 bit", correct: false }
+          { text: "Il controller della memoria RAM ricalcola gli indirizzi convertendo dinamicamente le pagine virtuali in blocchi continui di memoria cache L3", correct: false },
+          { text: "Lo scheduler assegna un intervallo temporale supplementare al thread per consentirgli di completare l'operazione in sola lettura", correct: false }
         ]
       },
       {
         q: "Perché i moderni sistemi operativi e processori isolano l'esecuzione tra User Space (Ring 3) e Kernel Space (Ring 0), imponendo le Syscall?",
         options: [
           { text: "Per garantire sicurezza e stabilità: le app in Ring 3 non possono accedere direttamente all'hardware o alla memoria altrui; solo il codice del Kernel in Ring 0 possiede i privilegi per manipolare i registri hardware dopo aver validato la richiesta", correct: true },
-          { text: "Perché le istruzioni hardware funzionano solo se interpretate preventivamente da un compilatore JIT incorporato nella scheda grafica", correct: false },
-          { text: "Perché l'accesso diretto dei programmi alle periferiche di I/O surriscalderebbe i bus di trasmissione superando la banda passante del clock", correct: false },
-          { text: "Perché la memoria RAM principale accetta solo flussi di dati compressi con codifica Huffman generati esclusivamente dal Kernel", correct: false }
+          { text: "Perché le chiamate di funzione ordinarie non possono allocare parametri nello stack, costringendo i programmi a usare le Syscall per eseguire calcoli aritmetici", correct: false },
+          { text: "Perché il cambio di contesto da Ring 3 a Ring 0 azzera la memoria RAM liberando risorse per i processi ad alta priorità", correct: false },
+          { text: "Perché in Ring 3 la CPU disabilita il controller delle interruzioni per impedire allo scheduler di eseguire il multitasking preemptive", correct: false }
         ]
       },
       {
         q: "Nel file system dei sistemi operativi Unix/Linux, quale ruolo architetturale svolge la struttura nota come 'Inode' (Index Node)?",
         options: [
+          { text: "Rappresenta la voce della tabella dei file aperti (file descriptor table) che tiene traccia dell'offset del cursore di lettura del processo", correct: false },
+          { text: "È il blocco di 'Superblock' che memorizza la dimensione complessiva della partizione e la geometria dei cilindri del disco", correct: false },
           { text: "Memorizza tutti i metadati del file (permessi, proprietario, timestamp, dimensione) e i puntatori ai blocchi dati fisici su disco, rimanendo separato dal nome del file che risiede invece nella directory", correct: true },
-          { text: "Rappresenta il settore di avvio della partizione (Boot Sector) che carica il bootloader GRUB nella memoria volatile all'accensione", correct: false },
-          { text: "Funziona come un archivio temporaneo di log che registra le sole password cifrate degli utenti collegati in sessione SSH", correct: false },
-          { text: "È la tabella virtuale della scheda madre che converte i caratteri ASCII dei file di testo in vettori esadecimali per la GPU", correct: false }
+          { text: "È un file speciale di dispositivo (device node) montato nella cartella virtuale /proc per esporre le statistiche del Kernel", correct: false }
         ]
       }
     ]

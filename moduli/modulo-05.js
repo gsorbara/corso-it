@@ -387,46 +387,46 @@
       {
         q: "Nel contesto della gerarchia delle memorie, su quali principi fisici e statistici si basa l'efficacia delle memorie Cache (L1, L2, L3) per mascherare l'elevata latenza della RAM?",
         options: [
+          { text: "Sulla pre-allocazione statica dell'intero codice eseguibile compilato direttamente nei registri di stato del processore all'avvio", correct: false },
           { text: "Sui principi di località temporale (un dato usato di recente sarà probabilmente riutilizzato a breve) e località spaziale (dati con indirizzi contigui verranno probabilmente letti in sequenza)", correct: true },
-          { text: "Sulla compressione dinamica dei dati a livello di bus che riduce le dimensioni dei byte a un quarto del loro peso originale", correct: false },
-          { text: "Sull'eliminazione totale del bus degli indirizzi, sostituito da una trasmissione wireless a onde radio interna al die di silicio", correct: false },
-          { text: "Sulla capacità della memoria Cache di eseguire direttamente operazioni algebriche senza transitare per l'ALU", correct: false }
+          { text: "Sulla duplicazione preventiva di tutti i frame dello stack contemporaneamente nella memoria cache L1 e nella memoria video", correct: false },
+          { text: "Sull'annullamento della latenza di propagazione elettrica tramite bus a commutazione ottica diretta tra ALU e DRAM", correct: false }
         ]
       },
       {
         q: "Qual è la distinzione funzionale e la direzionalità dei tre Bus di sistema fondamentali che collegano la CPU al resto dell'architettura hardware?",
         options: [
-          { text: "Address Bus unidirezionale (dalla CPU verso memoria/dispositivi), Data Bus bidirezionale (trasferimento dati in lettura/scrittura) e Control Bus bidirezionale (segnali di comando, read/write e interrupt)", correct: true },
-          { text: "Tutti e tre i bus sono rigorosamente unidirezionali e trasferiscono informazioni unicamente dalle unità di archiviazione verso i registri interni della CPU", correct: false },
-          { text: "L'Address Bus trasporta i risultati elaborati dall'ALU, mentre il Data Bus serve solo a indicare l'indice delle celle di memoria fisica", correct: false },
-          { text: "Il Control Bus fornisce l'alimentazione elettrica a monte, mentre il Data Bus genera gli impulsi del segnale di clock di sincronizzazione", correct: false }
+          { text: "L'Address Bus trasporta i valori degli operandi elaborati dall'ALU, mentre il Data Bus serve solo a selezionare l'indice delle celle fisiche di memoria", correct: false },
+          { text: "Tutti e tre i bus sono rigorosamente bidirezionali per consentire il funzionamento simmetrico delle linee di trasmissione in lettura e scrittura", correct: false },
+          { text: "Il Control Bus è unidirezionale dalla RAM verso la CPU per imporre i tempi di latenza, mentre l'Address Bus è bidirezionale per la gestione del paging", correct: false },
+          { text: "Address Bus unidirezionale (dalla CPU verso memoria/dispositivi), Data Bus bidirezionale (trasferimento dati in lettura/scrittura) e Control Bus bidirezionale (segnali di comando, read/write e interrupt)", correct: true }
         ]
       },
       {
         q: "Qual è la differenza concettuale e architetturale fondamentale tra le filosofie di instruction set CISC (es. x86-64) e RISC (es. ARM, RISC-V)?",
         options: [
           { text: "CISC adotta istruzioni complesse a lunghezza variabile capaci di eseguire operazioni su memoria in più cicli; RISC usa istruzioni semplici, a lunghezza fissa e a singolo ciclo (load/store), privilegiando efficienza energetica e pipeline regolari", correct: true },
-          { text: "CISC è un'architettura limitata ad elaborazioni a 8 bit per calcoli testuali, mentre RISC supporta nativamente solo la grafica tridimensionale a virgola mobile", correct: false },
-          { text: "RISC è priva di registri interni e opera eseguendo ogni calcolo matematico mediante accesso immediato e continuo alla RAM principale", correct: false },
-          { text: "CISC impone l'interpretazione a runtime del bytecode, mentre le architetture RISC non richiedono mai compilazione né decodifica delle istruzioni", correct: false }
+          { text: "RISC è un'architettura priva di registri interni general-purpose che esegue ogni calcolo mediante operandi prelevati direttamente dalla memoria principale", correct: false },
+          { text: "CISC non supporta la modalità di esecuzione protetta né la memoria virtuale, mentre RISC è l'unica architettura compatibile con i compilatori moderni", correct: false },
+          { text: "CISC impiega una pipeline a singolo stadio per micro-istruzioni elementari, mentre RISC adotta istruzioni complesse a lunghezza variabile non pipelinate", correct: false }
         ]
       },
       {
         q: "Quale funzione critica assolve il controller DMA (Direct Memory Access) nelle moderne piattaforme di elaborazione?",
         options: [
+          { text: "Consente alla CPU di accedere alla memoria secondaria SSD con la stessa frequenza di clock dei registri interni dell'ALU", correct: false },
+          { text: "Sostituisce il bus degli indirizzi collegando ciascun transistor della RAM a una linea di interrupt dedicata sulla piastra madre", correct: false },
           { text: "Consente alle periferiche veloci (come controller NVMe e schede di rete Gigabit) di trasferire blocchi di dati direttamente da e verso la RAM senza impegnare la CPU per ogni singolo ciclo di trasferimento", correct: true },
-          { text: "Sostituisce la memoria Cache L1 mappando l'intero spazio di indirizzamento della memoria secondaria all'interno dei registri del processore", correct: false },
-          { text: "Converte il codice sorgente assemblato in microcodice prima del caricamento nel Program Counter", correct: false },
-          { text: "Incrementa la frequenza del generatore di clock disabilitando la modulazione termica e i controlli di sovracorrente", correct: false }
+          { text: "Disabilita temporaneamente la memoria cache della CPU per garantire che tutti i thread leggano dati coerenti durante una chiamata di sistema", correct: false }
         ]
       },
       {
         q: "Perché le GPU (Graphics Processing Units) risultano ordini di grandezza più veloci ed efficienti delle CPU nei carichi di lavoro per calcolo scientifico, grafica e Deep Learning?",
         options: [
+          { text: "La CPU è specializzata nell'elaborazione di matrici tridimensionali a virgola mobile, mentre la GPU si occupa unicamente della decodifica delle istruzioni sequenziali del sistema operativo", correct: false },
           { text: "La CPU è ottimizzata per la minima latenza su singoli thread complessi grazie a core complessi e ampie cache; la GPU privilegia il throughput parallelo mediante migliaia di core più semplici che eseguono simultaneamente la stessa istruzione su grandi matrici di dati (modello SIMD)", correct: true },
-          { text: "La GPU non impiega silicio né transistor, sfruttando matrici ottiche integrate che azzerano la dissipazione termica per effetto Joule", correct: false },
-          { text: "La GPU esclude del tutto le fasi di Fetch e Decode dal ciclo macchina, leggendo le formule matematiche direttamente in formato testuale", correct: false },
-          { text: "I registri interni della GPU possiedono una velocità di trasmissione dati virtualmente infinita operando su frequenze di clock superiori a 500 GHz", correct: false }
+          { text: "La GPU opera a frequenze di clock molto superiori a 10 GHz ma è vincolata all'uso esclusivo della memoria cache L1", correct: false },
+          { text: "La CPU non supporta il parallelismo multithread a livello hardware, mentre la GPU esegue solo codice interpretato riga per riga dal driver grafico", correct: false }
         ]
       }
     ]

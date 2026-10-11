@@ -433,7 +433,13 @@ function renderQuizView(mod, container) {
         <p>${qIndex + 1}. ${q.q}</p>
         <div class="options-list">
     `;
-    q.options.forEach((opt, oIndex) => {
+    const shuffledIndices = q.options.map((_, i) => i);
+    for (let i = shuffledIndices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledIndices[i], shuffledIndices[j]] = [shuffledIndices[j], shuffledIndices[i]];
+    }
+    shuffledIndices.forEach((oIndex) => {
+      const opt = q.options[oIndex];
       quizHtml += `
         <label>
           <input type="radio" name="q_${qIndex}" value="${oIndex}"> ${opt.text}

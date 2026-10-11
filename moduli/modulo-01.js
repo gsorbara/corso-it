@@ -306,46 +306,46 @@
       {
         q: "Perché l'incidente della sonda Mars Climate Orbiter (1999) illustra la differenza fondamentale tra 'dato' e 'informazione'?",
         options: [
+          { text: "I dati erano stati alterati da un bit-flip indotto da radiazioni cosmiche durante la trasmissione radio, rendendo illeggibile la telemetria di bordo", correct: false },
+          { text: "L'informazione consiste nella pura grandezza numerica grezza immagazzinata nei registri, mentre il dato è il significato semantico interpretativo fornito a valle", correct: false },
           { text: "I numeri trasmessi erano dati grezzi corretti, ma privi del contesto semantico essenziale (l'unità di misura: libbre-forza vs Newton), rendendo impossibile ricavare l'informazione corretta", correct: true },
-          { text: "I dati rappresentano il codice macchina eseguibile, mentre l'informazione è il segnale elettromagnetico che viaggia nei cavi", correct: false },
-          { text: "La sonda riceveva informazioni perfettamente contestualizzate ma mancava la memoria RAM per convertire i numeri in formato binario", correct: false },
-          { text: "I dati sono sempre composti da caratteri alfabetici, mentre l'informazione è esclusivamente numerica", correct: false }
+          { text: "Entrambi i sistemi software condividevano lo stesso contesto semantico, ma si verificò un errore di troncamento a virgola mobile a 64 bit", correct: false }
         ]
       },
       {
         q: "Secondo la Teoria Matematica della Comunicazione di Claude Shannon (1948), come viene definita e misurata l'informazione?",
         options: [
-          { text: "Come il numero totale di byte fisicamente memorizzati in un supporto magnetico o ottico", correct: false },
           { text: "Come riduzione dell'incertezza rispetto a un evento: un messaggio altamente prevedibile apporta pochissima informazione, mentre un evento inatteso ne trasmette molta", correct: true },
-          { text: "Come la velocità massima di clock con cui i transistor possono commutare tra stato logico 0 e stato 1", correct: false },
-          { text: "Come il rapporto costante tra la potenza del segnale analogico e la lunghezza d'onda del canale trasmissivo", correct: false }
+          { text: "Come la capacità teorica massima di trasmissione in bit al secondo sostenibile da un canale continuo in presenza di rumore gaussiano", correct: false },
+          { text: "Come il massimo rapporto di compressione lossless ottenibile eliminando integralmente i bit di ridondanza sintattica dai pacchetti", correct: false },
+          { text: "Come il numero totale di impulsi elettrici a due stati discreti (0 e 1) che attraversano le porte logiche nell'unità di tempo", correct: false }
         ]
       },
       {
         q: "Quale affermazione descrive con precisione la definizione formale di 'Algoritmo'?",
         options: [
-          { text: "Un programma scritto obbligatoriamente in un linguaggio ad alto livello orientato agli oggetti e compilato per CPU x86-64", correct: false },
-          { text: "Una sequenza infinita di istruzioni complesse che approssimano probabilisticamente una soluzione a un problema non computabile", correct: false },
+          { text: "Qualsiasi procedura logica che elabora dati di input, anche nel caso in cui non garantisca la terminazione ed esegua cicli ricorsivi infiniti", correct: false },
           { text: "Una sequenza finita di istruzioni non ambigue, eseguibili in tempo finito da un esecutore deterministico, che trasforma dati di input in dati di output", correct: true },
-          { text: "Qualsiasi formula matematica risolvibile esclusivamente tramite calcolo differenziale e integrale", correct: false }
+          { text: "Una descrizione matematica informale che delega all'interprete la facoltà di dedurre soggettivamente i passaggi intermedi", correct: false },
+          { text: "Una sequenza di euristiche probabilistiche finalizzata ad approssimare una soluzione per problemi non computabili secondo Turing", correct: false }
         ]
       },
       {
         q: "Perché le 'Note G' di Ada Lovelace (1843) sulla Macchina Analitica segnano la nascita della Computer Science?",
         options: [
-          { text: "Intuì che la macchina non era una mera calcolatrice aritmetica, ma poteva manipolare simboli astratti secondo regole logiche, e descrisse il primo algoritmo per calcolare i numeri di Bernoulli", correct: true },
-          { text: "Progettò il primo microprocessore a stato solido miniaturizzato su silicio per macchine tessili industriali", correct: false },
-          { text: "Dimostrò matematicamente che i calcolatori elettronici non avrebbero mai potuto superare la velocità di calcolo della mente umana", correct: false },
-          { text: "Sviluppò il primo sistema operativo grafico a finestre con mouse per la macchina meccanica di Charles Babbage", correct: false }
+          { text: "Concepì l'architettura con separazione fisica tra magazzino di memoria (Store) e mulino di calcolo (Mill), costruendone il primo esemplare funzionante", correct: false },
+          { text: "Formulò l'algebra booleana applicando i valori logici vero/falso ai circuiti con commutatori a relè elettromeccanici", correct: false },
+          { text: "Sviluppò il primo programma traduttore automatico in grado di convertire equazioni algebriche in combinazioni di schede tessili", correct: false },
+          { text: "Intuì che la macchina non era una mera calcolatrice aritmetica, ma poteva manipolare simboli astratti secondo regole logiche, e descrisse il primo algoritmo per calcolare i numeri di Bernoulli", correct: true }
         ]
       },
       {
         q: "Quale dei seguenti processi rappresenta il pilastro dell''Astrazione' nel Pensiero Computazionale?",
         options: [
-          { text: "Convertire manualmente ogni riga di testo alfabetico nel rispettivo codice binario a 8 bit", correct: false },
+          { text: "Scomporre un problema complesso e articolato in sotto-problemi elementari e indipendenti da risolvere separatamente", correct: false },
           { text: "Isolare le caratteristiche essenziali di un problema complesso nascondendo i dettagli microscopici non rilevanti per la soluzione logica", correct: true },
-          { text: "Aumentare il numero di transistor per core per ridurre la latenza di accesso alla memoria RAM", correct: false },
-          { text: "Scrivere codice sorgente direttamente in linguaggio esadecimale senza utilizzare funzioni o variabili", correct: false }
+          { text: "Individuare regolarità, tendenze e similarità ricorrenti tra problemi differenti per riutilizzare strategie risolutive già note", correct: false },
+          { text: "Definire la sequenza ordinata e rigorosa di passaggi esatti necessari per guidare l'esecutore alla soluzione del problema", correct: false }
         ]
       }
     ]

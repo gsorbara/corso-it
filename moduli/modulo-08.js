@@ -294,45 +294,45 @@ Content-Length: 412
         q: "Perché l'adozione della commutazione di pacchetto (Packet Switching) in ARPANET ha rivoluzionato l'architettura delle reti rispetto alla tradizionale commutazione di circuito telefonica?",
         options: [
           { text: "Elimina la necessità di riservare un circuito fisico dedicato e continuo: i messaggi vengono frammentati in pacchetti autonomi (datagrammi) instradati dinamicamente dai router su percorsi alternativi, massimizzando l'efficienza del canale e resistendo a guasti parziali", correct: true },
-          { text: "Obbliga ogni singolo pacchetto a percorrere rigidamente la medesima tratta fisica di cavi in rame alla velocità fissa garantita di 1 Mbit/s", correct: false },
-          { text: "Sostituisce gli indirizzi logici IP con frequenze radio analogiche modulate direttamente dalla circuiteria audio della sorgente", correct: false },
-          { text: "Impedisce per ragioni di sicurezza la trasmissione contemporanea di flussi di dati da parte di più host sulla stessa dorsale geografica", correct: false }
+          { text: "Impone l'allocazione esclusiva della banda trasmissiva lungo l'intera tratta prima dell'invio dei dati, garantendo assenza di ritardo a scapito della condivisione del canale", correct: false },
+          { text: "Sostituisce i router intermedi con collegamenti broadcast che replicano l'intero flusso su tutti i nodi collegati alla dorsale", correct: false },
+          { text: "Richiede che ogni host della rete conservi una copia speculare dell'intera tabella di instradamento geografica aggiornata a ogni ciclo di clock", correct: false }
         ]
       },
       {
         q: "Quale combinazione di caratteristiche architetturali distingue formalmente il protocollo di trasporto TCP da UDP?",
         options: [
+          { text: "TCP gestisce l'instradamento geografico dei pacchetti tra Autonomous System (BGP), mentre UDP si occupa della risoluzione degli indirizzi MAC a livello Data Link", correct: false },
+          { text: "UDP garantisce la consegna ordinata dei segmenti attraverso numeri di sequenza obbligatori, mentre TCP scarta silenziosamente i pacchetti non ricevuti entro il timeout", correct: false },
           { text: "TCP è orientato alla connessione (3-way handshake), garantisce recapito, ordinamento e controllo di congestione con rispedizione dei pacchetti persi; UDP è connectionless e best-effort, ideale per scenari a bassissima latenza e tolleranti alla perdita (DNS, VoIP, gaming online)", correct: true },
-          { text: "TCP opera unicamente su reti senza fili crittografate, mentre UDP può essere impiegato solo su collegamenti cablati in fibra ottica sottomarina", correct: false },
-          { text: "UDP cifra preventivamente l'intero payload con algoritmi a chiave pubblica, mentre TCP supporta solo lo scambio di testo in chiaro non strutturato", correct: false },
-          { text: "TCP incapsula i pacchetti direttamente nei frame fisici Ethernet senza utilizzare numeri di porta per identificare le applicazioni destinatarie", correct: false }
+          { text: "TCP è un protocollo di livello applicativo limitato al trasferimento di pagine web, mentre UDP opera direttamente sui segnali elettrici della scheda di rete", correct: false }
         ]
       },
       {
         q: "Durante la risoluzione ricorsiva di un nome a dominio (es. 'it.wikipedia.org'), qual è la corretta gerarchia di interrogazione eseguita dal resolver DNS se la voce non è presente in cache?",
         options: [
+          { text: "Invia una richiesta ARP broadcast sulla rete geografica per mappare l'indirizzo MAC della scheda di rete del web server remoto", correct: false },
           { text: "Interroga prima un Root Nameserver (per la radice '.'), poi il server TLD competente (per '.org'), e infine il Nameserver Autorevole del dominio ('wikipedia.org') che restituisce il Record A con l'indirizzo IP numerico definitivo", correct: true },
-          { text: "Invia una richiesta broadcast non indirizzata a tutti i computer mondiali per verificare le rispettive tabelle ARP locali", correct: false },
-          { text: "Contatta direttamente il server web di destinazione tramite una chiamata HTTP prima ancora di averne individuato l'indirizzo IP pubblico", correct: false },
-          { text: "Esegue il calcolo dell'IP calcolando l'hash crittografico SHA-256 dei caratteri ASCII del dominio all'interno del browser senza traffico di rete", correct: false }
+          { text: "Interroga prima il server DHCP locale per ottenere il record MX, e successivamente il registro RIPE per ricavare la subnet mask", correct: false },
+          { text: "Contatta direttamente i server BGP di transito per convertire il nome host in un Autonomous System Number (ASN) a 32 bit", correct: false }
         ]
       },
       {
         q: "Qual è la fondamentale distinzione concettuale e tecnologica tra 'Internet' e il 'World Wide Web'?",
         options: [
-          { text: "Internet è l'infrastruttura globale di telecomunicazione e interconnessione di reti (protocolli IP, BGP, router fisici e dorsali); il Web è un servizio applicativo basato su Internet ideato da Tim Berners-Lee nel 1989, costituito da ipertesti interconnessi tramite URL, HTTP e HTML", correct: true },
-          { text: "Internet è un software proprietario sviluppato dal CERN per l'analisi di particelle subatomiche, mentre il Web rappresenta la totalità dei cavi fisici intercontinentali", correct: false },
-          { text: "Internet e Web sono due acronimi sinonimi introdotti congiuntamente dalla DARPA nel 1969 per formalizzare il protocollo Telnet", correct: false },
-          { text: "Il Web gestisce il controllo degli errori nei router di livello 2 (Data Link), mentre Internet definisce la formattazione grafica dei fogli di stile CSS", correct: false }
+          { text: "Il Web è la rete fisica globale e la suite di protocolli di routing IP, mentre Internet è l'insieme di applicazioni client-server come browser e client email", correct: false },
+          { text: "Internet supporta esclusivamente il traffico web HTTP sulla porta 80, mentre il World Wide Web gestisce protocolli come FTP, SSH, SMTP e DNS", correct: false },
+          { text: "Internet fu progettata al CERN di Ginevra nel 1989 per scambi di articoli accademici, mentre il Web nacque come rete militare ARPANET nel 1969", correct: false },
+          { text: "Internet è l'infrastruttura globale di telecomunicazione e interconnessione di reti (protocolli IP, BGP, router fisici e dorsali); il Web è un servizio applicativo basato su Internet ideato da Tim Berners-Lee nel 1989, costituito da ipertesti interconnessi tramite URL, HTTP e HTML", correct: true }
         ]
       },
       {
         q: "Quale problema strutturale dell'architettura IPv4 ha risolto l'introduzione della tecnica NAT (Network Address Translation) nei router moderni?",
         options: [
-          { text: "Ha mitigato l'esaurimento del pool di indirizzi IPv4 pubblici a 32 bit, consentendo a un'intera rete locale (con indirizzi privati come 192.168.x.x o 10.x.x.x) di condividere un unico IP pubblico all'esterno mappando le sessioni tramite porte di trasporto", correct: true },
-          { text: "Ha consentito di raddoppiare la frequenza di trasmissione del segnale nei doppini in rame eliminando i disturbi di diafonia", correct: false },
-          { text: "Ha eliminato la necessità di installare schede di interfaccia di rete (NIC) nei personal computer e nei dispositivi mobili", correct: false },
-          { text: "Ha convertito automaticamente i pacchetti dati da segnali elettrici a codici a barre ottici letti direttamente dallo schermo", correct: false }
+          { text: "Converte automaticamente gli indirizzi IPv4 a 32 bit nel nuovo formato esadecimale IPv6 a 128 bit direttamente nella scheda di rete dell'host", correct: false },
+          { text: "Ha mitigato l'esaurimento del pool di indirizzi IPv4 pubblici a 32 bit, consentendo a un'intera rete locale (con indirizzi privati come 192.168.x.x o 10.x.x.x) di condividere un unico IP pubblico all'esterno mappando le sessioni tramite porte di trasporto (NAPT/PAT)", correct: true },
+          { text: "Assegna a ogni dispositivo connesso alla rete locale un indirizzo IP pubblico univoco e statico registrato globalmente presso l'ICANN", correct: false },
+          { text: "Sostituisce il protocollo ARP traducendo i pacchetti TCP in frame Ethernet privi di intestazioni di controllo", correct: false }
         ]
       }
     ]

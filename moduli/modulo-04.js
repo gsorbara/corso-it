@@ -322,46 +322,46 @@ C:\UTENTE> </div>
       {
         q: "Perché l'Olivetti Programma 101 (1965), ideata da Pier Giorgio Perotto, è storicamente riconosciuta come il primo personal computer da tavolo?",
         options: [
+          { text: "Fu il primo calcolatore ad adottare un'architettura a microprocessore integrato su silicio con interfaccia a finestre derivata da CP/M", correct: false },
+          { text: "Era un terminale di calcolo privo di memoria propria, collegato in time-sharing all'Elea 9003 tramite linea telefonica commutata", correct: false },
           { text: "Era una macchina autonoma, compatta e programmabile direttamente dall'utente da scrivania: registrava ed eseguiva algoritmi tramite cartoline magnetiche (fu usata anche dalla NASA per calcolare la discesa lunare dell'Apollo 11), senza richiedere sale climatizzate o tecnici specializzati", correct: true },
-          { text: "Era un terminale stupido privo di CPU propria che trasmetteva dati via modem radio ai mainframe militari americani", correct: false },
-          { text: "Fu il primo calcolatore commerciale a utilizzare un'interfaccia grafica a colori con mouse e finestre multitasking", correct: false },
-          { text: "Funzionava esclusivamente a schede perforate tessili e pesava oltre due tonnellate", correct: false }
+          { text: "Si trattava di una calcolatrice meccanica ad addizione binaria priva di supporto per cicli di iterazione o salti condizionati", correct: false }
         ]
       },
       {
         q: "Qual è la differenza architetturale e funzionale primaria tra Memoria di Lavoro (RAM) e Memoria di Massa (Storage SSD/HDD)?",
         options: [
-          { text: "La CPU preleva ed esegue le istruzioni direttamente dai settori dell'SSD senza passare dalla RAM per non consumare banda", correct: false },
-          { text: "Lo Storage è non volatile e capiente ma ad accesso indiretto e lento; la RAM è volatile e direttamente indirizzabile dal bus della CPU a latenze nanometriche, costituendo l'unico spazio da cui il processore esegue il codice", correct: true },
-          { text: "La RAM conserva i dati in modo permanente anche a computer spento, mentre l'SSD perde i dati alla disconnessione dalla corrente", correct: false },
-          { text: "Non esiste alcuna distinzione logica: entrambi i dispositivi condividono la stessa memoria cache interna al die della CPU", correct: false }
+          { text: "La CPU preleva ed esegue le istruzioni macchina leggendo direttamente dai settori dell'SSD NVMe tramite protocollo DMA senza transitare per la memoria volatile", correct: false },
+          { text: "Lo Storage è non volatile e capiente ma ad accesso indiretto e a blocchi; la RAM è volatile, direttamente indirizzabile a byte dal memory controller della CPU con latenze di pochi nanosecondi, ed è l'unico spazio da cui il processore può eseguire direttamente le istruzioni", correct: true },
+          { text: "La RAM conserva i dati in modo permanente mediante celle magnetiche a riluttanza variabile, mentre l'SSD richiede cicli di refresh periodici a carico del sistema operativo", correct: false },
+          { text: "RAM e Storage condividono la medesima latenza di accesso, ma l'unità SSD viene riservata esclusivamente alla gestione dei frame dello stack di sistema", correct: false }
         ]
       },
       {
         q: "Quali tecnologie fondamentali dell'informatica moderna furono mostrate pubblicamente per la prima volta nella 'Madre di Tutte le Demo' di Douglas Engelbart (1968)?",
         options: [
-          { text: "Il primo microprocessore integrato al silicio e il primo server Web HTTP", correct: false },
-          { text: "Il mouse per computer a rotelle ortogonali, il testo ipertestuale navigabile, le interfacce a finestre multiple e la collaborazione interattiva in tempo reale su display", correct: true },
-          { text: "Il primo display a cristalli liquidi con supporto alla realtà aumentata e connessione cellulare 3G", correct: false },
-          { text: "Il primo algoritmo di intelligenza artificiale addestrato tramite reti neurali profonde", correct: false }
+          { text: "La prima dimostrazione di una rete geografica a commutazione di pacchetto (ARPANET) collegata al protocollo applicativo HTTP", correct: false },
+          { text: "La prima scheda grafica per computer con accelerazione tridimensionale geometrica e pipeline programmabile", correct: false },
+          { text: "Il primo microprocessore monolitico a 8 bit dotato di memoria flash riscrivibile e bus seriale ad alta velocità", correct: false },
+          { text: "Il mouse per computer a rotelle ortogonali, il testo ipertestuale navigabile, le interfacce a finestre multiple e la collaborazione interattiva in tempo reale su display", correct: true }
         ]
       },
       {
         q: "In che modo la 'Desktop Metaphor' ideata allo Xerox PARC (1973) ha rivoluzionato il modello di interazione uomo-macchina?",
         options: [
-          { text: "Ha sostituito l'obbligo di memorizzare aridi comandi testuali (CLI) con rappresentazioni grafiche intuitive di oggetti quotidiani (scrivania, cartelle, documenti, finestre sovrapponibili e cestino) manipolabili tramite puntatore", correct: true },
-          { text: "Ha imposto l'esecuzione di un solo programma per volta per evitare collisioni sul bus della scheda video", correct: false },
-          { text: "Ha introdotto il divieto di salvare file sul disco fisso per costringere gli utenti a memorizzare tutto sulla memoria ROM della tastiera", correct: false },
-          { text: "Ha eliminato l'uso del monitor video a favore di stampanti ad aghi ad alta velocità", correct: false }
+          { text: "Ha sostituito l'obbligo di memorizzare comandi testuali da riga di comando (CLI) con rappresentazioni grafiche intuitive di oggetti quotidiani (scrivania, cartelle, documenti, finestre sovrapponibili e cestino) manipolabili tramite puntatore", correct: true },
+          { text: "Ha introdotto il modello di virtualizzazione hardware consentendo l'esecuzione di più sistemi operativi ospiti isolati sullo stesso processore", correct: false },
+          { text: "Ha unificato lo spazio di memoria fisica eliminando la distinzione di privilegio tra Ring 0 del Kernel e Ring 3 delle applicazioni utente", correct: false },
+          { text: "Ha stabilito gli standard ipertestuali del Web separando il codice logico delle pagine dai fogli di stile visuali", correct: false }
         ]
       },
       {
         q: "Secondo le migliori pratiche di sicurezza hardware e protezione dei dati, come si articola la 'Regola del Backup 3-2-1'?",
         options: [
-          { text: "Creare 3 cartelle con lo stesso nome, salvarle per 2 giorni consecutivi e spegnere il computer con 1 clic", correct: false },
+          { text: "Mantenere 3 partizioni logiche distinte all'interno dello stesso hard disk interno, formattate con 2 file system differenti, ed eseguire 1 scansione antimalware settimanale", correct: false },
           { text: "Mantenere almeno 3 copie totali dei dati, su 2 supporti con tecnologie differenti (es. SSD locale e storage NAS/ottico), di cui almeno 1 copia custodita geograficamente fuori sede (off-site o cloud cifrato)", correct: true },
-          { text: "Installare 3 diversi antivirus commerciali, riavviare il sistema 2 volte e scollegare 1 cavo di alimentazione", correct: false },
-          { text: "Mantenere 3 partizioni logiche distinte all'interno dello stesso identico disco meccanico interno", correct: false }
+          { text: "Effettuare 3 backup completi al giorno, conservarli per 2 settimane sul desktop e sincronizzarli tramite 1 sola cartella condivisa non autenticata", correct: false },
+          { text: "Distribuire l'intero volume di dati su 3 dischi meccanici configurati in modalità RAID 0 per massimizzare contemporaneamente fault tolerance e transfer rate", correct: false }
         ]
       }
     ]

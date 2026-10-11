@@ -422,45 +422,45 @@
         q: "Perché l'elettronica digitale dei moderni processori adotta il sistema binario (base 2) anziché il sistema decimale (base 10)?",
         options: [
           { text: "Perché distinguere due soli stati estremi di tensione (transistor in saturazione o interdizione, ON/OFF) offre la massima immunità al rumore elettrico, al degrado termico e alle fluttuazioni di alimentazione", correct: true },
-          { text: "Perché la base 10 richiede dieci cavi fisici separati per ogni singolo transistor presente sul die della CPU", correct: false },
-          { text: "Perché l'algebra booleana può operare unicamente se i registri della memoria RAM contengono numeri primi", correct: false },
-          { text: "Perché i display video RGB possono mostrare pixel luminosi solo se la memoria opera a coppie di bit pari", correct: false }
+          { text: "Perché l'algebra booleana può essere implementata fisicamente solo utilizzando tensioni analogiche su bus a polarità alternata", correct: false },
+          { text: "Perché un circuito a dieci livelli di tensione discreti richiederebbe correnti talmente basse da renderlo indistinguibile dal rumore termico gaussiano", correct: false },
+          { text: "Perché i bus paralleli a 64 bit non possono propagare il segnale se la base numerica non è una potenza dispari del fattore di forma", correct: false }
         ]
       },
       {
         q: "Nel leggendario 'Kill Screen' del livello 256 di Pac-Man, quale fenomeno logico-aritmetico corrompe la schermata di gioco?",
         options: [
-          { text: "La corruzione fisica dei banchi di memoria ROM del cabinato dovuta a un surriscaldamento prolungato", correct: false },
-          { text: "Un Integer Overflow a 8 bit senza segno: sommando 1 al livello 255 (11111111₂), il bit di riporto viene troncato e il contatore si riazzera a 0, facendo eseguire alla subroutine di disegno dei frutti un ciclo errato da 256 iterazioni", correct: true },
-          { text: "Un errore di virgola mobile IEEE 754 dovuto all'incapacità del processore Z80 di calcolare la radice quadrata del punteggio", correct: false },
-          { text: "Un attacco di buffer overflow generato dall'inserimento di monete metalliche duplicate nella gettoniera", correct: false }
+          { text: "Un errore di Underflow aritmetico in virgola mobile scatenato da una divisione per zero nel calcolo delle traiettorie dei fantasmi", correct: false },
+          { text: "Uno Stack Overflow provocato da chiamate ricorsive annidate che hanno esaurito la memoria riservata alla pila nello Z80", correct: false },
+          { text: "Un Integer Overflow a 8 bit senza segno: sommando 1 al livello 255 (11111111₂), il bit di riporto (carry) eccede il registro e il contatore si riazzera a 0, inducendo la subroutine di disegno a ciclare per 256 volte corrompendo la memoria video", correct: true },
+          { text: "Una violazione di accesso (Segmentation Fault) generata dal tentativo della CPU di eseguire dati grafici come istruzioni macchina", correct: false }
         ]
       },
       {
         q: "Qual è il motivo tecnico fondamentale per cui lo standard Unicode UTF-8 ha soppiantato ASCII e i set di caratteri a 8 bit?",
         options: [
-          { text: "Utilizza una codifica a lunghezza fissa di 32 bit per ogni simbolo, raddoppiando la velocità di esecuzione della CPU", correct: false },
-          { text: "È perfettamente retrocompatibile con ASCII a 7 bit (i primi 128 codici occupano 1 singolo byte identico) e impiega una lunghezza variabile da 1 a 4 byte per rappresentare oltre 1 milione di caratteri ed emoji di tutte le lingue mondiali", correct: true },
-          { text: "Comprime il testo con un algoritmo lossy che elimina gli spazi e le vocali non accentate per ridurre il traffico di rete", correct: false },
-          { text: "È l'unico formato che può essere memorizzato all'interno dei chip BIOS/UEFI delle schede madri", correct: false }
+          { text: "Impiega una codifica a lunghezza fissa di 16 bit (2 byte) per ogni carattere garantendo accesso posizionale istantaneo O(1) in memoria", correct: false },
+          { text: "Sostituisce i caratteri alfabetici con tabelle di hashing compresse che riducono a 4 bit l'ingombro di memoria dei testi", correct: false },
+          { text: "Converte automaticamente tutti i glifi in sequenze a 32 bit costanti (UTF-32) per uniformarsi all'architettura dei registri a 32 bit", correct: false },
+          { text: "È perfettamente retrocompatibile con ASCII a 7 bit (i primi 128 codici occupano 1 singolo byte identico) e impiega una lunghezza variabile da 1 a 4 byte per rappresentare l'intero spazio di oltre 1 milione di caratteri ed emoji", correct: true }
         ]
       },
       {
         q: "In base al Teorema di Campionamento di Nyquist-Shannon, perché i Compact Disc audio adottano la frequenza standard di 44,1 kHz?",
         options: [
-          { text: "Perché per ricostruire perfettamente un segnale analogico continuo senza aliasing occorre campionare ad almeno il doppio della massima frequenza udibile (l'udito umano arriva a circa 20 kHz, quindi servono > 40 kHz)", correct: true },
-          { text: "Perché la frequenza di 44,1 kHz corrisponde alla velocità di rotazione meccanica del motore laser nel lettore ottico", correct: false },
-          { text: "Perché il campionamento a 44,1 kHz consente al processore di riprodurre audio stereo senza occupare memoria RAM", correct: false },
-          { text: "Perché stabilisce che ogni secondo di registrazione musicale debba occupare esattamente 44.100 bit su disco fisso", correct: false }
+          { text: "Perché 44,1 kHz è la frequenza di risonanza acustica dell'aria nel condotto uditivo umano a temperatura e pressione standard", correct: false },
+          { text: "Perché per ricostruire fedelmente un segnale analogico continuo senza aliasing, la frequenza di campionamento deve essere almeno il doppio della massima frequenza udibile (2 × ~20 kHz = >40 kHz, con margine per i filtri anti-aliasing)", correct: true },
+          { text: "Perché la quantizzazione a 16 bit genera distorsione armonica se la frequenza di campionamento scende al di sotto della costante di Planck", correct: false },
+          { text: "Perché impone che ogni secondo di registrazione occupi esattamente 44.100 bit lordi sulla traccia a spirale del supporto ottico", correct: false }
         ]
       },
       {
         q: "Qual è la differenza concettuale e algoritmica tra compressione dati Lossless (es. PNG, FLAC, ZIP) e Lossy (es. JPEG, MP3)?",
         options: [
-          { text: "I formati Lossless comprimono solo testo ed eliminano le tabelle, mentre i formati Lossy sono obbligatori per i file eseguibili binari", correct: false },
-          { text: "I formati Lossless ricostruiscono bit per bit l'informazione originaria sfruttando ridondanze statistiche; i formati Lossy eliminano irreversibilmente dati psicologicamente trascurabili per ottenere tassi di riduzione molto superiori", correct: true },
-          { text: "La compressione Lossy preserva tutti i dati originali al 100% ma richiede il doppio del tempo di decompressione da parte della CPU", correct: false },
-          { text: "La compressione Lossless può essere applicata unicamente su memorie di massa a stato solido NVMe", correct: false }
+          { text: "I formati Lossless ricostruiscono bit per bit l'informazione originaria sfruttando ridondanze statistiche ed entropiche; i formati Lossy eliminano irreversibilmente dati percettivamente trascurabili per ottenere tassi di compressione molto superiori", correct: true },
+          { text: "I formati Lossless comprimono solo file di testo e metadati, mentre la compressione Lossy è obbligatoria per tutti gli eseguibili binari e le librerie DLL", correct: false },
+          { text: "La compressione Lossless è reversibile solo se la decompressione avviene sulla medesima architettura CPU che ha generato l'archivio compresso", correct: false },
+          { text: "La compressione Lossy preserva integralmente l'entropia di Shannon ma raddoppia i tempi di calcolo dell'ALU durante il ciclo di lettura", correct: false }
         ]
       }
     ]

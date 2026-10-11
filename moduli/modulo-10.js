@@ -345,45 +345,45 @@ print(f"Benvenuta/o nel mondo della programmazione, {nome}!")</pre>
         q: "Nell'architettura software e nella piramide dell'astrazione, quale trade-off ingegneristico fondamentale distingue un linguaggio di sistema (es. C o Rust) da un linguaggio di altissimo livello (es. Python)?",
         options: [
           { text: "I linguaggi di sistema offrono controllo deterministico a basso livello sulla memoria e massima velocità di esecuzione a fronte di maggiore complessità e gestione manuale delle risorse; i linguaggi di altissimo livello massimizzano la produttività e la leggibilità introducendo runtime di astrazione con overhead prestazionale", correct: true },
-          { text: "I linguaggi di sistema possono essere eseguiti solo su server cloud distribuiti, mentre i linguaggi di scripting operano unicamente all'interno della memoria cache L1 della CPU", correct: false },
-          { text: "Python traduce direttamente il codice sorgente in impulsi elettromagnetici inviati al monitor, mentre C richiede una conversione in immagini grafiche", correct: false },
-          { text: "Nei linguaggi di sistema non è possibile implementare algoritmi algebrici complessi a causa dell'assenza di registri a 64 bit", correct: false }
+          { text: "I linguaggi di sistema sono privi di tipi di dato e richiedono l'allocazione dinamica tramite stringhe, mentre i linguaggi di scripting sono rigidamente tipizzati e compilati AOT", correct: false },
+          { text: "I linguaggi di sistema non possono interagire con le Syscall del Kernel, mentre i linguaggi di scripting operano direttamente a livello Ring 0", correct: false },
+          { text: "Nei linguaggi di sistema le variabili vengono memorizzate solo nei registri della GPU, mentre i linguaggi di scripting gestiscono la gerarchia della memoria cache L1/L2", correct: false }
         ]
       },
       {
         q: "Come opera tecnicamente un motore di esecuzione con compilatore Just-In-Time (JIT), come V8 di JavaScript o HotSpot di Java?",
         options: [
+          { text: "Traduce direttamente il codice sorgente riga per riga in tempo reale senza mai generare né conservare in memoria codice macchina compilato", correct: false },
           { text: "Avvia l'esecuzione traducendo un formato intermedio (bytecode) e, monitorando a runtime le porzioni di codice più frequentemente invocate ('hot spots'), le compila dinamicamente in codice macchina nativo ottimizzato per la specifica CPU ospite", correct: true },
-          { text: "Compila l'intero programma in linguaggio binario statico su disco rigido mesi prima che l'utente apra l'applicazione", correct: false },
-          { text: "Invia ogni singola istruzione a un server DNS centrale per verificarne la correttezza prima di allocare la memoria nello stack", correct: false },
-          { text: "Disattiva le istruzioni di salto condizionato (branch) della CPU convertendo tutti i loop di iterazione in costanti immutabili", correct: false }
+          { text: "Compila l'intero programma in binario nativo statico prima dell'esecuzione (Ahead-Of-Time) salvando l'eseguibile monolitico su disco", correct: false },
+          { text: "Esegue il codice interpretando direttamente i caratteri ASCII del file sorgente tramite microistruzioni cablate nel BIOS della scheda madre", correct: false }
         ]
       },
       {
         q: "Quale criticità architetturale caratterizza la gestione manuale della memoria (malloc/free in C/C++) rispetto all'uso di un Garbage Collector automatico (Java, Go, C#)?",
         options: [
-          { text: "La gestione manuale evita pause imprevedibili di 'stop-the-world' garantendo minima latenza nei sistemi real-time, ma espone a bug critici di sicurezza come Memory Leaks, Buffer Overflow e Use-After-Free dovuti a deallocazioni errate o mancate", correct: true },
-          { text: "La memoria allocata manualmente non può essere memorizzata nei banchi di RAM ma deve risiedere nei registri interni dell'ALU", correct: false },
-          { text: "Il Garbage Collector cancella i file sorgenti dal disco fisso ogni volta che un thread rilascia un puntatore nello heap", correct: false },
-          { text: "La gestione manuale è supportata esclusivamente dai microprocessori a 8 bit e impedisce l'uso della memoria virtuale protetta", correct: false }
+          { text: "La gestione manuale alloca automaticamente gli oggetti sullo Stack rilasciandoli all'uscita dal blocco, mentre il Garbage Collector impedisce l'uso dei puntatori", correct: false },
+          { text: "Il Garbage Collector elimina completamente il consumo di memoria RAM consentendo al programma di istanziare oggetti infiniti senza saturare lo Heap", correct: false },
+          { text: "La gestione manuale richiede la reindicizzazione delle tabelle di routing dopo ogni deallocazione per prevenire violazioni di segmento", correct: false },
+          { text: "La gestione manuale evita pause imprevedibili di 'stop-the-world' garantendo minima latenza nei sistemi real-time, ma espone a bug critici di sicurezza come Memory Leaks, Buffer Overflow e Use-After-Free dovuti a deallocazioni errate o mancate", correct: true }
         ]
       },
       {
         q: "Qual è la differenza concettuale fondamentale tra il paradigma Orientato agli Oggetti (OOP) e il paradigma Funzionale Puro?",
         options: [
+          { text: "L'OOP vieta la definizione di funzioni con più di due parametri, mentre il paradigma funzionale impone l'uso esclusivo di variabili globali condivise", correct: false },
+          { text: "Il paradigma funzionale consente solo la mutazione di puntatori diretti in memoria, mentre l'OOP non supporta l'ereditarietà né il polimorfismo dinamico", correct: false },
           { text: "L'OOP modella il sistema mediante oggetti che incapsulano stato interno mutabile e comportamenti (metodi); il paradigma funzionale tratta il calcolo come valutazione di funzioni matematiche pure prive di effetti collaterali (side-effects) e con strutture dati immutabili", correct: true },
-          { text: "L'OOP è limitato all'elaborazione di stringhe di testo, mentre il paradigma funzionale è utilizzabile solo per la gestione delle porte USB", correct: false },
-          { text: "La programmazione funzionale richiede la scrittura esclusiva in codice esadecimale grezzo senza supporto per le variabili", correct: false },
-          { text: "L'OOP vieta l'utilizzo di classi ed ereditarietà, consentendo solo chiamate di sistema (Syscall) dirette al Kernel", correct: false }
+          { text: "L'OOP è un paradigma limitato alla manipolazione di file di testo, mentre il paradigma funzionale è un'estensione proprietaria del linguaggio Assembly", correct: false }
         ]
       },
       {
         q: "In base a quali vincoli architetturali un team ingegneristico sceglie tipicamente di implementare un motore ad altissime prestazioni (es. trading ad alta frequenza o motore grafico 3D) in Rust/C++ anziché in Python o Ruby?",
         options: [
+          { text: "Perché i linguaggi di scripting non sono compatibili con processori multicore e non supportano la creazione di socket di rete TCP", correct: false },
           { text: "Per la necessità di tempi di risposta deterministici al microsecondo (assenza di pause improvvise del Garbage Collector), consumo di memoria rigorosamente predicibile e massimo sfruttamento delle istruzioni vettoriali della CPU", correct: true },
-          { text: "Perché Python e Ruby non possiedono librerie per aprire connessioni su protocolli TCP/IP o leggere file da disco", correct: false },
-          { text: "Perché i compilatori C++ e Rust disabilitano il consumo di corrente elettrica della scheda madre durante l'elaborazione", correct: false },
-          { text: "Perché i moderni sistemi operativi a 64 bit bloccano per motivi di sicurezza l'esecuzione di script interpretati a livello di kernel", correct: false }
+          { text: "Perché Rust e C++ utilizzano un modello di tipizzazione dinamica che risolve i tipi a runtime raddoppiando il throughput delle richieste", correct: false },
+          { text: "Perché Python richiede l'autorizzazione di un certificato digitale di sistema per eseguire calcoli matematici con numeri negativi", correct: false }
         ]
       }
     ]

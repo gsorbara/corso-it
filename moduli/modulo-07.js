@@ -345,46 +345,46 @@
       {
         q: "All'interno di un file binario eseguibile (come i formati ELF su Linux o PE su Windows), qual è la differenza fondamentale tra la sezione '.data' e la sezione '.bss'?",
         options: [
+          { text: "La sezione .data è allocata in memoria sola lettura (R--) per le costanti letterali, mentre la sezione .bss memorizza le istruzioni macchina compilate", correct: false },
           { text: "La sezione .data contiene le variabili globali inizializzate con valori espliciti e occupa spazio fisico su disco; la sezione .bss definisce variabili globali non inizializzate (o azzerate) e occupa 0 byte nel file su disco, venendo allocata e azzerata in RAM dal Loader solo all'avvio", correct: true },
-          { text: "La sezione .data contiene il codice macchina eseguibile compilato per la CPU, mentre la sezione .bss memorizza esclusivamente le risorse grafiche e i font", correct: false },
-          { text: "La sezione .bss è contrassegnata come Read-Execute (R-X) per la CPU, mentre la sezione .data è riservata al caricamento delle routine del BIOS", correct: false },
-          { text: "La sezione .data risiede unicamente all'interno dello Stack frame, mentre la sezione .bss viene salvata nella memoria non-volatile CMOS della scheda madre", correct: false }
+          { text: "La sezione .data contiene i frame dello stack locale di tutte le funzioni, mentre la sezione .bss gestisce l'area dell'Heap dinamico a runtime", correct: false },
+          { text: "Entrambe le sezioni occupano lo stesso spazio su disco, ma .bss viene decompressa solo quando il processo entra in modalità kernel Ring 0", correct: false }
         ]
       },
       {
         q: "Nel layout dello spazio di indirizzamento virtuale di un processo a 64 bit, quali caratteristiche differenziano la memoria 'Stack' dalla memoria 'Heap'?",
         options: [
           { text: "Lo Stack ha gestione LIFO ultraveloce e automatica legata al ciclo di vita delle funzioni (parametri, indirizzi di ritorno, variabili locali); lo Heap è un'area di memoria dinamica a runtime gestita manualmente dal programmatore o tramite Garbage Collector", correct: true },
-          { text: "Lo Stack cresce occupando l'intero spazio dei file di paging su disco, mentre lo Heap è una porzione statica e immutabile cablata nel firmware UEFI", correct: false },
-          { text: "Lo Stack è accessibile indistintamente da tutti i processi in esecuzione nel sistema operativo, mentre lo Heap è confinato rigorosamente all'interno dei registri interni dell'ALU", correct: false },
-          { text: "Nello Stack vengono allocati solo file e flussi multimediali oltre 1 GB, mentre lo Heap memorizza unicamente puntatori esadecimali a 8 bit", correct: false }
+          { text: "Lo Stack gestisce le variabili allocate dinamicamente tramite puntatori espliciti (malloc/free), mentre lo Heap memorizza unicamente i frame di chiamata delle funzioni", correct: false },
+          { text: "Lo Stack è condiviso tra tutti i thread concorrenti del processo, mentre ogni singolo thread alloca e gestisce uno Heap privato e isolato", correct: false },
+          { text: "Nello Stack la memoria soffre di frammentazione esterna e richiede deframmentazione periodica, mentre lo Heap garantisce allocazione contigua a costo zero", correct: false }
         ]
       },
       {
         q: "Cosa accade a livello di architettura e MMU quando si verifica l'errore fatale di 'Stack Overflow' causato da una ricorsione infinita?",
         options: [
-          { text: "L'accrescimento continuo dei frame dello stack esaurisce lo spazio allocato e tenta di scrivere nella 'Guard Page' (pagina non mappata con permessi revocati): la MMU intercetta la violazione e scatena un'eccezione hardware di Segmentation Fault", correct: true },
-          { text: "Il controller DMA reindirizza automaticamente il flusso ricorsivo verso la memoria video, convertendo le chiamate di funzione in texture grafiche", correct: false },
-          { text: "La CPU riduce forzatamente la frequenza di clock a 1 Hz, trasformando le funzioni ricorsive in microistruzioni a singolo ciclo di bus", correct: false },
-          { text: "Il sistema operativo cancella l'intero file system del disco per preservare i registri di stato da sovratensioni elettriche", correct: false }
+          { text: "Lo stack sovrascrive silenziosamente la sezione .text del codice eseguibile, modificando le istruzioni macchina senza che il sistema operativo intervenga", correct: false },
+          { text: "Il garbage collector interviene forzatamente convertendo le chiamate ricorsive in cicli iterativi all'interno dell'Heap", correct: false },
+          { text: "La CPU entra in stallo irreversibile (Deadlock) attendendo che il Program Counter torni al valore dell'Entry Point iniziale", correct: false },
+          { text: "L'accrescimento continuo dei frame dello stack esaurisce lo spazio allocato e tenta di scrivere nella 'Guard Page' (pagina non mappata con permessi revocati): la MMU intercetta la violazione e scatena un'eccezione hardware di Segmentation Fault", correct: true }
         ]
       },
       {
         q: "Qual è la distinzione architetturale fondamentale tra un Processo e un Thread nell'esecuzione concorrente?",
         options: [
+          { text: "I thread possiedono spazi di memoria virtuale separati gestiti dalla MMU, mentre i processi condividono sempre lo stesso Heap e gli stessi puntatori di registro", correct: false },
+          { text: "La commutazione di contesto (context switch) tra processi è più rapida di quella tra thread perché non richiede il ricaricamento del registro CR3 della tabella delle pagine", correct: false },
           { text: "I processi possiedono spazi di indirizzamento virtuali completamente isolati e indipendenti gestiti dal Kernel; i thread (dello stesso processo) condividono lo stesso spazio di memoria, heap e descrittori di file, ma mantengono stack e registri privati", correct: true },
-          { text: "Un processo può essere eseguito solo da processori a singolo core, mentre i thread richiedono obbligatoriamente un cluster di calcolo remoto distribuito", correct: false },
-          { text: "I thread non possono accedere alla memoria RAM e comunicano unicamente tramite continue operazioni di scrittura su file temporanei su disco", correct: false },
-          { text: "I processi sono costrutti software gestiti a livello di compilatore senza supporto del Kernel, mentre i thread sono circuiti integrati saldati sulla scheda madre", correct: false }
+          { text: "Un processo può eseguire solo un'istruzione macchina per volta su un singolo core, mentre un singolo thread può eseguire più funzioni simultaneamente su core differenti", correct: false }
         ]
       },
       {
         q: "In un'applicazione multithreading, cos'è una 'Race Condition' e come viene formalmente risolta per garantire la correttezza dei dati?",
         options: [
+          { text: "È uno stato di stallo permanente (Deadlock) in cui due thread attendono indefinitamente l'uno il rilascio di un lock detenuto dall'altro; si risolve eliminando i thread dallo scheduler", correct: false },
           { text: "È un'anomalia in cui due o più thread accedono e modificano concorrentemente una risorsa condivisa senza sincronizzazione, producendo risultati non deterministici; si risolve proteggendo la sezione critica con primitive di mutua esclusione (Mutex o Lock atomici)", correct: true },
-          { text: "È una situazione in cui i thread competono per occupare la banda del bus PCIe; si risolve abbassando la risoluzione dello schermo", correct: false },
-          { text: "È un'incompatibilità binaria tra codice C e Assembly; si risolve rieseguendo il compilatore con l'opzione di interpretazione istantanea", correct: false },
-          { text: "È uno stato in cui lo scheduler assegna tutti i cicli di clock a processi in stato di Zombie; si risolve raddoppiando la memoria cache L3", correct: false }
+          { text: "È un errore di compilazione che si verifica quando due thread richiamano la stessa funzione pura priva di variabili globali o effetti collaterali", correct: false },
+          { text: "È una situazione in cui la frequenza di clock del processore non è sufficientemente elevata da sincronizzare i thread su un singolo bus di memoria", correct: false }
         ]
       }
     ]
