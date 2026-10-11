@@ -373,6 +373,15 @@ function renderContent() {
     if (typeof renderLanguageCompass === 'function') {
       renderLanguageCompass();
     }
+    if (typeof renderNeuronPlayground === 'function') {
+      renderNeuronPlayground();
+    }
+    if (typeof renderAttentionExplorer === 'function') {
+      renderAttentionExplorer();
+    }
+    if (typeof renderQuantumLab === 'function') {
+      renderQuantumLab();
+    }
     
     const footerNav = document.createElement("div");
     footerNav.className = "nav-actions-footer";
@@ -398,15 +407,40 @@ function renderContent() {
     nextBtn.className = "btn-primary";
     
     const hasNextSub = currentTabIndex + 1 < currentMod.submodules.length;
-    nextBtn.innerText = hasNextSub ? "Prossimo Sottomodulo ➔" : "Vai al Test di Verifica ✍️";
-    nextBtn.onclick = () => {
-      currentTabIndex++;
-      expandedModules.add(currentModuleIndex);
-      savePosition();
-      renderSidebar();
-      renderContent();
-      content.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    if (hasNextSub) {
+      nextBtn.innerText = "Prossimo Sottomodulo ➔";
+      nextBtn.onclick = () => {
+        currentTabIndex++;
+        expandedModules.add(currentModuleIndex);
+        savePosition();
+        renderSidebar();
+        renderContent();
+        content.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+    } else if (currentMod.quiz && currentMod.quiz.questions && currentMod.quiz.questions.length > 0) {
+      nextBtn.innerText = "Vai al Test di Verifica ✍️";
+      nextBtn.onclick = () => {
+        currentTabIndex++;
+        expandedModules.add(currentModuleIndex);
+        savePosition();
+        renderSidebar();
+        renderContent();
+        content.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+    } else {
+      const isLastModule = currentModuleIndex + 1 === window.courseData.length;
+      nextBtn.innerText = isLastModule ? "Completa Corso 🎉" : "Completa Modulo 🎓";
+      nextBtn.onclick = () => {
+        localStorage.setItem(`completed_mod_${currentMod.id}`, "true");
+        currentTabIndex++;
+        expandedModules.add(currentModuleIndex);
+        savePosition();
+        renderSidebar();
+        renderContent();
+        updateProgressBar();
+        content.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+    }
     footerNav.appendChild(nextBtn);
     content.appendChild(footerNav);
 
@@ -415,8 +449,47 @@ function renderContent() {
     creditsFooter.innerHTML = '📷 <em>Tutte le immagini e illustrazioni storiche provengono da <a href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> (licenze libere CC / Pubblico Dominio).</em>';
     content.appendChild(creditsFooter);
   } else {
-    renderQuizView(currentMod, content);
+    if (currentMod.quiz && currentMod.quiz.questions && currentMod.quiz.questions.length > 0) {
+      renderQuizView(currentMod, content);
+    } else {
+      renderCourseCompletedView(currentMod, content);
+    }
   }
+}
+
+function renderCourseCompletedView(mod, container) {
+  localStorage.setItem(`completed_mod_${mod.id}`, "true");
+  updateProgressBar();
+  renderSidebar();
+
+  container.innerHTML = `
+    <div class="quiz-card" style="text-align: center; padding: 48px 24px; max-width: 820px; margin: 0 auto;">
+      <div style="font-size: 4rem; margin-bottom: 20px;">🏆🎓🎉</div>
+      <h2 style="font-size: 2rem; margin-bottom: 16px; color: var(--accent);">Congratulazioni! Corso Completato con Successo!</h2>
+      <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text); margin-bottom: 24px;">
+        Hai portato a termine tutti gli 11 moduli didattici del <strong>Corso di Informatica Generale</strong>!<br>
+        Dalle basi matematiche dell'algebra di Boole ai circuiti logici, dai sistemi operativi e memorie virtuali all'architettura delle reti Internet, crittografia asimmetrica, algoritmi in Python, fino alle più moderne frontiere dell'<strong>Intelligenza Artificiale</strong>, dei <strong>Large Language Models (LLM)</strong> e del <strong>Calcolo Quantistico</strong>.
+      </p>
+      <div style="background: var(--card-bg, rgba(255,255,255,0.03)); border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 30px; text-align: left;">
+        <h4 style="margin-top: 0; color: #34d399; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
+          <span>✅</span> Competenze e Traguardi Raggiunti
+        </h4>
+        <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem;">
+          <li><strong>11 Moduli didattici</strong> completati con rigoroso rigore accademico e storico.</li>
+          <li><strong>Oltre 35 laboratori e simulatori interattivi</strong> esplorati in prima persona.</li>
+          <li><strong>Crittografia & Sicurezza:</strong> comprensione profonda di cifrari classici, RSA/ECC e minaccia quantistica (algoritmo di Shor).</li>
+          <li><strong>AI & Deep Learning:</strong> padronanza di reti neurali, backpropagation, Attention mechanism nei Transformer e Qubit quantistici.</li>
+        </ul>
+      </div>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <button class="btn-secondary" onclick="goToLastSubmodule()">⬅ Rileggi Ultimo Sottomodulo</button>
+        <button class="btn-primary" onclick="selectModule(0)">Ricomincia o Rivedi Modulo 1 🚀</button>
+      </div>
+    </div>
+    <footer class="content-credits-footer">
+      📷 <em>Tutte le immagini e illustrazioni storiche provengono da <a href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> (licenze libere CC / Pubblico Dominio).</em>
+    </footer>
+  `;
 }
 
 function renderQuizView(mod, container) {

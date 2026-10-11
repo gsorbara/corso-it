@@ -3830,4 +3830,225 @@ button.btn-secondary:hover {
   margin-top: 8px;
 }
 
+/* =========================================================
+   MODULO 11: AI, LLM & QUANTUM COMPUTING WIDGETS
+   ========================================================= */
+
+/* --- WIDGET 11.1: NEURONE ARTIFICIALE & GRADIENT DESCENT --- */
+.neuron-workbench {
+  background: #090d16;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 18px;
+  color: #e2e8f0;
+}
+.neuron-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 16px;
+  align-items: center;
+  margin: 16px 0;
+}
+@media (max-width: 768px) {
+  .neuron-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+.neuron-col-card {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 12px;
+}
+.neuron-center-node {
+  background: radial-gradient(circle, #1e1b4b 0%, #0f172a 100%);
+  border: 2px solid #818cf8;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(129, 140, 248, 0.25);
+  transition: all 0.3s ease;
+}
+.neuron-center-node.pulsing {
+  box-shadow: 0 0 35px rgba(129, 140, 248, 0.6);
+  transform: scale(1.04);
+}
+.neuron-slider-group {
+  margin-bottom: 12px;
+}
+.neuron-slider-group label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.neuron-slider-group input[type="range"] {
+  width: 100%;
+  accent-color: #6366f1;
+}
+.loss-meter-box {
+  background: #1e1b4b;
+  border: 1px solid #4338ca;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* --- WIDGET 11.2: TRANSFORMER TOKEN & ATTENTION EXPLORER --- */
+.transformer-workbench {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 18px;
+  color: #f1f5f9;
+}
+.token-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+  padding: 12px;
+  background: #0b1329;
+  border-radius: 8px;
+  border: 1px dashed #334155;
+}
+.token-pill-btn {
+  background: #1e293b;
+  border: 1px solid #475569;
+  color: #e2e8f0;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+.token-pill-btn:hover {
+  background: #334155;
+  border-color: #38bdf8;
+}
+.token-pill-btn.active {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+}
+.token-id-tag {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1px 5px;
+  border-radius: 10px;
+  font-family: monospace;
+}
+.attention-weights-board {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 12px;
+}
+.attention-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.attention-bar-track {
+  flex: 1;
+  background: #1e293b;
+  height: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.attention-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  transition: width 0.3s ease;
+}
+
+/* --- WIDGET 11.3: QUANTUM BLOCH & CIRCUIT LAB --- */
+.quantum-workbench {
+  background: #060913;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 18px;
+  color: #e2e8f0;
+}
+.quantum-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 14px;
+}
+@media (max-width: 768px) {
+  .quantum-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.bloch-card {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.bloch-sphere-svg {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: 0 auto;
+}
+.quantum-gate-btn {
+  background: #1e1b4b;
+  border: 1px solid #6366f1;
+  color: #c7d2fe;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+.quantum-gate-btn:hover {
+  background: #4338ca;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+}
+.measure-btn {
+  background: #047857;
+  border: 1px solid #10b981;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+  transition: all 0.2s ease;
+}
+.measure-btn:hover {
+  background: #059669;
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.6);
+}
+.quantum-collapse-banner {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-align: center;
+  animation: slicePop 0.3s ease;
+}
+
+
 
