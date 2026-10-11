@@ -128,8 +128,8 @@ PRONTA PER LA LETTURA MAGNETICA...
         </div>
 
         <div class="figure-box">
-          <img class="figure-img" src="images/modulo-04/first-mouse.jpg" alt="Il primo mouse per computer in legno di Douglas Engelbart" loading="lazy">
-          <div class="figure-caption">Il primo prototipo di mouse al mondo (1964-1968), costruito in legno da Douglas Engelbart e Bill English allo Stanford Research Institute.</div>
+          <img class="figure-img" src="images/modulo-04/first-mouse.jpg" alt="Il primo prototipo di mouse in legno di Douglas Engelbart (vista inferiore con rotelle)" loading="lazy">
+          <div class="figure-caption">Il primo prototipo di mouse per computer (1964-1968), intagliato in legno da Douglas Engelbart e Bill English allo Stanford Research Institute: vista inferiore con le due rotelle metalliche perpendicolari per il tracciamento degli assi X e Y.</div>
         </div>
 
         <h3>Lo Xerox PARC e la Nascita della Scrivania Virtuale (GUI)</h3>
